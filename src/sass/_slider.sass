@@ -72,28 +72,29 @@ $assetPath: '~/src/assets/img/tiser/'
     position: absolute
     left: 0
     right: 0
-    bottom: 10px
+    bottom: 0px
     display: flex
-    justify-content: center
+    justify-content: space-between
     padding-left: 0
     margin: 0 15%
     list-style: none
     user-select: none
+    width: 33%
+    margin: 0 auto
 
 .slider__indicator
     flex: 0 1 auto
-    width: 30px
-    height: 4px
-    margin-right: 3px
-    margin-left: 3px
-    background-color: rgba(255, 255, 255, 0.5)
-    background-clip: padding-box
-    border-top: 10px solid transparent
-    border-bottom: 10px solid transparent
+    width: 45px
+    height: 45px
+    text-align: center
+    color: #000
     cursor: pointer
+    border-radius: 50%
+    line-height: 3
 
 .slider__indicator_active
-    background-color: #fff
+    border: 1px solid #fff
+    color: #fff
 
 .container-slider
     position: absolute
