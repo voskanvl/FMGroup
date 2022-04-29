@@ -1,13 +1,27 @@
+-
+    let menu = [
+        {name:"Главная", href:"#"},
+        {name:"Продукция", href:"#"},
+        {name:"О нас", href:"#"},
+        {name:"Наши проекты", href:"#"},
+        {name:"Статьи", href:"#"},
+        {name:"Контакты", href:"#"},
+    ]
+
 .tiser__main-head
-    menu.tiser__menu
+    menu.tiser__menu.main-menu
+        ul 
+            each i in menu 
+                li.main-menu__item
+                    a(href=i.href)= i.name
     .tiser__header
         .tiser__logo
         .tiser__leftside 
             .tiser__title FMGroup 
             .tiser__slogan на уровень выше
     h1.tiser__phone 8 800 700 69 58
-.tiser__main-header.main-header
-    h1.main-header__up Надежные и технологичные станки 
-    h1.main-header__down плазменной резки с ЧПУ 
+.tiser__main-header.main-body
+    h1.main-body__up Надежные и технологичные станки 
+    h1.main-body__down плазменной резки с ЧПУ 
        
     
