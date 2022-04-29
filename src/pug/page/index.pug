@@ -8,7 +8,13 @@ block content
 	main
 		.controls
 			button.control.control__up  
-			button.control.control__downn
+				.up Вверх 
+				include ../../../assets/svg/arrow.svg
+
+			button.control.control__down 
+				.down Вниз
+				include ../../../assets/svg/arrow.svg
+
 		.indicator 
 			.indicator__title 
 			.indicator__meter
@@ -28,16 +34,16 @@ block content
 		//- 	section(class=screen)
 		//- 		include= val.path
 		//- динамический импорт не подерживается
-
-		section.tiser 
-			include ../screens/tiser.pug
-		section.products 
-			include ../screens/products.pug
-		section.priority 
-			include ../screens/priority.pug
-		section.about 
-			include ../screens/about.pug
-		section.application 
-			include ../screens/application.pug
-		section.contacts 
-			include ../screens/contacts.pug
+		.container
+			section.screen.tiser 
+				include ../screens/tiser.pug
+			section.screen.products 
+				include ../screens/products.pug
+			section.screen.priority 
+				include ../screens/priority.pug
+			section.screen.about 
+				include ../screens/about.pug
+			section.screen.application 
+				include ../screens/application.pug
+			section.screen.contacts 
+				include ../screens/contacts.pug

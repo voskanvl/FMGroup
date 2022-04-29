@@ -1,0 +1,21 @@
+.control
+    position: fixed
+    top: 50%
+    z-index: 10
+    background: inherit
+    border: none
+    display: flex
+    align-items: center
+    justify-content: space-between
+    width: 93px
+
+    &__up
+        left: 10vw
+        transform: translateY(-50%) rotate(-90deg)
+        & > svg
+            transform: rotate(-90deg)
+    &__down
+        right: 10vw
+        transform: translateY(-50%) rotate(90deg)
+        & > svg
+            transform: rotate(-90deg)
