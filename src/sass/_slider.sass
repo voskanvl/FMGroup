@@ -98,15 +98,24 @@ $assetPath: '~/src/assets/img/tiser/'
 
 .container-slider
     position: absolute
-    width: 60%
-    z-index: 0
     +top-left-transform
+    width: 50%
+    left: 60%
+    z-index: 0
     & .slider__item
         &:nth-child(1)
             background: transparent url($assetPath+"tool.png") no-repeat
             background-position: center
             background-size: contain
         &:nth-child(2)
+            background: transparent url($assetPath+"stanok-trubo-810px-min 1.png") no-repeat
+            background-position: center
+            background-size: contain
+        &:nth-child(3)
+            background: transparent url($assetPath+"tool.png") no-repeat
+            background-position: center
+            background-size: contain
+        &:nth-child(4)
             background: transparent url($assetPath+"stanok-trubo-810px-min 1.png") no-repeat
             background-position: center
             background-size: contain
