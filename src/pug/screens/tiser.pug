@@ -1,20 +1,6 @@
--
-    let menu = [
-        {name:"Главная", href:"#"},
-        {name:"Продукция", href:"#"},
-        {name:"О нас", href:"#"},
-        {name:"Наши проекты", href:"#"},
-        {name:"Статьи", href:"#"},
-        {name:"Контакты", href:"#"},
-    ]
 
 .tiser__main-head
-    menu.tiser__menu.main-menu
-        ul 
-            each i in menu 
-                li.main-menu__item
-                    a(href=i.href)= i.name
-        .main-menu__blank меню
+    include ../include/menu.pug
     .tiser__header
         .tiser__logo
         .tiser__leftside 

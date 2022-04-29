@@ -1,6 +1,6 @@
+@import "./_const.sass"
 @import "./mixins/_top-left-transform"
 
-$assetPath: '~/src/assets/img/tiser/'
 .slider
     position: relative
     overflow: hidden
@@ -63,10 +63,10 @@ $assetPath: '~/src/assets/img/tiser/'
     background-size: 100% 100%
 
 .slider__control_prev::before
-    background-image: url("data:image/svg+xmlcharset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E")
+    // background-image: url("data:image/svg+xmlcharset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E")
 
 .slider__control_next::before
-    background-image: url("data:image/svg+xmlcharset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E")
+    // background-image: url("data:image/svg+xmlcharset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E")
 
 .slider__indicators
     position: absolute
@@ -84,13 +84,14 @@ $assetPath: '~/src/assets/img/tiser/'
 
 .slider__indicator
     flex: 0 1 auto
-    width: 45px
-    height: 45px
+    width: calc($metrica * 2.1)
+    height: calc($metrica * 2.1)
     text-align: center
     color: #000
     cursor: pointer
     border-radius: 50%
-    line-height: 3
+    line-height: calc($metrica * 2.3)
+    font-size: calc($metrica * 1.2)
 
 .slider__indicator_active
     border: 1px solid #fff
@@ -104,18 +105,18 @@ $assetPath: '~/src/assets/img/tiser/'
     z-index: 0
     & .slider__item
         &:nth-child(1)
-            background: transparent url($assetPath+"tool.png") no-repeat
+            background: transparent url($assetPath+"/tiser/tool.png") no-repeat
             background-position: center
             background-size: contain
         &:nth-child(2)
-            background: transparent url($assetPath+"stanok-trubo-810px-min 1.png") no-repeat
+            background: transparent url($assetPath+"/tiser/stanok-trubo-810px-min 1.png") no-repeat
             background-position: center
             background-size: contain
         &:nth-child(3)
-            background: transparent url($assetPath+"tool.png") no-repeat
+            background: transparent url($assetPath+"/tiser/tool.png") no-repeat
             background-position: center
             background-size: contain
         &:nth-child(4)
-            background: transparent url($assetPath+"stanok-trubo-810px-min 1.png") no-repeat
+            background: transparent url($assetPath+"/tiser/stanok-trubo-810px-min 1.png") no-repeat
             background-position: center
             background-size: contain
