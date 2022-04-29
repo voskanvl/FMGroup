@@ -3,8 +3,6 @@ extends ../layout/default
 block variables
 	- var title = 'FMGroup'
 block connect 
-	link(rel="stylesheet" href="/examples/libs/simple-adaptive-slider/simple-adaptive-slider.min.css")
-	script( src="/examples/libs/simple-adaptive-slider/simple-adaptive-slider.min.js" defer=true)
 block content
 
 	main
@@ -32,10 +30,6 @@ block content
 				contacts:{name:'Контакты', path: '../screens/contacts.pug'}
 				}
 
-		//- each val, screen in screens
-		//- 	section(class=screen)
-		//- 		include= val.path
-		//- динамический импорт не подерживается
 		.container
 			section.screen.tiser 
 				include ../screens/tiser.pug
