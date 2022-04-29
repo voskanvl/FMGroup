@@ -2,7 +2,9 @@ extends ../layout/default
 
 block variables
 	- var title = 'FMGroup'
-
+block connect 
+	link(rel="stylesheet" href="/examples/libs/simple-adaptive-slider/simple-adaptive-slider.min.css")
+	script( src="/examples/libs/simple-adaptive-slider/simple-adaptive-slider.min.js" defer=true)
 block content
 
 	main
@@ -13,7 +15,7 @@ block content
 
 			button.control.control__down 
 				.down Вниз
-				include ../../../assets/svg/arrow.svg
+				include ../../../assets/svg/arrow.svg 
 
 		.indicator 
 			.indicator__title 
