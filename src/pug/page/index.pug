@@ -5,6 +5,7 @@ block variables
 block connect 
 block content
 
+	include ../data/data.pug
 	main
 		.controls
 			button.control.control__up  
@@ -16,19 +17,10 @@ block content
 				include ../../../assets/svg/arrow.svg 
 
 		.indicator 
-			.indicator__title 
-			.indicator__meter
+			.indicator__title Тизер
+			include ../../components/meter/meter.pug
 		
-		//screens получаем из json
-		-
-			let screens = {
-				tiser:{name:'Тизер',path:'../screens/tiser.pug'},
-				products:{ name:'Продукция', path: '../screens/products.pug'},
-				priority: {name:'Приоритет', path: '../screens/prioprity.pug'},
-				about:{name: 'О нас', path: '../screens/about.pug'},
-				application:{name:'Заявка', path: '../screens/application.pug'}, 
-				contacts:{name:'Контакты', path: '../screens/contacts.pug'}
-				}
+		
 
 		.container
 			section.screen.tiser 
