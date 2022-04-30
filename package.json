@@ -4,7 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "dev": "webpack serve --config ./config/webpack.dev.config.js --stats-children",
+        "dev": "webpack serve --config ./config/webpack.dev.config.js --stats-children ",
         "build": "webpack --config ./config/webpack.build.config.js",
         "clean": "rd /s /q dist"
     },

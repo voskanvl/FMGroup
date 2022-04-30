@@ -9,29 +9,27 @@ block content
 	main
 		.controls
 			button.control.control__up  
-				.up Вверх 
+				.up ранее 
 				include ../../../assets/svg/arrow.svg
 
 			button.control.control__down 
-				.down Вниз
+				.down далее
 				include ../../../assets/svg/arrow.svg 
 
-		.indicator 
-			.indicator__title Тизер
-			include ../../components/meter/meter.pug
-		
-		
-
 		.container
-			section.screen.tiser 
+			section.screen.tiser(data-name="Тизер") 
 				include ../screens/tiser.pug
-			section.screen.products 
+			section.screen.products(style={opacity:0,display:'none'} data-name="Продукты") 
 				include ../screens/products.pug
-			section.screen.priority 
+			section.screen.priority(style={opacity:0,display:'none'} data-name="Приоритет")  
 				include ../screens/priority.pug
-			section.screen.about 
+			section.screen.about(style={opacity:0,display:'none'} data-name="О нас")  
 				include ../screens/about.pug
-			section.screen.application 
+			section.screen.application(style={opacity:0,display:'none'} data-name="Заявка")  
 				include ../screens/application.pug
-			section.screen.contacts 
+			section.screen.contacts(style={opacity:0,display:'none'} data-name="Контакты")  
 				include ../screens/contacts.pug
+
+		.meter-indicator 
+			.meter-indicator__title Тизер
+			include ../../components/meter/meter.pug
