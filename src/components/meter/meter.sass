@@ -1,3 +1,4 @@
+@import "../../sass/_const"
 .meter
     &__container
         // position: absolute
@@ -6,12 +7,12 @@
         align-items: flex-end
         mix-blend-mode: difference
     &__line
-        width: 50px
+        width: calc($metrica*1.5)
         height: 2px
         background: #777
         transition: width 1s
         right: 0
         &:not(:last-child)
-            margin-bottom: 30px
+            margin-bottom: calc($metrica*1)
         &_current
-            width: 100px
+            width: calc($metrica*3)

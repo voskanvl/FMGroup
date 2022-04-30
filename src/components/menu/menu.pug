@@ -1,0 +1,15 @@
+-
+    let menu = [
+        {name:"Главная", href:"tiser"},
+        {name:"Продукция", href:"products"},
+        {name:"О нас", href:"about"},
+        {name:"Наши проекты", href:""},
+        {name:"Статьи", href:"#"},
+        {name:"Контакты", href:"contancts"},
+    ]
+menu.tiser__menu.main-menu
+    ul 
+        each i in menu 
+            li.main-menu__item
+                a(href=i.href)= i.name
+    .main-menu__blank меню
