@@ -9,7 +9,7 @@ module.exports = merge(baseWebpackConfig, {
     devServer: {
         static: paths.dist,
         compress: true,
-        port: 9001,
+        port: 9100,
         open: true,
     },
     plugins: [new webpack.HotModuleReplacementPlugin()],
