@@ -89,6 +89,7 @@ window.addEventListener('DOMContentLoaded', () => {
         loop: false,
         autoplay: false,
         interval: 5000,
+        indicators: false,
         swipe: true,
     });
 });
