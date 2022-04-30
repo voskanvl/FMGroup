@@ -9,13 +9,14 @@ mixin slider(name="")
       name = "slider-" + name 
     else 
       name = ""
-      
+
   div(class="slider "+name)
     .slider__wrapper
-        .slider__items
-            block
-            //- each i in [0,1,2,3]
-            //-     .slider__item
-            //-         div.main-slider(style=style)
-    a.slider__control.slider__control_prev(href="#" role="button" data-slide="prev")
-    a.slider__control.slider__control_next(href="#" role="button" data-slide="next")
+      .slider__items
+        block
+        //- each i in [0,1,2,3]
+        //-     .slider__item
+        //-         div.main-slider(style=style)
+    .slider__controls
+      a.slider__control.slider__control_prev(href="#" role="button" data-slide="prev")
+      a.slider__control.slider__control_next(href="#" role="button" data-slide="next")
