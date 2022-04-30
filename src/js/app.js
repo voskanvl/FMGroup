@@ -1,8 +1,8 @@
-import { disappear, appear } from "./disappear";
-import { ItcSimpleSlider } from "./simple-adaptive-slider.min";
-const container = document.querySelector(".container");
-const controlUp = document.querySelector(".control__up");
-const controlDown = document.querySelector(".control__down");
+import { disappear, appear } from './disappear';
+import { ItcSimpleSlider } from './simple-adaptive-slider.min';
+const container = document.querySelector('.container');
+const controlUp = document.querySelector('.control__up');
+const controlDown = document.querySelector('.control__down');
 
 const screens = [...container.children];
 function debounce(f, ms) {
@@ -15,19 +15,19 @@ function debounce(f, ms) {
     };
 }
 
-const exceededEvent = new Event("exceeded", { bubbles: true });
-const dropedEvent = new Event("droped", { bubbles: true });
+const exceededEvent = new Event('exceeded', { bubbles: true });
+const dropedEvent = new Event('droped', { bubbles: true });
 
 let currentScreen = 0;
 
 const renderScreens = (prev, next) => {
-    screens[prev].style.opacity = 0;
-    screens[next].style.opacity = 1;
+    disappear(screens[prev]);
+    appear(screens[next]);
 };
 
 const map = {
-    "-1": () => {
-        const changedScreen = new CustomEvent("changedScreen", {
+    '-1': () => {
+        const changedScreen = new CustomEvent('changedScreen', {
             detail: { currentScreen },
         });
         container.dispatchEvent(changedScreen);
@@ -36,8 +36,8 @@ const map = {
         currentScreen--;
         changedScreenHandler({ detail: { currentScreen } });
     },
-    "1": () => {
-        const changedScreen = new CustomEvent("changedScreen", {
+    '1': () => {
+        const changedScreen = new CustomEvent('changedScreen', {
             detail: { currentScreen },
         });
         container.dispatchEvent(changedScreen);
@@ -47,7 +47,7 @@ const map = {
         currentScreen++;
         changedScreenHandler({ detail: { currentScreen } });
     },
-    "0": () => {},
+    '0': () => {},
 };
 
 const handler = ({ deltaY }) => map[Math.sign(deltaY)]();
@@ -68,21 +68,29 @@ const changedScreenHandler = ({ detail: { currentScreen: current } }) => {
     }
 };
 
-window.addEventListener("wheel", debounce(handler, 800));
+window.addEventListener('wheel', debounce(handler, 800));
 
 // container.addEventListener("changedScreen", changedScreenHandler);
 const init = () => {
     disappear(controlUp);
 };
 
-controlUp.addEventListener("click", map[-1]);
-controlDown.addEventListener("click", map[1]);
+controlUp.addEventListener('click', map[-1]);
+controlDown.addEventListener('click', map[1]);
 
-new ItcSimpleSlider(".slider", {
-    loop: false,
-    autoplay: false,
-    interval: 5000,
-    swipe: true,
+window.addEventListener('DOMContentLoaded', () => {
+    window.slider = new ItcSimpleSlider('.slider', {
+        loop: false,
+        autoplay: false,
+        interval: 5000,
+        swipe: true,
+    });
+    window.sliderProducts = new ItcSimpleSlider('.slider-products', {
+        loop: false,
+        autoplay: false,
+        interval: 5000,
+        swipe: true,
+    });
 });
 
 init();

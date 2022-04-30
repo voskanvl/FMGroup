@@ -1,1 +1,6 @@
-h1 Продукты
+include ../mixin/slider.pug
+.container-products
+  +slider("products")
+          each i in [0,1,2,3]
+            .slider__item
+                h1= i

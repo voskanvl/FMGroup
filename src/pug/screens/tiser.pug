@@ -1,4 +1,4 @@
-
+include ../mixin/slider.pug
 .tiser__main-head
     include ../include/menu.pug
     .tiser__header
@@ -11,5 +11,8 @@
     h1.main-body__up Надежные и технологичные станки 
     h1.main-body__down плазменной резки с ЧПУ 
 .container-slider
-    include ../include/slider.pug
+    +slider
+        each i in [0,1,2,3]
+            .slider__item
+                div.main-slider(style=style)
     
