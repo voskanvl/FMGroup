@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
+    "browserslist": "last 3 version",
     "scripts": {
         "dev": "webpack serve --config ./config/webpack.dev.config.js --stats-children ",
         "build": "webpack --config ./config/webpack.build.config.js",

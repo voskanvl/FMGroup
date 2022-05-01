@@ -1,2 +1,21 @@
+@import "../gear/_gear"
 .application
     background: #6E9EC1
+    color: #fff
+    position: relative
+    &__form
+        display: flex
+        flex-direction: column
+    &__input
+        border: none
+        padding: 1rem
+        border-radius: 5px
+        &:not(:last-child)
+            margin-bottom: 42px
+    &__submit.button
+        margin: 0 auto
+    &__decoration
+        position: absolute
+        top: 0
+        left: 0
+        height: 100%

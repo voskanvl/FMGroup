@@ -1,0 +1,18 @@
+@import "../_const"
+.gear
+    position: absolute
+    &-up
+        left: 10%
+        margin: 10%
+        animation: rotator 120s infinite linear
+    &-middle
+        top: 50%
+        transform: translateY(-50%)
+    &-down
+        bottom: calc($metrica)
+
+@keyframes rotator
+    0%
+        transform: rotate(0deg)
+    100%
+        transform: rotate(360deg)

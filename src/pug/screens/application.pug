@@ -1,1 +1,20 @@
-h1 Заявка
+include ../../components/button/button.pug
+//- -
+//-     let imgs={up:"../../assets/img/svg/up.svg",middle:"../../assets/img/svg/middle.svg",down:"../../assets/img/svg/down.svg"}
+
+form.application__form
+    h2.application__head Простое заполнение заявки для расчета стоимости
+    input.application__input(placeholder="Ваше имя*")
+    input.application__input(placeholder="Ваш телефон*" type="phone")
+    input.application__input(placeholder="Ваш email*" tyle="email")
+    +button("application__submit","отправить")
+.application__decoration 
+    div(class="gear gear-up") 
+        img(src=require('../../assets/img/svg/up.svg') alt="gear up")
+    div(class="gear gear-middle") 
+        img(src=require('../../assets/img/svg/middle.svg') alt="gear middle")
+    div(class="gear gear-down") 
+        img(src=require('../../assets/img/svg/down.svg') alt="gear down")
+    
+    
+        
