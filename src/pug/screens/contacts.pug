@@ -11,11 +11,21 @@ include ../../components/textblock/textblock.pug
         .contacts__liner 
             .liner.liner-down 
 
-    +textblock("contacts__legal-address","Юридический адрес","440008, Пензенская область, город Пенза, Горная улица, стр 3а, этаж 3, кабинет 312")
-    +textblock("contacts__postal-address","Почтовый адрес","442780, Россия, Пензенская область, с. Бессоновка, ул. Нагорная, 12г/7")
-    +textblock("contacts__jobtime","Часы работы","ПН.- ПТ. с 9:00 до 18:00 Перерыв: с 12:00 до 13:00")
-    +textblock("contacts__accountant","Бухгалтерия","E-mail: fmgbuh@bk.ru тел.: +7 (841) 402-62-46")
-    +textblock("contacts__sales","Отдел продаж","E-mail: sale@fmg58.ru тел.: 8 800 700 69 58")
+    +textblock("contacts__legal-address","Юридический адрес")
+        block body 
+           p 440008, Пензенская область, город Пенза, Горная улица, стр 3а, этаж 3, кабинет 312
+    +textblock("contacts__postal-address","Почтовый адрес")
+        block body 
+            p 442780, Россия, Пензенская область, с. Бессоновка, ул. Нагорная, 12г/7
+    +textblock("contacts__jobtime","Часы работы")
+        block body 
+            p ПН.- ПТ. с 9:00 до 18:00 Перерыв: с 12:00 до 13:00
+    +textblock("contacts__accountant","Бухгалтерия")
+        block body 
+            p E-mail: <a href="fmgbuh@bk.ru">fmgbuh@bk.ru</a> тел.: +7 (841) 402-62-46
+    +textblock("contacts__sales","Отдел продаж")
+        block body 
+            p E-mail: <a href="mailto:sale@fmg58.ru">sale@fmg58.ru</a> тел.: 8 800 700 69 58
         h2 Режим работы
         ul 
             each i in ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница']

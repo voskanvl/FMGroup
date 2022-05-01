@@ -1,5 +1,6 @@
-mixin textblock(className,title, body)
+mixin textblock(className,title)
     div(class=className+" textblock")
         h2.textblock__title= title 
-        p.textblock__body(style={color:'#000'})= body
+        p.textblock__body(style={color:'#000'})
+            block body
             block
