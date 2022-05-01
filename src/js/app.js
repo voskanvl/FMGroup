@@ -104,10 +104,12 @@ window.addEventListener("DOMContentLoaded", () => {
 
 //--- meter
 meterContainer.addEventListener("click", ({ target }) => {
-    const id = target.dataset.id;
-    renderScreens(currentScreen, id);
-    currentScreen = +id;
-    changedScreenHandler({ detail: { currentScreen } });
+    const id = target?.dataset?.id;
+    if (id) {
+        renderScreens(currentScreen, id);
+        currentScreen = +id;
+        changedScreenHandler({ detail: { currentScreen } });
+    }
 });
 //
 init();

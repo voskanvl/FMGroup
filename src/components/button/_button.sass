@@ -1,0 +1,30 @@
+@import "../../sass/mixins/_mixins"
+@import "../../sass/_const"
+.button
+    display: flex
+    justify-content: space-between
+    align-items: center
+    cursor: pointer
+    background: inherit
+    border: none
+    height: calc($metrica * 2.1)
+    margin: calc($metrica * 40 / 55 * 2.1) 0
+    &__name
+        border: 1px solid #fff
+        padding: 0 51px
+        font-size: calc($metrica * 1.1)
+        color: #fff
+        height: 100%
+        +flex-center
+    &__arrow
+        box-sizing: border-box
+        background: #fff
+        background-size: contain
+        background-position: 50% 100%
+        width: calc($metrica * 2.1)
+        height: 100%
+        padding: 12px
+        +flex-center
+
+        & > svg
+            fill: #0D88BF
