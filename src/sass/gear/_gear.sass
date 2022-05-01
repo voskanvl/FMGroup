@@ -2,15 +2,24 @@
 .gear
     position: absolute
     &-up
-        left: 10%
+        left: 20%
         margin: 10%
         animation: rotator 120s infinite linear
+        width: calc($metrica*9)
+        height: calc($metrica*9)
+        & > img
+            width: 100%
+
     &-middle
         top: 37%
         transform: translateY(-50%)
 
     &-down
-        bottom: calc($metrica)
+        bottom: calc($metrica*5)
+        width: calc($metrica*11)
+        height: calc($metrica*11)
+        & > img
+            width: 100%
 
 @keyframes rotator
     0%
