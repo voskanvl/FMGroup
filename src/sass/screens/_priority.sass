@@ -1,2 +1,20 @@
+@import "../mixins/_mixins"
+@import "../_const"
 .priority
     background: #013485
+    &__body
+        display: flex
+        justify-content: center
+        align-items: center
+        left: 15%
+        right: 15%
+        position: absolute
+        top: 50%
+        transform: translateY(-50%)
+    &__head
+        position: absolute
+        top: 0
+        left: 50%
+        transform: translateX(-50%)
+        text-align: center
+        color: #fff
