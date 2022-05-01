@@ -1,2 +1,70 @@
+@import "../_const"
 .contacts
-    padding: 1rem
+    font-size: calc($metrica * 0.7)
+    color: #013485
+    &__container
+        display: grid
+        grid-template-columns: repeat(3,1fr)
+        grid-template-areas: "social legal accountant production" "social post sales supply" "social time sales empty" " social phone phone phone"
+        align-content: start
+        width: 50%
+        column-gap: 1em
+
+    &__socials
+        grid-area: social
+        display: flex
+        flex-direction: column
+        height: 100%
+        & > *:not(:last-child)
+            margin-bottom: 1rem
+        & svg
+            fill: #013485
+    &__legal-address
+        grid-area: legal
+    &__accountant
+        grid-area: accountant
+    &__production
+        grid-area: production
+    &__postal-address
+        grid-area: post
+    &__sales
+        grid-area: sales
+        & > ul
+            padding: 0
+    &__jobtime
+        grid-area: time
+    &__supply
+        grid-area: supply
+    &__allday
+        grid-area: phone
+    &__contacts
+        grid-area: phone
+    &__phone
+        font-size: calc($metrica * 1.1)
+        padding-top: 1em
+    &__liner
+        height: 100%
+
+.day
+    display: flex
+    justify-content: space-between
+    align-items: center
+    list-style: none
+    padding: 0
+    margin: 0
+    color: #000
+    &__name
+        margin-right: 1em
+    &__time
+        &_red
+            color: red
+
+.liner
+    height: 100%
+    width: 2px
+    margin: 0 1rem
+    &-up
+        background: linear-gradient(to top, #013485, transparent)
+
+    &-down
+        background: linear-gradient(to top, transparent, #013485)

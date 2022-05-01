@@ -6,6 +6,8 @@
     width: calc($metrica * 10)
     padding: 1rem
     margin: 0 calc($metrica * 1)
+    @media screen and (max-width:768px)
+        padding: 1rem 3rem
     &__title
         text-align: center
         margin-top: calc($metrica * 3)
@@ -29,7 +31,14 @@
             content: ""
             display: block
             padding-top: 100% /* initial ratio of 1:1*/
+        @media screen and (max-width:768px)
+            width: 30%
+            left: 0
+            top: 50%
 
         & > svg
             width: 100%
             height: auto
+    @media screen and (max-width:768px)
+        width: 50%
+        margin-bottom: 2rem

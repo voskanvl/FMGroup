@@ -1,13 +1,21 @@
 include ../../components/textblock/textblock.pug
-.about__container 
-    .about__socials.socials 
-        .socials__vk 
-        .socials__youtibe 
-    +textblock("about__legal-address","Юридический адрес","440008, Пензенская область, город Пенза, Горная улица, стр 3а, этаж 3, кабинет 312")
-    +textblock("about__postal-address","Почтовый адрес","442780, Россия, Пензенская область, с. Бессоновка, ул. Нагорная, 12г/7")
-    +textblock("about__jobtime","Часы работы","ПН.- ПТ. с 9:00 до 18:00 Перерыв: с 12:00 до 13:00")
-    +textblock("about__accountant","Бухгалтерия","E-mail: fmgbuh@bk.ru тел.: +7 (841) 402-62-46")
-    +textblock("about__sales","Отдел продаж","E-mail: sale@fmg58.ru тел.: 8 800 700 69 58")
+.contacts__container
+
+    .contacts__socials.socials 
+        .contacts__liner 
+            .liner.liner-up
+        .contacts__vk 
+            img(src=require("../../assets/img/svg/vk.svg") alt="vk")
+        .contacts__youtube
+            img(src=require("../../assets/img/svg/youtube.svg") alt="vk")
+        .contacts__liner 
+            .liner.liner-down 
+
+    +textblock("contacts__legal-address","Юридический адрес","440008, Пензенская область, город Пенза, Горная улица, стр 3а, этаж 3, кабинет 312")
+    +textblock("contacts__postal-address","Почтовый адрес","442780, Россия, Пензенская область, с. Бессоновка, ул. Нагорная, 12г/7")
+    +textblock("contacts__jobtime","Часы работы","ПН.- ПТ. с 9:00 до 18:00 Перерыв: с 12:00 до 13:00")
+    +textblock("contacts__accountant","Бухгалтерия","E-mail: fmgbuh@bk.ru тел.: +7 (841) 402-62-46")
+    +textblock("contacts__sales","Отдел продаж","E-mail: sale@fmg58.ru тел.: 8 800 700 69 58")
         h2 Режим работы
         ul 
             each i in ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница']
@@ -21,6 +29,8 @@ include ../../components/textblock/textblock.pug
                 span.day__name Воскреснье
                 span.day__time.day__time_red выходной
 
-    +textblock("about__production","Производство","442780, Пензенская обл. с. Бессоновка, ул. Нагорная, 12г/7 E-mail: info@fmg58.ru")
-    +textblock("about__supply","Отдел снабжения","E-mail: fmg58@yandex.ru")
-    
+    +textblock("contacts__production","Производство","442780, Пензенская обл. с. Бессоновка, ул. Нагорная, 12г/7 E-mail: info@fmg58.ru")
+    +textblock("contacts__supply","Отдел снабжения","E-mail: fmg58@yandex.ru")
+    .contacts__contacts
+        div.contacts__phone 8 (800) 700 69-58
+        div.contacts__allday Консультация и прием заказов круглосуточно

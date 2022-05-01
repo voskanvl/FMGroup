@@ -1,5 +1,5 @@
 mixin textblock(className,title, body)
     div(class=className+" textblock")
         h2.textblock__title= title 
-        p.textblock__body= body
+        p.textblock__body(style={color:'#000'})= body
             block

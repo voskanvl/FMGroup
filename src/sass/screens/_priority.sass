@@ -11,6 +11,11 @@
         position: absolute
         top: 50%
         transform: translateY(-50%)
+        @media screen and (max-width:768px)
+            flex-direction: column
+            align-items: center
+            margin-top: 4rem
+
     &__head
         position: absolute
         top: 0
@@ -20,7 +25,7 @@
         color: #fff
         font-size: calc( $metrica * 0.95 )
     &__title
-        padding: 1rem
+        padding: 1rem 1rem 0.5rem
         margin-bottom: 0
         margin-top: calc( $metrica * 2 )
     &__slogan
