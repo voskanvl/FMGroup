@@ -13,7 +13,7 @@ include ../../components/textblock/textblock.pug
 
     +textblock("contacts__legal-address","Юридический адрес")
         block body 
-           p 440008, Пензенская область, город Пенза, Горная улица, стр 3а, этаж 3, кабинет 312
+            p 440008, Пензенская область, город Пенза, Горная улица, стр 3а, этаж 3, кабинет 312
     +textblock("contacts__postal-address","Почтовый адрес")
         block body 
             p 442780, Россия, Пензенская область, с. Бессоновка, ул. Нагорная, 12г/7
@@ -22,10 +22,10 @@ include ../../components/textblock/textblock.pug
             p ПН.- ПТ. с 9:00 до 18:00 Перерыв: с 12:00 до 13:00
     +textblock("contacts__accountant","Бухгалтерия")
         block body 
-            p E-mail: <a href="fmgbuh@bk.ru">fmgbuh@bk.ru</a> тел.: +7 (841) 402-62-46
+            p E-mail: <a href="mailto:fmgbuh@bk.ru">fmgbuh@bk.ru</a><br> тел.: <a href="tel:+78414026246">+7 (841) 402-62-46</a>
     +textblock("contacts__sales","Отдел продаж")
         block body 
-            p E-mail: <a href="mailto:sale@fmg58.ru">sale@fmg58.ru</a> тел.: 8 800 700 69 58
+            p E-mail: <a href="mailto:sale@fmg58.ru">sale@fmg58.ru</a><br> тел.: <a href="tel:88007006958">8 800 700 69 58</a>
         h2 Режим работы
         ul 
             each i in ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница']
@@ -39,10 +39,15 @@ include ../../components/textblock/textblock.pug
                 span.day__name Воскреснье
                 span.day__time.day__time_red выходной
 
-    +textblock("contacts__production","Производство","442780, Пензенская обл. с. Бессоновка, ул. Нагорная, 12г/7 E-mail: info@fmg58.ru")
-    +textblock("contacts__supply","Отдел снабжения","E-mail: fmg58@yandex.ru")
+    +textblock("contacts__production","Производство")
+        block body 
+            p 442780, Пензенская обл. с. Бессоновка, ул. Нагорная, 12г/7 E-mail: <a href="mailto:info@fmg58.ru">info@fmg58.ru</a>
+    +textblock("contacts__supply","Отдел снабжения")
+        block body 
+            p E-mail: <a href="mailto:fmg58@yandex.ru">fmg58@yandex.ru</a>
     .contacts__contacts
-        .contacts__phone 8 (800) 700 69-58
+        .contacts__phone 
+            a(href="tel:88007006958") 8 (800) 700 69-58
         .contacts__allday Консультация и прием заказов круглосуточно
     .contacts__footer.footer 
         include ../../components/footer/footer.pug

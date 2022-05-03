@@ -1,14 +1,18 @@
 @import "../_const"
 @import "../../components/footer/_footer"
+@import "../../components/textblock/_textblock"
 .contacts
     font-size: calc($metrica * 0.7)
-    color: #013485
+
     &__container
         display: grid
         grid-template-areas: "social legal accountant production" "social post sales supply" "social time sales empty" " social phone phone phone"
-        align-content: start
+        place-content: start
         width: 66%
         column-gap: 1em
+        & *
+            padding-top: 0
+            margin-top: 0
 
     &__socials
         grid-area: social
@@ -21,6 +25,7 @@
             fill: #013485
     &__legal-address
         grid-area: legal
+        font-size: 1.2em
     &__accountant
         grid-area: accountant
     &__production

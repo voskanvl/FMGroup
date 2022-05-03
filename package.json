@@ -7,7 +7,8 @@
     "scripts": {
         "dev": "webpack serve --config ./config/webpack.dev.config.js --stats-children ",
         "build": "webpack --config ./config/webpack.build.config.js",
-        "clean": "rd /s /q dist"
+        "clean": "rd /s /q dist",
+        "start": "serve ./dist"
     },
     "keywords": [],
     "author": "",
@@ -40,6 +41,7 @@
         "webpack-merge": "^5.8.0"
     },
     "dependencies": {
-        "inputmask": "^5.0.7"
+        "inputmask": "^5.0.7",
+        "serve": "^13.0.2"
     }
 }
