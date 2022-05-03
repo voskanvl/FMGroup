@@ -16,8 +16,43 @@
         border: 1px solid #C4CDD6
         width: calc(585/1920 * 100vw)
         padding: calc(53/1920 * 100vw)
-        // position: relative
-        // left: calc(1440/1920 * 100vw)
-        // transform: translateX(-50%)
+        color: $color__deepblue
     &__footer-info
         grid-area: desc
+    &__img
+        grid-area: img
+        width: 100%
+
+.footer-info
+    &__specification
+        &  li
+            list-style: url(../assets/img/list.svg)
+
+.info
+    background: #fff
+    z-index: 1
+    &__button
+        color: $color__deepblue
+        & .button__arrow
+            background: transparent
+            border: 1px solid $color__deepblue
+            border-left: none
+    &__definition, &__specification
+        display: flex
+        align-items: center
+        & > img
+            width: 39px
+            height: 36px
+            background: url(../assets/img/production/paper-sheet-svgrepo-com\ 1.png) no-repeat
+            background: contains
+            margin-right: 1em
+            border: none
+    &__specification
+        & > img
+            background: url(../assets/img/production/building-svgrepo-com\ 1.png) no-repeat
+            width: 62px
+            height: 41px
+    &__button
+        display: flex
+        justify-content: center
+        align-items: center
