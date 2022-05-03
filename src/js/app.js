@@ -1,6 +1,7 @@
 import { disappear, appear } from "./disappear";
 import { ItcSimpleSlider } from "./simple-adaptive-slider.min";
 import Meter from "../components/meter/meter";
+import Tabs from "../components/tabs/tabs";
 
 const container = document.querySelector(".container");
 const meterContainer = document.querySelector(".meter__container");
@@ -113,3 +114,4 @@ meterContainer.addEventListener("click", ({ target }) => {
 });
 //
 init();
+Tabs();

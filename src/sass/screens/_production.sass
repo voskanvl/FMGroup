@@ -1,1 +1,23 @@
+@import "../_const"
+@import "../../components/tabs/_tabs"
 .production
+    & .header__main-head
+        color: $color__deepblue
+    & .priority__backword
+        color: $color__deepblue
+        opacity: 10%
+    &__page
+        display: grid
+        grid-template-columns: 3fr 2fr
+        grid-template-areas: "img info" "desc desc"
+    &__info
+        grid-area: info
+        border-radius: 5px
+        border: 1px solid #C4CDD6
+        width: calc(585/1920 * 100vw)
+        padding: calc(53/1920 * 100vw)
+        // position: relative
+        // left: calc(1440/1920 * 100vw)
+        // transform: translateX(-50%)
+    &__footer-info
+        grid-area: desc

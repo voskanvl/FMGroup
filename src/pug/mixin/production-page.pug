@@ -1,0 +1,24 @@
+include ../../components/button/button
+include ../../components/header/header.pug
+include ../../components/tabs/tabs.pug
+mixin productionPage(props)
+    div
+        .production__img
+            //- img(src=src, alt="")
+        .production__info.info 
+            .info__title= props.title
+            .info__description= props.description
+            .info__definition 
+                img.definition
+                p= props.definition
+            .info__specification
+                img.specification
+                p= props.specification
+            +button("info__button","заказать")
+    .production__footer-info.footer-info 
+        .footer-info__title= props.footerTitle
+        .footer-info__description=props.footerDescription
+        ul.footer-info__specification
+            img.footer-info__specification
+            block
+
