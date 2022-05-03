@@ -8,10 +8,6 @@
         {name:"Контакты", href:"#contancts"},
     ]
 menu.main-menu
-    ul 
-        each i in menu 
-            li.main-menu__item
-                a(href=i.href)= i.name
     .main-menu__blank 
         svg(class="main-menu__burger main-menu__icon" width="23" height="14" viewBox="0 0 23 14" fill="none" xmlns="http://www.w3.org/2000/svg")
             line(x1="1" y1="1" x2="22" y2="1" stroke="white" stroke-width="2" stroke-linecap="round")
@@ -22,4 +18,8 @@ menu.main-menu
             //- path( d="M6 6L18 18" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round")
             line(x1="6" y1="1" x2="16" y2="13" stroke="white" stroke-width="2" stroke-linecap="round")
             line(x1="6" y1="13" x2="16" y2="1" stroke="white" stroke-width="2" stroke-linecap="round")
-        span меню
+    span.main-menu__label меню
+    ul 
+        each i in menu 
+            li.main-menu__item
+                a(href=i.href)= i.name
