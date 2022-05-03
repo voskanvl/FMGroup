@@ -1,4 +1,5 @@
 extends ../layout/default
+include ../../components/meter/meter
 
 block variables
 	- var title = 'FMGroup'
@@ -6,6 +7,7 @@ block connect
 block content
 
 	//- include ../data/data.pug
+	- let screens = ["Продукты","Приоритет","О нас","Заявка","Контакты","Продукция"]
 	main
 		.controls
 			button.control.control__up  
@@ -19,17 +21,19 @@ block content
 		.container
 			section.screen.tiser#tiser(data-name="Тизер") 
 				include ../screens/tiser.pug
-			section.screen.products#products(style={opacity:0,display:'none'} data-name="Продукты") 
+			section.screen.products#products(style={opacity:0,display:'none'} data-name=screens[0]) 
 				include ../screens/products.pug
-			section.screen.priority#priority(style={opacity:0,display:'none'} data-name="Приоритет")  
+			section.screen.priority#priority(style={opacity:0,display:'none'} data-name=screens[1])  
 				include ../screens/priority.pug
-			section.screen.about#about(style={opacity:0,display:'none'} data-name="О нас")  
+			section.screen.about#about(style={opacity:0,display:'none'} data-name=screens[2])  
 				include ../screens/about.pug
-			section.screen.application#application(style={opacity:0,display:'none'} data-name="Заявка")  
+			section.screen.application#application(style={opacity:0,display:'none'} data-name=screens[3])  
 				include ../screens/application.pug
-			section.screen.contacts#contacts(style={opacity:0,display:'none'} data-name="Контакты")  
+			section.screen.contacts#contacts(style={opacity:0,display:'none'} data-name=screens[4])  
 				include ../screens/contacts.pug
+			section.screen.contacts#production(style={opacity:0,display:'none'} data-name=screens[5])  
+				include ../screens/production.pug
 
 		.meter-indicator 
 			.meter-indicator__title Тизер
-			include ../../components/meter/meter.pug
+			+meter(screens)

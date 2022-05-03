@@ -1,6 +1,6 @@
-include ../../pug/data/data.pug
-.meter__container
-    .meter__line.meter__line_current(data-id=0)
-    each i in [1,2,3,4,5]
-        .meter__line(data-id=i) 
+mixin meter(screens)
+    .meter__container
+        .meter__line.meter__line_current(data-id=0)
+        each i,key in screens
+            .meter__line(data-id=key+1) 
         
