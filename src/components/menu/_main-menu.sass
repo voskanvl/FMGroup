@@ -7,9 +7,8 @@ menu.main-menu
 .main-menu
     display: flex
     align-items: center
-
     &:hover
-        & > ul
+        &  ul
             transform: translateX(0%)
         & .main-menu__burger
             opacity: 0
@@ -18,7 +17,7 @@ menu.main-menu
         & .main-menu__label
             opacity: 0
 
-    & > ul
+    &  ul
         order: 1
         margin: 0
         display: flex
@@ -30,7 +29,8 @@ menu.main-menu
         & > li
             position: relative
             list-style: none
-            padding: 0 0.5em
+            padding: 0
+            padding-left: 0.4em
             position: relative
             display: flex
             align-items: center
@@ -82,3 +82,5 @@ menu.main-menu
         height: 100%
         background: inherit
         transition: opacity 1s 0.1s
+    &__wrapper
+        overflow: hidden
