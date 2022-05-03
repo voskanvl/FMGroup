@@ -1,14 +1,25 @@
 @import "../../sass/_const"
+@import "../../sass/mixins/_flex-center"
 .main-menu
     color: #fff
-    perspective: 500px
-    perspective-origin: center
-    transform-style: preserve-3d
+    display: flex
+    align-items: flex-start
+    &:hover
+        & > ul
+            transform: translateX(0%)
+        & .main-menu__burger
+            opacity: 0
+        & .main-menu__cross
+            opacity: 1
 
     & > ul
+        order: 1
+        margin-top: 0
         display: flex
         justify-content: space-between
         align-items: stretch
+        transform: translateX(-120%)
+        transition: transform 1s cubic-bezier(.5,0,.5,1.2)
         & > li
             position: relative
             list-style: none
@@ -36,8 +47,19 @@
                 position: relative
                 inset: 0
     &__blank
-        transform: rotateY(0deg)
-        transform-origin: left
-        transition: transform 1s
-        &:hover
-            transform: rotateY(110deg)
+        order: 0
+        align-items: center
+        width: 20%
+        position: relative
+        & > span
+            margin-left: 2em
+    &__icon
+        margin-right: 1em
+        position: absolute
+        left: 0
+        top: 0
+        transition: opacity 0.5s ease-in-out
+    &__burger
+        opacity: 1
+    &__cross
+        opacity: 0
