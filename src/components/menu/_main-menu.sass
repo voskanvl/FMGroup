@@ -5,7 +5,6 @@ menu.main-menu
     margin: 0
     padding: 2em 0
 .main-menu
-    color: #fff
     display: flex
     align-items: center
 
@@ -45,7 +44,7 @@ menu.main-menu
                 top: 0
                 left: 50%
                 transform: translateX(-50%)
-                border-bottom: 1px solid #fff
+                border-bottom: 1px solid currentColor
                 transition: width 0.8s ease-out
             &:hover::before
                 width: 50%
@@ -64,6 +63,9 @@ menu.main-menu
         height: auto
         position: relative
         background: inherit
+        & > svg
+            fill: currentColor
+            stroke: currentColor
 
     &__icon
         margin-right: 1em
