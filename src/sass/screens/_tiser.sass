@@ -7,7 +7,9 @@
     background-position: center
     color: #fff
     &__main-head
-        +flex-center
+        display: grid
+        grid-template-columns: 2fr 1fr 2fr
+        place-items: center stretch
         position: absolute
         top: 0
         width: 100%
@@ -15,9 +17,10 @@
 
     &__phone
         font-size: calc($metrica * 1.1)
-        padding-right: 150px
+        padding-right: calc($metrica * 5)
+        justify-self: end
         color: #000
-        flex: 1 0 33.33%
+        text-align: right
     &__header
         display: flex
         align-items: center
