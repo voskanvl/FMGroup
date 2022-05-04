@@ -17,7 +17,7 @@ include ../../components/card/card.pug
     .about__container
         .about__body 
             .about__video 
-                video(src="https://www.youtube.com/watch?v=474tZZw7Cdc" autoplay) 
+                iframe(width="560" height="315" src="https://www.youtube.com/embed/474tZZw7Cdc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
             .about__cards 
                 each i in cards
                     +card(".about__card",i.title)(style={background:i.color,border:`1px solid ${i.color}`})
