@@ -9,10 +9,12 @@
     & .header__main-head
         color: $color__deepblue
     & .tabs
-        margin: 6em
+        margin: 6em auto 1em
     & .header__main-head
         margin: 0 auto
-
+    & .header__logo
+        background: url("../assets/img/tiser/logo_blue.png") no-repeat
+        background-size: contain
     &__page
         display: grid
         grid-template-columns: 3fr 2fr
@@ -29,7 +31,7 @@
         grid-area: desc
     &__img
         grid-area: img
-        width: 100%
+        width: 90%
         display: flex
         align-items: center
         justify-content: center
@@ -76,7 +78,7 @@
                 right: 0
 
 .footer-info
-    font-size: calc($metrica*0.9)
+    // font-size: calc($metrica*0.9)
     &__specification
         &  li
             list-style: url(../assets/img/list.svg)
