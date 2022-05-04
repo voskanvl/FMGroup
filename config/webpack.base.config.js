@@ -42,10 +42,22 @@ module.exports = {
                 },
             },
             {
+                // test: /\.pug$/,
+                // use: [
+                //     {
+                //         loader: "pug-loader",
+                //     },
+                // ],
                 test: /\.pug$/,
                 use: [
                     {
-                        loader: "pug-loader",
+                        loader: "html-loader",
+                    },
+                    {
+                        loader: "pug-html-loader",
+                        options: {
+                            exports: false,
+                        },
                     },
                 ],
             },
@@ -53,7 +65,7 @@ module.exports = {
                 test: /\.(woff2?|eot|ttf|otf)$/i,
                 type: "asset/resource",
                 generator: {
-                    filename: "assets/fonts/[hash][ext][query]",
+                    filename: "assets/fonts/[contenthash][ext][query]",
                 },
             },
             // {
