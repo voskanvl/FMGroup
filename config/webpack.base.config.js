@@ -92,6 +92,7 @@ module.exports = {
     resolve: {
         alias: {
             assets: path.resolve(__dirname, "src/assets"),
+            sass: path.join(__dirname, "src/sass"),
             img: path.resolve(__dirname, "src/assets/img"),
             svg: path.resolve(__dirname, "src/assets/svg"),
             components: path.resolve(__dirname, "src/components"),
