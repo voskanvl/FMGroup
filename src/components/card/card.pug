@@ -2,5 +2,5 @@ mixin card(className="",title="",body="")
     .card(class=className)
         h2.card__title= title 
         .card__body= body
-        .card__svg 
+        .card__svg&attributes(attributes) 
             block
