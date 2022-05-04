@@ -1,18 +1,23 @@
-import { disappear, appear } from './disappear';
-import { ItcSimpleSlider } from './simple-adaptive-slider.min';
-import Meter from '../components/meter/meter';
-import Tabs from '../components/tabs/tabs';
+import { disappear, appear } from "./disappear";
+import { ItcSimpleSlider } from "./simple-adaptive-slider.min";
+import Meter from "../components/meter/meter";
+import Tabs from "../components/tabs/tabs";
 
-const meter = new Meter('.meter__line');
+const container = document.querySelector(".container");
+const meterContainer = document.querySelector(".meter__container");
+const controlUp = document.querySelector(".control__up");
+const controlDown = document.querySelector(".control__down");
+const indicatorTitle = document.querySelector(".meter-indicator__title");
 
-const container = document.querySelector('.container');
-const meterContainer = document.querySelector('.meter__container');
-const controlUp = document.querySelector('.control__up');
-const controlDown = document.querySelector('.control__down');
-const indicatorTitle = document.querySelector('.meter-indicator__title');
+const production = document.querySelector(".production");
 
-const screen = document.querySelector('.screen');
+const screen = document.querySelector(".screen");
 if (screen) {
+    const meter = new Meter(".meter__line", id => {
+        renderScreens(currentScreen, id);
+        currentScreen = +id;
+        changedScreenHandler({ detail: { currentScreen } });
+    });
     const screens = [...container.children];
     function debounce(f, ms) {
         let isCooldown = false;
@@ -24,14 +29,14 @@ if (screen) {
         };
     }
 
-    const exceededEvent = new Event('exceeded', { bubbles: true });
-    const dropedEvent = new Event('droped', { bubbles: true });
+    const exceededEvent = new Event("exceeded", { bubbles: true });
+    const dropedEvent = new Event("droped", { bubbles: true });
 
     let currentScreen = 0;
 
     const renderScreens = (prev, next) => {
-        console.log('🚀 ~ prev, next', prev, next);
-
+        console.log("🚀 ~ prev, next", prev, next);
+        if (prev == next) return;
         disappear(screens[+prev]);
         appear(screens[+next]);
         meter.value = next;
@@ -39,8 +44,8 @@ if (screen) {
     };
 
     const map = {
-        '-1': () => {
-            const changedScreen = new CustomEvent('changedScreen', {
+        "-1": () => {
+            const changedScreen = new CustomEvent("changedScreen", {
                 detail: { currentScreen },
             });
             container.dispatchEvent(changedScreen);
@@ -49,8 +54,8 @@ if (screen) {
             currentScreen--;
             changedScreenHandler({ detail: { currentScreen } });
         },
-        '1': () => {
-            const changedScreen = new CustomEvent('changedScreen', {
+        "1": () => {
+            const changedScreen = new CustomEvent("changedScreen", {
                 detail: { currentScreen },
             });
             container.dispatchEvent(changedScreen);
@@ -60,7 +65,7 @@ if (screen) {
             currentScreen++;
             changedScreenHandler({ detail: { currentScreen } });
         },
-        '0': () => {},
+        "0": () => {},
     };
 
     const handler = ({ deltaY }) => map[Math.sign(deltaY)]();
@@ -81,45 +86,87 @@ if (screen) {
         }
     };
 
-    window.addEventListener('wheel', debounce(handler, 800));
-    window.addEventListener('touchmove', debounce(handler, 800));
+    window.addEventListener("wheel", debounce(handler, 800));
+    window.addEventListener("touchmove", debounce(handler, 800));
 
     // container.addEventListener("changedScreen", changedScreenHandler);
     const init = () => {
         disappear(controlUp);
     };
 
-    controlUp.addEventListener('click', map[-1]);
-    controlDown.addEventListener('click', map[1]);
+    controlUp.addEventListener("click", map[-1]);
+    controlDown.addEventListener("click", map[1]);
 
+    //--- meter
+    // if (meterContainer)
+    //     meterContainer.addEventListener("click", ({ target }) => {
+    //         const id = target?.dataset?.id;
+    //         if (id) {
+    //             renderScreens(currentScreen, id);
+    //             currentScreen = +id;
+    //             changedScreenHandler({ detail: { currentScreen } });
+    //         }
+    //     });
+    /*
+        Meter('.meter__line',id=>{})
+
+    */
+    //
     init();
-
-    window.addEventListener('DOMContentLoaded', () => {
-        window.slider = new ItcSimpleSlider('.slider', {
-            loop: false,
-            autoplay: false,
-            interval: 5000,
-            swipe: true,
-        });
-        window.sliderProducts = new ItcSimpleSlider('.slider-products', {
-            loop: false,
-            autoplay: false,
-            interval: 5000,
-            indicators: false,
-            swipe: true,
-        });
-    });
 }
-//--- meter
-if (meterContainer)
-    meterContainer.addEventListener('click', ({ target }) => {
-        const id = target?.dataset?.id;
-        if (id) {
-            renderScreens(currentScreen, id);
-            currentScreen = +id;
-            changedScreenHandler({ detail: { currentScreen } });
-        }
-    });
+//--slider--
+window.addEventListener("DOMContentLoaded", () => {
+    const slidersClass = {
+        slider: {
+            name: ".slider",
+            options: {
+                loop: false,
+                autoplay: false,
+                interval: 5000,
+                swipe: true,
+            },
+        },
+        sliderProducts: {
+            name: ".slider-products",
+            options: {
+                loop: false,
+                autoplay: false,
+                interval: 5000,
+                indicators: false,
+                swipe: true,
+            },
+        },
+        productionSlider: {
+            name: ".production__slider",
+            options: {
+                loop: false,
+                autoplay: false,
+                interval: 5000,
+                swipe: true,
+                indicators: false,
+            },
+        },
+    };
+    for (let i in slidersClass) {
+        if (document.querySelector(slidersClass[i].name))
+            window[i] = new ItcSimpleSlider(
+                slidersClass[i].name,
+                slidersClass[i].options,
+            );
+    }
+    // window.slider = new ItcSimpleSlider('.slider', {
+    //     loop: false,
+    //     autoplay: false,
+    //     interval: 5000,
+    //     swipe: true,
+    // });
+    // window.sliderProducts = new ItcSimpleSlider('.slider-products', {
+    //     loop: false,
+    //     autoplay: false,
+    //     interval: 5000,
+    //     indicators: false,
+    //     swipe: true,
+    // });
+});
 //
-
 Tabs();
