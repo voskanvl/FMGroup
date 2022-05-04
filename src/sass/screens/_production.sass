@@ -1,6 +1,8 @@
+@import "../_slider"
 @import "../_const"
 @import "../../components/tabs/_tabs"
 @import "../../components/footer/_footer"
+
 .production
     & .header__main-head
         color: $color__deepblue
@@ -41,6 +43,17 @@
     &.priority__backword
         opacity: 0.1
         color: $color__deepblue
+
+    & .slider
+        max-width: 80vw
+        &__indicators
+            display: none
+        &__items
+            height: 100vh
+        &__control
+            width: 200px
+            height: 200px
+
 .footer-info
     &__specification
         &  li
