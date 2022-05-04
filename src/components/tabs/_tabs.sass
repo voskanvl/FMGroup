@@ -1,24 +1,17 @@
+@imprt "../_conts.sass"
 .tabs
     display: flex
+    margin-top: 5em
 .tab
     padding: 20px
     border-radius: 5px 5px 0 0
-    border-bottom: 1px solid
+    border-bottom: 1px solid #E9E7E8
     border-top: 10px solid transparent
     list-style: none
     position: relative
-    &::after
-        content: " "
-        width: 15px
-        height: 15px
-        position: absolute
-        bottom: 0
-        right: -15px
-        border-radius: 50%
-        border: 1px solid
 
     &.active
-        border-top: 10px solid
-        border-left: 1px solid
-        border-right: 1px solid
+        border-top: 10px solid $color__deepblue
+        border-left: 1px solid #E9E7E8
+        border-right: 1px solid #E9E7E8
         border-bottom: 1px solid transparent
