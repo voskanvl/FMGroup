@@ -1,13 +1,15 @@
-import { disappear, appear } from "./disappear";
-import { ItcSimpleSlider } from "./simple-adaptive-slider.min";
-import Meter from "../components/meter/meter";
-import Tabs from "../components/tabs/tabs";
+import { disappear, appear } from './disappear';
+import { ItcSimpleSlider } from './simple-adaptive-slider.min';
+import Meter from '../components/meter/meter';
+import Tabs from '../components/tabs/tabs';
 
-const container = document.querySelector(".container");
-const meterContainer = document.querySelector(".meter__container");
-const controlUp = document.querySelector(".control__up");
-const controlDown = document.querySelector(".control__down");
-const indicatorTitle = document.querySelector(".meter-indicator__title");
+const meter = new Meter('.meter__line');
+
+const container = document.querySelector('.container');
+const meterContainer = document.querySelector('.meter__container');
+const controlUp = document.querySelector('.control__up');
+const controlDown = document.querySelector('.control__down');
+const indicatorTitle = document.querySelector('.meter-indicator__title');
 
 const screens = [...container.children];
 function debounce(f, ms) {
@@ -20,23 +22,23 @@ function debounce(f, ms) {
     };
 }
 
-const exceededEvent = new Event("exceeded", { bubbles: true });
-const dropedEvent = new Event("droped", { bubbles: true });
+const exceededEvent = new Event('exceeded', { bubbles: true });
+const dropedEvent = new Event('droped', { bubbles: true });
 
 let currentScreen = 0;
 
 const renderScreens = (prev, next) => {
-    console.log("🚀 ~ prev, next", prev, next);
+    console.log('🚀 ~ prev, next', prev, next);
 
     disappear(screens[+prev]);
     appear(screens[+next]);
-    Meter.value = next;
+    meter.value = next;
     indicatorTitle.textContent = screens[next].dataset.name;
 };
 
 const map = {
-    "-1": () => {
-        const changedScreen = new CustomEvent("changedScreen", {
+    '-1': () => {
+        const changedScreen = new CustomEvent('changedScreen', {
             detail: { currentScreen },
         });
         container.dispatchEvent(changedScreen);
@@ -45,8 +47,8 @@ const map = {
         currentScreen--;
         changedScreenHandler({ detail: { currentScreen } });
     },
-    "1": () => {
-        const changedScreen = new CustomEvent("changedScreen", {
+    '1': () => {
+        const changedScreen = new CustomEvent('changedScreen', {
             detail: { currentScreen },
         });
         container.dispatchEvent(changedScreen);
@@ -56,7 +58,7 @@ const map = {
         currentScreen++;
         changedScreenHandler({ detail: { currentScreen } });
     },
-    "0": () => {},
+    '0': () => {},
 };
 
 const handler = ({ deltaY }) => map[Math.sign(deltaY)]();
@@ -77,24 +79,25 @@ const changedScreenHandler = ({ detail: { currentScreen: current } }) => {
     }
 };
 
-window.addEventListener("wheel", debounce(handler, 800));
+window.addEventListener('wheel', debounce(handler, 800));
+window.addEventListener('touchmove', debounce(handler, 800));
 
 // container.addEventListener("changedScreen", changedScreenHandler);
 const init = () => {
     disappear(controlUp);
 };
 
-controlUp.addEventListener("click", map[-1]);
-controlDown.addEventListener("click", map[1]);
+controlUp.addEventListener('click', map[-1]);
+controlDown.addEventListener('click', map[1]);
 
-window.addEventListener("DOMContentLoaded", () => {
-    window.slider = new ItcSimpleSlider(".slider", {
+window.addEventListener('DOMContentLoaded', () => {
+    window.slider = new ItcSimpleSlider('.slider', {
         loop: false,
         autoplay: false,
         interval: 5000,
         swipe: true,
     });
-    window.sliderProducts = new ItcSimpleSlider(".slider-products", {
+    window.sliderProducts = new ItcSimpleSlider('.slider-products', {
         loop: false,
         autoplay: false,
         interval: 5000,
@@ -104,7 +107,7 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 //--- meter
-meterContainer.addEventListener("click", ({ target }) => {
+meterContainer.addEventListener('click', ({ target }) => {
     const id = target?.dataset?.id;
     if (id) {
         renderScreens(currentScreen, id);

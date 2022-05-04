@@ -1,20 +1,18 @@
-const lines = [...document.querySelectorAll(".meter__line")];
+class Meter {
+    #value = 0;
+    constructor(meterLinesRef) {
+        if (typeof meterLinesRef === 'string')
+            this.lines = [...document.querySelectorAll(meterLinesRef)];
+        if (Array.isArray(meterLinesRef)) this.lines = meterLinesRef;
+    }
+    get value() {
+        return this.#value;
+    }
+    set value(x) {
+        this.lines[this.#value || 0].classList.remove('meter__line_current');
+        this.lines[x].classList.add('meter__line_current');
+        this.#value = x;
+    }
+}
 
-const val = Object.create(null, {
-    value: {
-        _value: 0,
-        get() {
-            return this._value;
-        },
-        set(x) {
-            lines[this._value || 0].classList.remove("meter__line_current");
-            lines[x].classList.add("meter__line_current");
-            this._value = x;
-        },
-        enumerable: true,
-        configurable: true,
-    },
-});
-val.value = 0;
-
-export default val;
+export default Meter;
