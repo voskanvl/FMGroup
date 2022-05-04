@@ -30,7 +30,7 @@ module.exports = merge(baseWebpackConfig, {
                 test: /\.(png|jpe?g|gif|webp|ico|svg)$/i,
                 type: "asset/resource",
                 generator: {
-                    filename: "assets/img/[hash][ext][query]",
+                    filename: "assets/img/[contenthash][ext][query]",
                 },
             },
         ],
