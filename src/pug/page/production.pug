@@ -6,8 +6,12 @@ include ../mixin/slider.pug
 
 .production
     +header 
-    .production.priority__backword.priority__backword_up FMGroup
-    .production.priority__backword.priority__backword_down FMGroup
+    //- .production.priority__backword.priority__backword_up FMGroup
+    //- .production.priority__backword.priority__backword_down FMGroup
+    .big-label__container.big-label__container_up
+        .big-label__title.big-label__title_up FMGroup
+    .big-label__container.big-label__container_down
+        .big-label__title.big-label__title_down FMGroup
     .production__body 
         - let tabs = {plasma:"Оборудование для плазменной резки",glass:"Оборудование для обработки стекла",furniture:"Оборудование для мебельного производства"}
         +tabs(tabs)

@@ -3,19 +3,21 @@
 @import "../../components/tabs/_tabs"
 @import "../../components/footer/_footer"
 
-body
-    overflow: hidden
-    width: 100vw
 .production
+    overflow: hidden
+    max-width: 100%
     & .header__main-head
         color: $color__deepblue
-    & .priority__backword
-        color: $color__deepblue
-        opacity: 10%
+    & .tabs
+        margin: 6em
+    & .header__main-head
+        margin: 0 auto
+
     &__page
         display: grid
         grid-template-columns: 3fr 2fr
         grid-template-areas: "img info" "desc desc"
+        grid-template-rows: auto minmax(246px, 1fr)
     &__info
         grid-area: info
         border-radius: 5px
@@ -74,6 +76,7 @@ body
                 right: 0
 
 .footer-info
+    font-size: calc($metrica*0.9)
     &__specification
         &  li
             list-style: url(../assets/img/list.svg)
@@ -106,3 +109,29 @@ body
         display: flex
         justify-content: center
         align-items: center
+
+.big-label
+    &__container
+        overflow: hidden
+        position: fixed
+        &_up
+            top: 0
+            right: 0
+        &_down
+            bottom: 0
+            left: 0
+
+    &__title
+        font-family: 'Montserrat', sans-serif
+        font-weight: 700
+        font-size: calc($metrica * 10)
+        opacity: 0.1
+        color: $color__deepblue
+        &_up
+            top: 0
+            right: 0
+            transform: translateX(50%)
+        &_down
+            bottom: 0
+            left: 0
+            transform: translateX(-50%)
