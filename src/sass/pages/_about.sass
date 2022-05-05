@@ -21,9 +21,12 @@
         grid-auto-rows: 130px
         @media screen and (max-width: 768px)
             grid-template-columns: repeat(3,1fr)
+            column-gap: 2em
 
     &__text
         margin-top: 67px
+        @media screen and (max-width: 768px)
+            margin-top: 1em
     & .card
         border: 1px solid
         padding: 0
@@ -32,13 +35,21 @@
         align-items: center
         @media screen and (max-width: 768px)
             margin: 1em
+            width: 100%
         &__svg
             justify-content: center
             top: 50%
             transform: translate(-50%,-50%)
             left: 0
-            width: 8vh
-            height: 8vh
+            @media (orientation: landscape)
+                width: 7vh
+                height: 7vh
+            @media (orientation: portrait)
+                width: 7vw
+                height: 7vw
+            @media screen and (max-width: 768px)
+                width: 6vh
+                height: 6vh
         &__title
             font-size: 14px
             padding: 0 10px 0 55px
