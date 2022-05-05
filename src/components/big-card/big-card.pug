@@ -1,3 +1,4 @@
+include ../button/button
 mixin big-card(title,img,text)
     .big-card 
         .big-card__img 
@@ -5,3 +6,5 @@ mixin big-card(title,img,text)
         .big-card__content 
             .big-card__title= title
             .big-card__text= text
+            .big-card__wrapper
+                +button("big-card__button", "посмотреть")
