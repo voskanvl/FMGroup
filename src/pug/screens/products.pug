@@ -15,4 +15,11 @@
 .carousel
     each i in arr
         a.carousel-item(href="#")
-            img(src=i)
+            .carousel-item__wrapper
+                img(src=i)
+            .carousel-item__point.carousel-item__point_1
+                .carousel-item__inner +
+            .carousel-item__point.carousel-item__point_2
+                .carousel-item__inner +
+            .carousel-item__point.carousel-item__point_3
+                .carousel-item__inner +
