@@ -20,6 +20,11 @@
         grid-template-columns: 3fr 2fr
         grid-template-areas: "img info" "desc desc"
         grid-template-rows: auto minmax(246px, 1fr)
+        @media screen and (max-width: 768px)
+            grid-template-columns: 1fr
+            grid-template-areas: "img" "info" "desc"
+            grid-template-rows: 230px 260px
+
     &__info
         grid-area: info
         border-radius: 5px
@@ -27,6 +32,8 @@
         width: calc(585/1920 * 100vw)
         padding: calc(53/1920 * 100vw)
         color: $color__deepblue
+        @media screen and (max-width: 768px)
+            width: unset
     &__footer-info
         grid-area: desc
     &__img
@@ -111,6 +118,12 @@
         display: flex
         justify-content: center
         align-items: center
+        @media screen and (max-width: 768px)
+            & button
+                margin: 0
+    &__title
+        @media screen and (max-width: 768px)
+            margin-top: 0
 
 .big-label
     &__container
