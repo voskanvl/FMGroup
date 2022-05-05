@@ -1,29 +1,32 @@
+extends ../layout/default
 include ../../components/header/header.pug
 include ../../components/tabs/tabs.pug
 include ../mixin/production-page
 include ../mixin/slider.pug
 include ../../components/card/card.pug
 
--
-    let cards = [
-        {title:'Круглосуточная техподдержка', logo:"../../assets/img/about/1.svg", color: '#6E9EC1'},
-        {title:'Гарантийное и постгарантийное обслуживание', logo:"../../assets/img/about/2.svg", color: '#0D88BF'},
-        {title:'ISO контроль качества на всех этапах производства', logo:"../../assets/img/about/3.svg", color: '#037C87'},
-        {title:'Производство ГОСТ', logo:"../../assets/img/about/4.svg", color: '#013485'},
-        {title:'Более 16 лет а рынке промышленного оборудования', logo:"../../assets/img/about/5.svg", color: '#969FA8'},
-    ]
-.about
-    +header 
-    .about__container
-        .about__body 
-            .about__video 
-                iframe(width="560" height="315" src="https://www.youtube.com/embed/474tZZw7Cdc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
-            .about__cards 
-                each i in cards
-                    +card(".about__card",i.title)(style={background:i.color,border:`1px solid ${i.color}`} border={border:`1px solid ${i.color}`})
-                        img(src=i.logo)
-            
-        .about__text Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации "Здесь ваш текст.. Здесь ваш текст.. Здесь ваш текст.." Многие программы электронной вёрстки и редакторы HTML используют Lorem Ipsum в качестве текста по умолчанию, так что поиск по ключевым словам "lorem ipsum" сразу показывает, как много веб-страниц всё ещё дожидаются своего настоящего рождения. За прошедшие годы текст Lorem Ipsum получил много версий. Некоторые версии появились по ошибке, некоторые - намеренно (например, юмористические варианты).
-    .about__footer.footer 
-        include ../../components/footer/footer
+
+block content
+    -
+        let cards = [
+            {title:'Круглосуточная техподдержка', logo:"../../assets/img/about/1.svg", color: '#6E9EC1'},
+            {title:'Гарантийное и постгарантийное обслуживание', logo:"../../assets/img/about/2.svg", color: '#0D88BF'},
+            {title:'ISO контроль качества на всех этапах производства', logo:"../../assets/img/about/3.svg", color: '#037C87'},
+            {title:'Производство ГОСТ', logo:"../../assets/img/about/4.svg", color: '#013485'},
+            {title:'Более 16 лет а рынке промышленного оборудования', logo:"../../assets/img/about/5.svg", color: '#969FA8'},
+        ]
+    .about
+        +header 
+        main.about__container
+            .about__body 
+                .about__video 
+                    iframe(width="560" height="315" src="https://www.youtube.com/embed/474tZZw7Cdc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
+                .about__cards 
+                    each i in cards
+                        +card(".about__card",i.title)(style={background:i.color,border:`1px solid ${i.color}`} border={border:`1px solid ${i.color}`})
+                            img(src=i.logo)
+                
+            .about__text Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации "Здесь ваш текст.. Здесь ваш текст.. Здесь ваш текст.." Многие программы электронной вёрстки и редакторы HTML используют Lorem Ipsum в качестве текста по умолчанию, так что поиск по ключевым словам "lorem ipsum" сразу показывает, как много веб-страниц всё ещё дожидаются своего настоящего рождения. За прошедшие годы текст Lorem Ipsum получил много версий. Некоторые версии появились по ошибке, некоторые - намеренно (например, юмористические варианты).
+        .about__footer.footer 
+            include ../../components/footer/footer
 
