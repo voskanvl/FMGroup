@@ -1,25 +1,33 @@
 @import "../_const"
 .gear
     position: absolute
+    & > img
+        width: 100%
     &-up
         left: 20%
         margin: 10%
-        animation: rotator 120s infinite linear
+        animation: rotator 80s infinite linear
         width: calc($metrica*9)
         height: calc($metrica*9)
-        & > img
-            width: 100%
 
     &-middle
-        top: 37%
-        transform: translateY(-50%)
+        // top: 37%
+        // width: 84px
+        width: 133px
+        height: 133px
+        left: calc(16px - 133px / 2)
+        top: calc(50% - 133px / 2)
+        animation: rotator 60s infinite linear reverse
 
     &-down
-        bottom: calc($metrica*5)
-        width: calc($metrica*11)
-        height: calc($metrica*11)
-        & > img
-            width: 100%
+        // bottom: calc($metrica*5)
+        // width: calc($metrica*11)
+        // height: calc($metrica*11)
+        bottom: 34px
+        width: 420px
+        height: 420px
+        left: -96px
+        animation: rotator 160s infinite linear
 
 @keyframes rotator
     0%
