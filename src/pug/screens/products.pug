@@ -5,7 +5,14 @@
         //- +slider("products")
         //-     each i in [0,1,2,3,5,6]
         //-         .slider__item
+-
+    const arr=[
+        '../../assets/img/tiser/tool.png',
+        '../../assets/img/tiser/stanok-trubo-810px-min 1.png',
+        '../../assets/img/tiser/tool.png',
+        '../../assets/img/tiser/stanok-trubo-810px-min 1.png',
+    ]
 .carousel
-    each i in [0,1,2,3,4,5,6]
+    each i in arr
         a.carousel-item(href="#")
-            img(src="https://picsum.photos/20"+i)
+            img(src=i)

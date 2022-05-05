@@ -43,6 +43,7 @@ if (screen) {
                 M.Carousel.init(document.querySelector(".carousel"), {
                     indicators: true,
                     numVisible: 3,
+                    padding: 400,
                 });
                 console.log("M.Carousel.init");
                 isMCarouselInited = true;
