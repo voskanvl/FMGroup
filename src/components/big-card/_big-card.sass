@@ -11,15 +11,18 @@
     overflow: hidden
     position: relative
     // font-size: calc($metrica / 2 + 4px)
+    @media screen and ( max-width: 1440px )
+        height: 330px
     &__content
         padding: 1em
         position: absolute
         inset: 0
         left: 30%
         background: #fff
-        width: 70%
         margin: 0 auto
         overflow: hidden
+        @media screen and ( max-width: 1440px )
+            left: 40%
 
     &__img
         height: 100%
