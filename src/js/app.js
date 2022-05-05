@@ -10,6 +10,7 @@ const controlDown = document.querySelector(".control__down");
 const indicatorTitle = document.querySelector(".meter-indicator__title");
 
 const production = document.querySelector(".production");
+let isMCarouselInited = false;
 
 const screen = document.querySelector(".screen");
 if (screen) {
@@ -36,6 +37,17 @@ if (screen) {
 
     const renderScreens = (prev, next) => {
         console.log("🚀 ~ prev, next", prev, next);
+        //--- init M.Carousel
+        if (next == 1 && !isMCarouselInited) {
+            setTimeout(() => {
+                M.Carousel.init(document.querySelector(".carousel"), {
+                    indicators: true,
+                    numVisible: 3,
+                });
+                console.log("M.Carousel.init");
+                isMCarouselInited = true;
+            }, 400);
+        }
         if (prev == next) return;
         disappear(screens[+prev]);
         appear(screens[+next]);
@@ -70,9 +82,6 @@ if (screen) {
 
     const handler = ({ deltaY }) => map[Math.sign(deltaY)]();
 
-    //--- появление/исчезновение контрола
-
-    //---
     const changedScreenHandler = ({ detail: { currentScreen: current } }) => {
         if (!current) {
             disappear(controlUp);
@@ -97,25 +106,12 @@ if (screen) {
     controlUp.addEventListener("click", map[-1]);
     controlDown.addEventListener("click", map[1]);
 
-    //--- meter
-    // if (meterContainer)
-    //     meterContainer.addEventListener("click", ({ target }) => {
-    //         const id = target?.dataset?.id;
-    //         if (id) {
-    //             renderScreens(currentScreen, id);
-    //             currentScreen = +id;
-    //             changedScreenHandler({ detail: { currentScreen } });
-    //         }
-    //     });
-    /*
-        Meter('.meter__line',id=>{})
-
-    */
-    //
     init();
 }
 //--slider--
 window.addEventListener("DOMContentLoaded", () => {
+    //--- material slider
+    //--- ItcSimpleSlider
     const slidersClass = {
         slider: {
             name: ".slider",
@@ -154,19 +150,10 @@ window.addEventListener("DOMContentLoaded", () => {
                 slidersClass[i].options,
             );
     }
-    // window.slider = new ItcSimpleSlider('.slider', {
-    //     loop: false,
-    //     autoplay: false,
-    //     interval: 5000,
-    //     swipe: true,
-    // });
-    // window.sliderProducts = new ItcSimpleSlider('.slider-products', {
-    //     loop: false,
-    //     autoplay: false,
-    //     interval: 5000,
-    //     indicators: false,
-    //     swipe: true,
-    // });
 });
-//
+console.log("🚀 ~ DOMContentLoaded", DOMContentLoaded);
+console.log("🚀 ~ DOMContentLoaded", DOMContentLoaded);
+
+window.addEventListener("load", () => {});
+
 Tabs();
