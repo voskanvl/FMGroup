@@ -14,11 +14,24 @@ let isMCarouselInited = false;
 
 const screen = document.querySelector(".screen");
 if (screen) {
-    const meter = new Meter(".meter__line", id => {
-        renderScreens(currentScreen, id);
-        currentScreen = +id;
-        changedScreenHandler({ detail: { currentScreen } });
-    });
+    const colorsForMeter = [
+        "#000",
+        "#000",
+        "#fff",
+        "#fff",
+        "#fff",
+        "#000",
+        "#000",
+    ];
+    const meter = new Meter(
+        ".meter__line",
+        id => {
+            renderScreens(currentScreen, id);
+            currentScreen = +id;
+            changedScreenHandler({ detail: { currentScreen } });
+        },
+        colorsForMeter,
+    );
     const screens = [...container.children];
     function debounce(f, ms) {
         let isCooldown = false;
