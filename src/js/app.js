@@ -9,6 +9,7 @@ const meterContainer = document.querySelector(".meter__container");
 const controlUp = document.querySelector(".control__up");
 const controlDown = document.querySelector(".control__down");
 const indicatorTitle = document.querySelector(".meter-indicator__title");
+const productsHeaders = document.querySelectorAll(".products__header");
 
 const production = document.querySelector(".production");
 let isMCarouselInited = false;
@@ -48,9 +49,9 @@ if (screen) {
     const dropedEvent = new Event("droped", { bubbles: true });
 
     let currentScreen = 0;
+    let currentSlide = 0;
 
     const renderScreens = (prev, next) => {
-        console.log("🚀 ~ prev, next", prev, next);
         //--- init M.Carousel
         if (next == 1 && !isMCarouselInited) {
             setTimeout(() => {
@@ -58,8 +59,21 @@ if (screen) {
                     indicators: true,
                     numVisible: 3,
                     padding: 400,
+                    onCycleTo({ dataset: { id } }) {
+                        if (id != currentSlide) {
+                            disappear(productsHeaders[currentSlide]);
+                            appear(productsHeaders[+id]);
+                            currentSlide = +id;
+                        }
+                        console.log(
+                            "onCycleTo id currentSlide",
+                            id,
+                            currentSlide,
+                        );
+                    },
                 });
                 isMCarouselInited = true;
+                // productsHeaders[currentSlide].style.opacity = 1;
                 //--- init points handler
                 switchCarouselPoints();
             }, 400);
@@ -130,6 +144,7 @@ window.addEventListener("DOMContentLoaded", () => {
     const menu = document.querySelector(".main-menu");
     menu.addEventListener("click", () => menu.classList.toggle("active"));
     //--- material slider
+
     //--- ItcSimpleSlider
     const slidersClass = {
         slider: {
@@ -172,17 +187,27 @@ window.addEventListener("DOMContentLoaded", () => {
     //--- listen controls on Material carousel
     const leftButton = document.querySelector(".products__control_prev");
     const rightButton = document.querySelector(".products__control_next");
+
+    //--- усанавливаем текущий header в слайдере products
+    appear(productsHeaders[0]);
+
     leftButton.addEventListener("click", () => {
         const instance = M.Carousel.getInstance(
             document.querySelector(".carousel"),
         );
-        if (instance) instance.prev();
+        const { center } = instance;
+        if (instance) {
+            instance.prev();
+        }
     });
     rightButton.addEventListener("click", () => {
         const instance = M.Carousel.getInstance(
             document.querySelector(".carousel"),
         );
-        if (instance) instance.next();
+        const { center } = instance;
+        if (instance) {
+            instance.next();
+        }
     });
 });
 

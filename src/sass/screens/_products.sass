@@ -76,3 +76,18 @@
         cursor: pointer
         &_prev
             margin-right: 29px
+
+.products
+    &__header
+        position: absolute
+        top: 0
+        left: 50%
+        transform: translateX(-50%)
+        text-align: center
+        transition: opacity 1s
+        opacity: 0
+        &.active
+            opacity: 1
+    &__title
+        font-size: 50px
+        margin-top: 96px

@@ -13,7 +13,9 @@
                 {top:60,left:15,text:{text:'something about 1 and 1 point', top: -35, left: 63}},
                 {top:119,left:85,text:{text:'something about 1 and 2 point', top: 170, left: 150}},
                 {top:-2,left:366, text:{text:'something about 1 and 3 point', top: -60, left: 215}}
-            ]
+            ],
+            title:'СПР ЦС',
+            desc:'Станок плазменной резки серии СПР ЦС подходит для работы с листовым материалом толщиной до 50 мм'
         },
         {
             img:'../../assets/img/tiser/stanok-trubo-810px-min 1.png',
@@ -21,14 +23,18 @@
             {top:28,left:39, text:{text:'something about 2 and 1 point', top: 142, left: 10}},
             {top:142,left:193, text:{text:'something about 2 and 2 point', top: -28, left: 123}},
             {top:36,left:157, text:{text:'something about 2 and 3 point', top: -10, left: 267}},
-            ]
+            ],
+            title:'ПЗЦ ПК',
+            desc:'В частности, существующая теория напрямую зависит от системы обучения кадров, соответствующей насущным потребностям.'
         },
         {   img:'../../assets/img/tiser/tool.png',
             points:[
             {top:60,left:15, text:{text:'something about 3 and 1 point', top: -20, left: 120}},
             {top:119,left:85, text:{text:'something about 3 and 2 point', top: 20, left: 120}},
             {top:-2,left:366, text:{text:'something about 3 and 3 point', top: 100, left: 120}},
-            ]
+            ],
+            title:'ИБН ВВ',
+            desc:'Имеется спорная точка зрения, гласящая примерно следующее: сделанные на базе интернет-аналитики выводы описаны максимально подробно.'
         },
         {
             img:'../../assets/img/tiser/stanok-trubo-810px-min 1.png',
@@ -36,12 +42,18 @@
             {top:28,left:39, text:{text:'something about 4 and 1 point', top: 0, left: 0}},
             {top:142,left:193, text:{text:'something about 4 and 2 point', top: 0, left: 150}},
             {top:36,left:157, text:{text:'something about 4 and 3 point', top: 0, left: 300}},
-            ]
+            ],
+            title:'ЭКС МУ',
+            desc:'Принимая во внимание показатели успешности, семантический разбор внешних противодействий, а также свежий взгляд на привычные вещи - безусловно открывает новые горизонты для инновационных методов управления процессами.'
         }
     ]
+each i,idx in arr 
+    header.products__header(data-id=idx) 
+        .products__title= i.title
+        .products__desc= i.desc
 .carousel
-    each i in arr
-        a.carousel-item(href="#")
+    each i,idx in arr
+        a.carousel-item(href="#" data-id=idx)
             .carousel-item__wrapper
                 img(src=i.img)
             each point in i.points
