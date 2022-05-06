@@ -10,31 +10,34 @@
         {
             img:'../../assets/img/tiser/tool.png',
             points:[
-                {top:60,left:15},
-                {top:119,left:85},
-                {top:-2,left:366},
+                {top:60,left:15,text:{text:'something about 1 and 1 point', top: -35, left: 63}},
+                {top:119,left:85,text:{text:'something about 1 and 2 point', top: 170, left: 150}},
+                {top:-2,left:366, text:{text:'something about 1 and 3 point', top: 40, left: 63}}
             ]
         },
         {
             img:'../../assets/img/tiser/stanok-trubo-810px-min 1.png',
             points:[
-            {top:28,left:39},
-            {top:142,left:193},
-            {top:36,left:157},
-            ]},
+            {top:28,left:39, text:{text:'something about 2 and 1 point', top: 20, left: 63}},
+            {top:142,left:193, text:{text:'something about 2 and 2 point', top: 20, left: 63}},
+            {top:36,left:157, text:{text:'something about 2 and 3 point', top: 20, left: 63}},
+            ]
+        },
         {   img:'../../assets/img/tiser/tool.png',
             points:[
-            {top:60,left:15},
-            {top:119,left:85},
-            {top:-2,left:366},
-            ]},
+            {top:60,left:15, text:{text:'something about 3 and 1 point', top: 20, left: 63}},
+            {top:119,left:85, text:{text:'something about 3 and 2 point', top: 20, left: 63}},
+            {top:-2,left:366, text:{text:'something about 3 and 3 point', top: 20, left: 63}},
+            ]
+        },
         {
             img:'../../assets/img/tiser/stanok-trubo-810px-min 1.png',
             points:[
-            {top:28,left:39},
-            {top:142,left:193},
-            {top:36,left:157},
-            ]}
+            {top:28,left:39, text:{text:'something about 4 and 1 point', top: 20, left: 63}},
+            {top:142,left:193, text:{text:'something about 4 and 2 point', top: 20, left: 63}},
+            {top:36,left:157, text:{text:'something about 4 and 3 point', top: 20, left: 63}},
+            ]
+        }
     ]
 .carousel
     each i in arr
@@ -45,3 +48,5 @@
                 .carousel-item__point.carousel-item__point_1(style={top: point.top+'px', left: point.left+'px'})
                     .carousel-item__inner
                         .carousel-item__sign +
+                .carousel-item__point-data(style={top:point.text.top+'px',left:point.text.left+'px'}) 
+                    .carousel-item__point-text= point.text.text
