@@ -20,8 +20,6 @@ export const correctSvg = (dataElement, svgElement, pointElement) => {
 
     // конец координат Svg - нижний левый угол dataElement
     const boundedData = dataElement.getBoundingClientRect();
-    // coords.end.x = boundedData.left - parentRect.left;
-    // coords.end.y = boundedData.top + boundedData.height - parentRect.top;
     //пускай конец координат Svg - нижний левый или правый угол dataElement, что находится ближе к началу координат Svg
     const corners = { left: {}, right: {} };
     corners.left.x = boundedData.left - parentRect.left;
@@ -93,14 +91,14 @@ export const correctSvg = (dataElement, svgElement, pointElement) => {
     }
     //рисуем Svg
     //нужно установить  width = width, height = height, viewBox=`0 0 ${width} ${height}`, x1,y1,x2,y2
-    const line = svgElement.querySelector('line');
+    const line = svgElement.querySelector("line");
     Object.entries(coords.svg).forEach(coord => line.setAttribute(...coord));
-    svgElement.setAttribute('width', width);
-    svgElement.setAttribute('height', height);
-    svgElement.setAttribute('viewBox', `0 0 ${width} ${height}`);
+    svgElement.setAttribute("width", width);
+    svgElement.setAttribute("height", height);
+    svgElement.setAttribute("viewBox", `0 0 ${width} ${height}`);
 
-    svgElement.style.left = coords.begin.x + 'px';
-    svgElement.style.top = coords.begin.y + 'px';
+    svgElement.style.left = coords.begin.x + "px";
+    svgElement.style.top = coords.begin.y + "px";
     //перемещаем в зависимости от offset
     svgElement.style.transform = `translate(${coords.offsetX * 100}%,${
         coords.offsetY * 100
@@ -108,22 +106,22 @@ export const correctSvg = (dataElement, svgElement, pointElement) => {
 };
 //можно уменьшить связаность плучив listener в параметры
 export const switchCarouselPoints = () => {
-    const listener = document.querySelector('.carousel');
-    listener.addEventListener('click', ({ target }) => {
-        const point = target.closest('.carousel-item__point');
+    const listener = document.querySelector(".carousel");
+    listener.addEventListener("click", ({ target }) => {
+        const point = target.closest(".carousel-item__point");
         if (point) {
-            const signElement = point.querySelector('.carousel-item__sign');
+            const signElement = point.querySelector(".carousel-item__sign");
             const data = point.nextSibling;
             const svg = point.previousElementSibling;
             const switcher = {
-                ['-']: () => {
+                ["-"]: () => {
                     data.style.opacity = 0;
-                    signElement.textContent = '+';
+                    signElement.textContent = "+";
                     svg.style.opacity = 0;
                 },
-                ['+']: () => {
+                ["+"]: () => {
                     data.style.opacity = 1;
-                    signElement.textContent = '-';
+                    signElement.textContent = "-";
                     correctSvg(data, svg, point);
                     svg.style.opacity = 1;
                 },
