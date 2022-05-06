@@ -2,6 +2,7 @@ import { disappear, appear } from './disappear';
 import { ItcSimpleSlider } from './simple-adaptive-slider.min';
 import Meter from '../components/meter/meter';
 import Tabs from '../components/tabs/tabs';
+import switchCarouselPoints from './switchCarouselPoints';
 
 const container = document.querySelector('.container');
 const meterContainer = document.querySelector('.meter__container');
@@ -58,8 +59,9 @@ if (screen) {
                     numVisible: 3,
                     padding: 400,
                 });
-                console.log('M.Carousel.init');
                 isMCarouselInited = true;
+                //--- init points handler
+                switchCarouselPoints();
             }, 400);
         }
         if (prev == next) return;
