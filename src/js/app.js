@@ -1,31 +1,31 @@
-import { disappear, appear } from './disappear';
-import { ItcSimpleSlider } from './simple-adaptive-slider.min';
-import Meter from '../components/meter/meter';
-import Tabs from '../components/tabs/tabs';
-import { correctSvg, switchCarouselPoints } from './switchCarouselPoints';
+import { disappear, appear } from "./disappear";
+import { ItcSimpleSlider } from "./simple-adaptive-slider.min";
+import Meter from "../components/meter/meter";
+import Tabs from "../components/tabs/tabs";
+import { correctSvg, switchCarouselPoints } from "./switchCarouselPoints";
 
-const container = document.querySelector('.container');
-const meterContainer = document.querySelector('.meter__container');
-const controlUp = document.querySelector('.control__up');
-const controlDown = document.querySelector('.control__down');
-const indicatorTitle = document.querySelector('.meter-indicator__title');
+const container = document.querySelector(".container");
+const meterContainer = document.querySelector(".meter__container");
+const controlUp = document.querySelector(".control__up");
+const controlDown = document.querySelector(".control__down");
+const indicatorTitle = document.querySelector(".meter-indicator__title");
 
-const production = document.querySelector('.production');
+const production = document.querySelector(".production");
 let isMCarouselInited = false;
 
-const screen = document.querySelector('.screen');
+const screen = document.querySelector(".screen");
 if (screen) {
     const colorsForMeter = [
-        '#000',
-        '#000',
-        '#fff',
-        '#fff',
-        '#fff',
-        '#000',
-        '#000',
+        "#000",
+        "#000",
+        "#fff",
+        "#fff",
+        "#fff",
+        "#000",
+        "#000",
     ];
     const meter = new Meter(
-        '.meter__line',
+        ".meter__line",
         id => {
             renderScreens(currentScreen, id);
             currentScreen = +id;
@@ -44,17 +44,17 @@ if (screen) {
         };
     }
 
-    const exceededEvent = new Event('exceeded', { bubbles: true });
-    const dropedEvent = new Event('droped', { bubbles: true });
+    const exceededEvent = new Event("exceeded", { bubbles: true });
+    const dropedEvent = new Event("droped", { bubbles: true });
 
     let currentScreen = 0;
 
     const renderScreens = (prev, next) => {
-        console.log('🚀 ~ prev, next', prev, next);
+        console.log("🚀 ~ prev, next", prev, next);
         //--- init M.Carousel
         if (next == 1 && !isMCarouselInited) {
             setTimeout(() => {
-                M.Carousel.init(document.querySelector('.carousel'), {
+                M.Carousel.init(document.querySelector(".carousel"), {
                     indicators: true,
                     numVisible: 3,
                     padding: 400,
@@ -72,8 +72,8 @@ if (screen) {
     };
 
     const map = {
-        '-1': () => {
-            const changedScreen = new CustomEvent('changedScreen', {
+        "-1": () => {
+            const changedScreen = new CustomEvent("changedScreen", {
                 detail: { currentScreen },
             });
             container.dispatchEvent(changedScreen);
@@ -82,8 +82,8 @@ if (screen) {
             currentScreen--;
             changedScreenHandler({ detail: { currentScreen } });
         },
-        '1': () => {
-            const changedScreen = new CustomEvent('changedScreen', {
+        "1": () => {
+            const changedScreen = new CustomEvent("changedScreen", {
                 detail: { currentScreen },
             });
             container.dispatchEvent(changedScreen);
@@ -93,7 +93,7 @@ if (screen) {
             currentScreen++;
             changedScreenHandler({ detail: { currentScreen } });
         },
-        '0': () => {},
+        "0": () => {},
     };
 
     const handler = ({ deltaY }) => map[Math.sign(deltaY)]();
@@ -111,26 +111,29 @@ if (screen) {
         }
     };
 
-    window.addEventListener('wheel', debounce(handler, 800));
-    window.addEventListener('touchmove', debounce(handler, 800));
+    window.addEventListener("wheel", debounce(handler, 800));
+    window.addEventListener("touchmove", debounce(handler, 800));
 
     // container.addEventListener("changedScreen", changedScreenHandler);
     const init = () => {
         disappear(controlUp);
     };
 
-    controlUp.addEventListener('click', map[-1]);
-    controlDown.addEventListener('click', map[1]);
+    controlUp.addEventListener("click", map[-1]);
+    controlDown.addEventListener("click", map[1]);
 
     init();
 }
 //--slider--
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener("DOMContentLoaded", () => {
+    //--- listen menu
+    const menu = document.querySelector(".main-menu");
+    menu.addEventListener("click", () => menu.classList.toggle("active"));
     //--- material slider
     //--- ItcSimpleSlider
     const slidersClass = {
         slider: {
-            name: '.slider',
+            name: ".slider",
             options: {
                 loop: false,
                 autoplay: false,
@@ -139,7 +142,7 @@ window.addEventListener('DOMContentLoaded', () => {
             },
         },
         sliderProducts: {
-            name: '.slider-products',
+            name: ".slider-products",
             options: {
                 loop: false,
                 autoplay: false,
@@ -149,7 +152,7 @@ window.addEventListener('DOMContentLoaded', () => {
             },
         },
         productionSlider: {
-            name: '.production__slider',
+            name: ".production__slider",
             options: {
                 loop: false,
                 autoplay: false,
@@ -166,6 +169,21 @@ window.addEventListener('DOMContentLoaded', () => {
                 slidersClass[i].options,
             );
     }
+    //--- listen controls on Material carousel
+    const leftButton = document.querySelector(".products__control_prev");
+    const rightButton = document.querySelector(".products__control_next");
+    leftButton.addEventListener("click", () => {
+        const instance = M.Carousel.getInstance(
+            document.querySelector(".carousel"),
+        );
+        if (instance) instance.prev();
+    });
+    rightButton.addEventListener("click", () => {
+        const instance = M.Carousel.getInstance(
+            document.querySelector(".carousel"),
+        );
+        if (instance) instance.next();
+    });
 });
 
 Tabs();
