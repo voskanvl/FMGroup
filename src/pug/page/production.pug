@@ -3,7 +3,8 @@ include ../../components/header/header.pug
 include ../../components/tabs/tabs.pug
 include ../mixin/production-page
 include ../mixin/slider.pug
-
+block variables
+    - let title = 'FMGroup | Продукция'
 block content
     .production
         +header 
