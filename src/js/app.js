@@ -2,7 +2,7 @@ import { disappear, appear } from './disappear';
 import { ItcSimpleSlider } from './simple-adaptive-slider.min';
 import Meter from '../components/meter/meter';
 import Tabs from '../components/tabs/tabs';
-import buildSvgLines from './switchCarouselPoints';
+import { correctSvg, switchCarouselPoints } from './switchCarouselPoints';
 
 const container = document.querySelector('.container');
 const meterContainer = document.querySelector('.meter__container');
@@ -61,7 +61,7 @@ if (screen) {
                 });
                 isMCarouselInited = true;
                 //--- init points handler
-                buildSvgLines();
+                switchCarouselPoints();
             }, 400);
         }
         if (prev == next) return;
