@@ -23,13 +23,13 @@ module.exports = {
             plainSprite: true,
         }),
     ],
-    // entry: `${paths.src}/index.js`,
-    entry: {
-        "bundle-home": `${paths.src}/index.js`,
-        "bundle-conatcts": `${paths.src}/js/pages/contacts.js`,
-        "bundle-production": `${paths.src}/js/pages/production.js`,
-        "bundle-articles": `${paths.src}/js/pages/articles.js`,
-    },
+    entry: `${paths.src}/index.js`,
+    // entry: {
+    //     "bundle-home": `${paths.src}/index.js`,
+    //     "bundle-conatcts": `${paths.src}/js/pages/contacts.js`,
+    //     "bundle-production": `${paths.src}/js/pages/production.js`,
+    //     "bundle-articles": `${paths.src}/js/pages/articles.js`,
+    // },
     output: {
         path: paths.dist,
         filename: "assets/js/[name].[contenthash].js",
