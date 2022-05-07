@@ -150,16 +150,7 @@ function start() {
                 swipe: true,
             },
         },
-        sliderProducts: {
-            name: ".slider-products",
-            options: {
-                loop: false,
-                autoplay: false,
-                interval: 5000,
-                indicators: false,
-                swipe: true,
-            },
-        },
+
         productionSlider: {
             name: ".production__slider",
             options: {

@@ -5,6 +5,8 @@
 @import "../../components/footer/_footer"
 @import "../../components/menu/_main-menu"
 @import "../../components/header/_header"
+@import "../../components/button/_button"
+@import "../_slider"
 
 .production
     overflow: hidden
@@ -132,3 +134,29 @@
             bottom: 0
             left: 0
             transform: translateX(-50%)
+
+.slider
+    max-width: 80vw
+    &__indicators
+        display: none
+    &__items
+        height: 100vh
+    &__controls
+        position: fixed
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        z-index: 2
+        width: 90%
+        height: unset
+
+    &__control
+        width: 1em
+        transform: translateY(-50%)
+        &_prev
+            transform: rotate(90deg)
+            left: 0
+
+        &_next
+            transform: rotate(-90deg)
+            right: 0
