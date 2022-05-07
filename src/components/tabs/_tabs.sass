@@ -3,13 +3,25 @@
     display: flex
     justify-content: center
 .tab
+    height: 85px
+    width: 582px
     padding: 20px 40px
-    border-radius: 5px 5px 0 0
+    border-radius: 10px 10px 0 0
     border-bottom: 1px solid #E9E7E8
     border-top: 10px solid transparent
     list-style: none
+    background: #fff
     position: relative
     text-align: center
+    transition: all 1s
+    display: flex
+    align-items: center
+    justify-content: center
+    & > a
+        text-decoration: none
+        color: #000
+        cursor: pointer
+        font-weight: 200
 
     &.active
         border-top: 10px solid $color__deepblue

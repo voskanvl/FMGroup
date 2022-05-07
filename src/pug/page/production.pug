@@ -15,7 +15,7 @@ block content
         .big-label__container.big-label__container_down
             .big-label__title.big-label__title_down FMGroup
         .production__body 
-            - let tabs = {plasma:"Оборудование для плазменной резки",glass:"Оборудование для обработки стекла",furniture:"Оборудование для мебельного производства"}
+            - let tabs = ["Оборудование для плазменной резки","Оборудование для обработки стекла","Оборудование для мебельного производства"]
             +tabs(tabs)
             section.production__category
                 +slider('production__slider')

@@ -93,6 +93,7 @@
 .info
     background: #fff
     z-index: 1
+    width: 545px
     &__button
         color: $color__deepblue
         & .button__arrow
@@ -102,6 +103,7 @@
     &__definition, &__specification
         display: flex
         align-items: center
+        font-weight: 200
         & > img
             width: 39px
             height: 36px
@@ -127,10 +129,11 @@
 
 .big-label
     &__container
+        z-index: -1
         overflow: hidden
         position: fixed
         &_up
-            top: 0
+            top: 140px
             right: 0
         &_down
             bottom: 0
@@ -140,8 +143,8 @@
         font-family: 'Montserrat', sans-serif
         font-weight: 700
         font-size: calc($metrica * 10)
-        opacity: 0.1
-        color: $color__deepblue
+        color: rgba(233,233,231,0.23)
+        // color: #000
         &_up
             top: 0
             right: 0
