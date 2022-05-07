@@ -1,7 +1,6 @@
-import './sass/main.sass';
-import './js/app.js';
+import "./js/router.js";
 
 function requireAll(r) {
     r.keys().forEach(r);
 }
-requireAll(require.context('./assets/img/svg', true, /\.svg$/));
+requireAll(require.context("./assets/img/svg", true, /\.svg$/));

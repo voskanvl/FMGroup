@@ -24,6 +24,12 @@ module.exports = {
         }),
     ],
     entry: `${paths.src}/index.js`,
+    // entry:{
+    //     'bundle-home': `${paths.src}/index.js`,
+    //     'bundle-category': `${paths.src}/index.js`,
+    //     'bundle-product': './entry-product.js',
+    //     'bundle-checkout': './entry-checkout.js',
+    // }
     output: {
         path: paths.dist,
         filename: "assets/js/[name].[contenthash].js",

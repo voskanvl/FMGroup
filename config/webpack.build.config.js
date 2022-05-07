@@ -15,14 +15,20 @@ module.exports = merge(baseWebpackConfig, {
                     MiniCssExtractPlugin.loader,
                     "css-loader",
                     "postcss-loader",
-                    "sass-loader",
+                    { loader: "resolve-url-loader" },
+                    {
+                        loader: "sass-loader",
+                        options: {
+                            sourceMap: true,
+                        },
+                    },
                 ],
             },
             {
                 test: /\.(png|jpe?g|gif|webp|ico|svg)$/i,
                 type: "asset",
                 generator: {
-                    filename: "assets/img/[hash][ext][query]",
+                    filename: "assets/img/[contenthash][ext][query]",
                 },
             },
         ],

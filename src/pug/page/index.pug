@@ -6,7 +6,7 @@ block variables
 block content
 
 	//- include ../data/data.pug
-	- let screens = ["Продукты","Приоритет","О нас","Заявка","Контакты","Продукция"]
+	- let screens = ["Продукты","Приоритет","О нас","Заявка","Контакты"]
 	main
 		.controls
 			button.control.control__up  
@@ -30,8 +30,6 @@ block content
 				include ../screens/application.pug
 			section.screen.contacts#contacts(style={opacity:0,display:'none'} data-name=screens[4])  
 				include ../screens/contacts.pug
-			section.screen.production#production(style={opacity:0,display:'none'} data-name=screens[5])  
-				include ../screens/production.pug
 
 		.meter-indicator 
 			.meter-indicator__title Тизер

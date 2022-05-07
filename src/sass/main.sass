@@ -1,7 +1,6 @@
 //TODO: собирается один большой файл на все страницы *в том числе и не загружаемые (about.html)!?
 @import "../components/meter/meter"
 @import "./screens/_about"
-@import "./pages/_production"
 @import "./pages/_articles"
 @import "./pages/_about"
 @import "./screens/_application"
@@ -13,16 +12,12 @@
 @import "./_fonts.sass"
 @import "./mixins/_flex-center"
 @import "./_slider"
+@import "./_common"
 @import "../components/button/_button"
 @import "../components/card/_card"
 @import "./material-carousel.sass"
 
-$base-color: #333
-$metrica: calc(1vh + 1vw)
-*,*::after,*::before
-    box-sizing: border-box
 body
-    font-family: 'PF DinDisplay Pro', Verdana, Geneva, Tahoma, sans-serif
     overflow: hidden
 .screen
     position: fixed
