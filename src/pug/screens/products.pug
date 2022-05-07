@@ -10,9 +10,9 @@
         {
             img:'../../assets/img/tiser/tool.png',
             points:[
-                {top:60,left:15,text:{text:'something about 1 and 1 point', top: -35, left: 63}},
-                {top:119,left:85,text:{text:'something about 1 and 2 point', top: 170, left: 150}},
-                {top:-2,left:366, text:{text:'something about 1 and 3 point', top: -60, left: 215}}
+                {top:60,left:15,text:{text:'something about 1 and 1 point', top: -65, left: 65}},
+                {top:119,left:85,text:{text:'something about 1 and 2 point', top: 250, left: 150}},
+                {top:-2,left:366, text:{text:'something about 1 and 3 point', top: -130, left: 215}}
             ],
             title:'СПР ЦС',
             desc:'Станок плазменной резки серии СПР ЦС подходит для работы с листовым материалом толщиной до 50 мм'
@@ -65,7 +65,7 @@ each i,idx in arr
                 .carousel-item__point-data(style={top:point.text.top+'px',left:point.text.left+'px'}) 
                     .carousel-item__point-text= point.text.text
 .products__controls 
-    .products__control.products__control_prev
+    button.products__control.products__control_prev
         img(src="../../assets/img/svg/arrow.svg", style={transform:'rotate(90deg)'})
-    .products__control.products__control_next
+    button.products__control.products__control_next
         img(src="../../assets/img/svg/arrow.svg", style={transform:'rotate(-90deg)'})
