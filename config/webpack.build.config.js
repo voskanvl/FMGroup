@@ -13,7 +13,7 @@ module.exports = merge(baseWebpackConfig, {
                 test: /\.(c|sa|sc)ss$/i,
                 use: [
                     MiniCssExtractPlugin.loader,
-                    "css-loader",
+                    "css-loader", 
                     "postcss-loader",
                     { loader: "resolve-url-loader" },
                     {
