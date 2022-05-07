@@ -7,13 +7,16 @@
 @import "../../components/textblock/_textblock"
 
 .contacts
-    font-size: calc($metrica * 0.7)
     &__container
+        font-size: 16px
+        font-weight: 200
         display: grid
         grid-template-areas: "social legal accountant map" "social post supply map" "social time production map" "social sales empty map"
+        grid-template-columns: auto calc(410/1920*100vw) calc(273/1920*100vw) 600px
         place-content: start
-        width: 66%
-        column-gap: 1em
+        margin: calc(190/1920*100vw) calc(150/1920*100vw) (142/1920*100vw)
+        grid-column-gap: calc(108/1920*100vw)
+
         & *
             padding-top: 0
             margin-top: 0
@@ -38,6 +41,7 @@
         grid-area: post
     &__sales
         grid-area: sales
+        width: 211px
         & > ul
             padding: 0
     &__jobtime
@@ -84,3 +88,10 @@
 
 #map
     grid-area: map
+    width: 600px
+    height: 100%
+    @media screen and ( max-width: 1440px )
+        width: 400px
+    @media screen and ( max-width: 1024px )
+        width: 250px
+        height: 50%
