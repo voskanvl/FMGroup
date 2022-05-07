@@ -1,15 +1,12 @@
-extends ../layout/default
-include ../../components/header/header.pug
+extends ../layout/project
+//- include ../../components/header/header.pug
 include ../../components/tabs/tabs.pug
 include ../mixin/production-page
 include ../mixin/slider.pug
 block variables
     - let title = 'FMGroup | Продукция'
-block content
+block page
     .production
-        +header 
-        //- .production.priority__backword.priority__backword_up FMGroup
-        //- .production.priority__backword.priority__backword_down FMGroup
         .big-label__container.big-label__container_up
             .big-label__title.big-label__title_up FMGroup
         .big-label__container.big-label__container_down
@@ -64,6 +61,4 @@ block content
                             li Комплексный подход — адаптация различных источников плазменной резки
                             li Широкая линейка размеров рабочего поля
                             li Оснащение механизированным газовым резаком как на отдельном суппорте, так и сменная конструкция
-        .production__footer.footer 
-            include ../../components/footer/footer
 

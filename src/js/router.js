@@ -2,9 +2,7 @@
 const routes = {
     ["/"]: () => import("./pages/app.js"),
     ["/contacts.html"]: () => import("./pages/contacts.js"),
-    ["/articles.html"]: () => {
-        console.log("this is articles");
-    },
+    ["/articles.html"]: () => import("./pages/articles.js"),
     ["/production.html"]: () => import("./pages/production.js"),
 };
 routes[location.pathname]();
