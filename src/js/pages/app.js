@@ -1,9 +1,12 @@
 import "../../sass/main.sass";
+import debounce from "../debounce";
 import { disappear, appear } from "../disappear";
 import { ItcSimpleSlider } from "../simple-adaptive-slider.min";
 import Meter from "../../components/meter/meter";
 import { correctSvg, switchCarouselPoints } from "../switchCarouselPoints";
 import mainMenu from "../../components/menu/main-menu";
+import initMCarousel from "../initMCarousel";
+import touchBehaviour from "../touchBehaviour";
 
 const container = document.querySelector(".container");
 const meterContainer = document.querySelector(".meter__container");
@@ -18,6 +21,7 @@ let isMCarouselInited = false;
 const screen = document.querySelector(".screen");
 if (screen) {
     const colorsForMeter = ["#000", "#000", "#fff", "#000", "#fff", "#000"];
+    //--- init Meter
     const meter = new Meter(
         ".meter__line",
         id => {
@@ -27,22 +31,12 @@ if (screen) {
         },
         colorsForMeter,
     );
-    const screens = [...container.children];
-    function debounce(f, ms) {
-        let isCooldown = false;
-        return function () {
-            if (isCooldown) return;
-            isCooldown = true;
-            f.apply(this, arguments);
-            setTimeout(() => (isCooldown = false), ms);
-        };
-    }
 
+    const screens = [...container.children];
     const exceededEvent = new Event("exceeded", { bubbles: true });
     const dropedEvent = new Event("droped", { bubbles: true });
 
     let currentScreen = 0;
-    let currentSlide = 0;
 
     const renderScreens = (prev, next) => {
         //--- change controls color
@@ -52,25 +46,8 @@ if (screen) {
         //--- init M.Carousel
         if (next == 1 && !isMCarouselInited) {
             setTimeout(() => {
-                M.Carousel.init(document.querySelector(".carousel"), {
-                    indicators: true,
-                    numVisible: 3,
-                    padding: 400,
-                    onCycleTo({ dataset: { id } }) {
-                        if (id != currentSlide) {
-                            disappear(productsHeaders[currentSlide]);
-                            appear(productsHeaders[+id]);
-                            currentSlide = +id;
-                        }
-                        console.log(
-                            "onCycleTo id currentSlide",
-                            id,
-                            currentSlide,
-                        );
-                    },
-                });
+                initMCarousel(".carousel", productsHeaders, 0);
                 isMCarouselInited = true;
-                // productsHeaders[currentSlide].style.opacity = 1;
                 //--- init points handler
                 switchCarouselPoints();
             }, 400);
@@ -121,32 +98,10 @@ if (screen) {
             appear(controlDown);
         }
     };
-    let previousClientY = 0;
-    const handlerTouch = ev => {
-        ev.preventDefault();
-        const {
-            changedTouches: [{ clientY }],
-        } = ev;
-        const deltaY = previousClientY - clientY;
-        const signY = -Math.sign(deltaY);
-        console.log(signY);
-        previousClientY = clientY;
-        map[signY]();
-    };
-    window.addEventListener("wheel", debounce(handler, 800));
-    window.addEventListener("touchstart", ev => {
-        const {
-            changedTouches: [{ clientY }],
-            target,
-        } = ev;
-        previousClientY = clientY;
-        if ("click" in target) target.click();
-    });
-    window.addEventListener("touchend", handlerTouch, {
-        passive: false,
-    });
 
-    // container.addEventListener("changedScreen", changedScreenHandler);
+    touchBehaviour(map);
+    window.addEventListener("wheel", debounce(handler, 800));
+
     const init = () => {
         disappear(controlUp);
     };
