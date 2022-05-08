@@ -20,5 +20,9 @@ const routes = {
         console.log("сработал роут - /about.html");
         import("./pages/about.js");
     },
+    ["/projects.html"]: () => {
+        console.log("сработал роут - /projects.html");
+        import("./pages/projects.js");
+    },
 };
 routes[location.pathname]();
