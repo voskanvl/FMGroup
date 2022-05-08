@@ -1,4 +1,5 @@
 @import "../_const"
+$k: 1
 .gear
     position: absolute
     & > img
@@ -7,26 +8,23 @@
         left: 20%
         margin: 10%
         animation: rotator 80s infinite linear
-        width: calc($metrica*9)
-        height: calc($metrica*9)
+        width: 251px //calc(251 / 1920 * 100vw * $k)
+        height: auto
 
     &-middle
         // top: 37%
         // width: 84px
-        width: 133px
-        height: 133px
-        left: calc(16px - 133px / 2)
-        top: calc(425 / 993 * 100% - 133px / 2)
+        width: 133px //calc(133 / 1920 * 100vw * $k)
+        height: auto
+        left: calc(16px - 133px / 2)//calc((16 - 133 / 2) / 1920 * 100vw)
+        top: calc(425 / 1001 * 100% - 133px / 2)
         animation: rotator 60s infinite linear reverse
 
     &-down
-        // bottom: calc($metrica*5)
-        // width: calc($metrica*11)
-        // height: calc($metrica*11)
         bottom: 34px
-        width: 420px
-        height: 420px
-        left: -96px
+        width: 420px//calc(420 / 1920 * 100vw * $k)
+        height: auto
+        left: -96px//calc(-96 / 1920 * 100vw)
         animation: rotator 160s infinite linear
 
 @keyframes rotator
