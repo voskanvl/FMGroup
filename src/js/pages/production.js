@@ -1,24 +1,59 @@
-import "../../sass/pages/production.sass";
-import mainMenu from "../../components/menu/main-menu";
-import { ItcSimpleSlider } from "../simple-adaptive-slider.min.js";
-import Tabs from "../../components/tabs/tabs";
+import '../../sass/pages/production.sass';
+import mainMenu from '../../components/menu/main-menu';
+import { ItcSimpleSlider } from '../simple-adaptive-slider.min.js';
+import Tabs from '../../components/tabs/tabs';
+import { disappear, appear } from '../disappear';
 
-if (document.readyState !== "loading") {
-    window.addEventListener("DOMContentLoaded", start());
+if (document.readyState !== 'loading') {
+    window.addEventListener('DOMContentLoaded', start());
 } else {
     start();
 }
 
 function start() {
-    console.log("This is PRODUCTION");
+    const categories = document.querySelectorAll('.category');
+    console.log('This is PRODUCTION');
     mainMenu();
     const tabs = new Tabs();
-
-    window["sliderProducts"] = new ItcSimpleSlider(".slider", {
-        loop: false,
-        autoplay: false,
-        interval: 5000,
-        indicators: false,
-        swipe: true,
+    //скрываем все категории и показываем начальную
+    // categories.forEach(el => disappear(el));
+    // setTimeout(() => appear(categories[0]), 400);
+    // ---
+    //отказался из-за проблем с Time to interactive
+    //устанвливаем начальные параметры в pug
+    tabs.addEventListener(tab => {
+        disappear(categories[tabs.prevTab]);
+        appear(categories[tab]);
     });
+
+    window['sliderProducts'] = new ItcSimpleSlider(
+        '.slider-production__slider_0',
+        {
+            loop: false,
+            autoplay: false,
+            interval: 5000,
+            indicators: false,
+            swipe: true,
+        },
+    );
+    window['sliderProducts'] = new ItcSimpleSlider(
+        '.slider-production__slider_1',
+        {
+            loop: false,
+            autoplay: false,
+            interval: 5000,
+            indicators: false,
+            swipe: true,
+        },
+    );
+    window['sliderProducts'] = new ItcSimpleSlider(
+        '.slider-production__slider_2',
+        {
+            loop: false,
+            autoplay: false,
+            interval: 5000,
+            indicators: false,
+            swipe: true,
+        },
+    );
 }
