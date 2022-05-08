@@ -1,9 +1,13 @@
-mixin header 
+mixin header(logo) 
     .header__main-head&attributes(attributes)
         .header__menu
             include ../../components/menu/menu.pug
         .header__header
             .header__logo
+                if logo
+                    img(src="../../assets/img/tiser/logo.png")
+                else
+                    img(src="../../assets/img/tiser/logo_blue.png")
             .header__leftside 
                 .header__title FMGroup 
                 .header__slogan на уровень выше
