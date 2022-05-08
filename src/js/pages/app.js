@@ -45,6 +45,10 @@ if (screen) {
     let currentSlide = 0;
 
     const renderScreens = (prev, next) => {
+        //--- change controls color
+        controlUp.style.color = colorsForMeter[next];
+        controlDown.style.color = colorsForMeter[next];
+        indicatorTitle.style.color = colorsForMeter[next];
         //--- init M.Carousel
         if (next == 1 && !isMCarouselInited) {
             setTimeout(() => {

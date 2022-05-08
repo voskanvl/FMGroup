@@ -13,13 +13,15 @@
     cursor: pointer
     font-size: calc($metrica * 0.8)
 
+    &__up, &__down
+        transition: color 1s
+        & > svg
+            transform: rotate(-90deg)
+            & > path
+                fill: currentColor
     &__up
         left: 10vw
         transform: translateY(-50%) rotate(-90deg)
-        & > svg
-            transform: rotate(-90deg)
     &__down
         right: 10vw
         transform: translateY(-50%) rotate(90deg)
-        & > svg
-            transform: rotate(-90deg)
