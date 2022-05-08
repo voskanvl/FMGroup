@@ -16,5 +16,9 @@ const routes = {
         console.log("сработал роут - /production.html");
         import("./pages/production.js");
     },
+    ["/about.html"]: () => {
+        console.log("сработал роут - /about.html");
+        import("./pages/about.js");
+    },
 };
 routes[location.pathname]();
