@@ -1,4 +1,4 @@
-import { disappear, appear } from "./disappear";
+import { disappear, appear } from "../disappear";
 export default function initMCarousel(selector, productsHeaders, currentSlide) {
     M.Carousel.init(document.querySelector(selector), {
         indicators: true,

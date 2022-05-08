@@ -5,8 +5,9 @@ import { ItcSimpleSlider } from "../simple-adaptive-slider.min";
 import Meter from "../../components/meter/meter";
 import { correctSvg, switchCarouselPoints } from "../switchCarouselPoints";
 import mainMenu from "../../components/menu/main-menu";
-import initMCarousel from "../initMCarousel";
+import { initMCarousel, MCarouselControls } from "../MCarousel";
 import touchBehaviour from "../touchBehaviour";
+import changeControlsColor from "../changeControlsColor";
 
 const container = document.querySelector(".container");
 const meterContainer = document.querySelector(".meter__container");
@@ -15,7 +16,6 @@ const controlDown = document.querySelector(".control__down");
 const indicatorTitle = document.querySelector(".meter-indicator__title");
 const productsHeaders = document.querySelectorAll(".products__header");
 
-const production = document.querySelector(".production");
 let isMCarouselInited = false;
 
 const screen = document.querySelector(".screen");
@@ -40,9 +40,11 @@ if (screen) {
 
     const renderScreens = (prev, next) => {
         //--- change controls color
-        controlUp.style.color = colorsForMeter[next];
-        controlDown.style.color = colorsForMeter[next];
-        indicatorTitle.style.color = colorsForMeter[next];
+        changeControlsColor(
+            [controlUp, controlDown, indicatorTitle],
+            colorsForMeter,
+            next,
+        );
         //--- init M.Carousel
         if (next == 1 && !isMCarouselInited) {
             setTimeout(() => {
@@ -150,32 +152,11 @@ function start() {
             );
     }
     //--- listen controls on Material carousel
-    const leftButton = document.querySelector(".products__control_prev");
-    const rightButton = document.querySelector(".products__control_next");
+    MCarouselControls(".products__control_prev", ".products__control_next");
 
     //--- усанавливаем текущий header в слайдере products
     if (productsHeaders?.length) appear(productsHeaders[0]);
 
-    if (leftButton)
-        leftButton.addEventListener("click", () => {
-            const instance = M.Carousel.getInstance(
-                document.querySelector(".carousel"),
-            );
-            const { center } = instance;
-            if (instance) {
-                instance.prev();
-            }
-        });
-    if (rightButton)
-        rightButton.addEventListener("click", () => {
-            const instance = M.Carousel.getInstance(
-                document.querySelector(".carousel"),
-            );
-            const { center } = instance;
-            if (instance) {
-                instance.next();
-            }
-        });
     //---init Tabs
     if (document.querySelector(".tabs")) tabs = new Tabs();
     //---init controls switching scrrens
