@@ -17,7 +17,7 @@ let isMCarouselInited = false;
 
 const screen = document.querySelector(".screen");
 if (screen) {
-    const colorsForMeter = ["#000", "#000", "#fff", "#fff", "#fff", "#000"];
+    const colorsForMeter = ["#000", "#000", "#fff", "#000", "#fff", "#000"];
     const meter = new Meter(
         ".meter__line",
         id => {
@@ -140,7 +140,7 @@ if (screen) {
             target,
         } = ev;
         previousClientY = clientY;
-        target.click();
+        if ("click" in target) target.click();
     });
     window.addEventListener("touchend", handlerTouch, {
         passive: false,
