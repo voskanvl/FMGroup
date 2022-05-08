@@ -3,7 +3,7 @@ import debounce from "../debounce";
 import { disappear, appear } from "../disappear";
 import { ItcSimpleSlider } from "../simple-adaptive-slider.min";
 import Meter from "../../components/meter/meter";
-import { correctSvg, switchCarouselPoints } from "../switchCarouselPoints";
+import { switchCarouselPoints } from "../switchCarouselPoints";
 import mainMenu from "../../components/menu/main-menu";
 import { initMCarousel, MCarouselControls } from "../MCarousel";
 import touchBehaviour from "../touchBehaviour";
