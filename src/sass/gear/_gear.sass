@@ -10,6 +10,10 @@ $k: 1
         animation: rotator 80s infinite linear
         width: 251px //calc(251 / 1920 * 100vw * $k)
         height: auto
+        @media screen and ( max-width: 768px )
+            width: 150px
+        @media screen and ( max-width: 320px )
+            width: 150px
 
     &-middle
         // top: 37%
@@ -19,13 +23,22 @@ $k: 1
         left: calc(16px - 133px / 2)//calc((16 - 133 / 2) / 1920 * 100vw)
         top: calc(425 / 1001 * 100% - 133px / 2)
         animation: rotator 60s infinite linear reverse
-
+        @media screen and ( max-width: 768px )
+            width: 90px
+            left: -32px
+        @media screen and ( max-width: 320px )
+            width: 90px
+            left: -32px
     &-down
         bottom: 34px
         width: 420px//calc(420 / 1920 * 100vw * $k)
         height: auto
         left: -96px//calc(-96 / 1920 * 100vw)
         animation: rotator 160s infinite linear
+        @media screen and ( max-width: 768px )
+            width: 250px
+        @media screen and ( max-width: 320px )
+            width: 250px
 
 @keyframes rotator
     0%
