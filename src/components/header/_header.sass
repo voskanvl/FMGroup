@@ -1,15 +1,20 @@
 .header
     &__menu
         // padding-left: 2em
+        flex: 1 1 33.33%
     &__main-head
-        display: grid
-        grid-template-columns: 2fr 1fr 2fr
-        place-items: center stretch
+        // display: grid
+        // grid-template-columns: 2fr 1fr 2fr
+        // place-items: center stretch
+        display: flex
+        align-items: center
         position: absolute
+        justify-content: space-between
         top: 0
         width: 100%
         margin: 0 auto
         padding: 0 2em
+
     &__phone
         font-size: calc($metrica * 1.1)
         // padding-right: calc($metrica * 5)
@@ -17,10 +22,13 @@
         justify-self: end
         color: #000
         text-align: right
+        flex: 1 1 33.33%
+        transition: flex 1s
     &__header
         display: flex
         align-items: center
         justify-content: center
+        flex: 0 0
     &__logo
         width: 78px
         height: 79px
