@@ -2,7 +2,11 @@ import { disappear, appear } from '../../js/disappear';
 const mainMenu = (element = '.main-menu') => {
     const menu = document.querySelector(element);
     const label = document.querySelector(element + '__label');
-    menu.addEventListener('click', () => {
+    const parent = menu.parentElement;
+    console.log('🚀 ~ parent', parent);
+
+    parent.addEventListener('click', ({ target }) => {
+        console.log('🚀 ~ target', target);
         menu.classList.toggle('active');
         const match = matchMedia('(max-width: 1024px)').matches;
         console.log('🚀 ~ match', match);

@@ -24,23 +24,42 @@
         text-align: right
         flex: 1 1 33.33%
         transition: flex 1s
-    &__header
+        @media screen and (max-width: 425px)
+            display: none
+    &__phone-within
+        display: none
+        color: #000
+        font-size: 18px
+        margin: 0
+        margin-top: .3em
+        @media screen and (max-width: 425px)
+            display: block
+    &__header, &__big-logo
         display: flex
         align-items: center
         justify-content: center
+    &__header
         flex: 0 0
+        @media screen and (max-width: 425px)
+            flex-direction: column
     &__logo
         width: 78px
-        height: 79px
+        height: auto
+        @media screen and (max-width: 1024px)
+            width: 37px
         & > img
             width: 100%
     &__leftside
         font-family: Montserrat, Verdana, Geneva, Tahoma, sans-serif
-        margin-left: 20px
+        margin-left: 1vw
         text-align: center
     &__title
         font-size: 35px
         font-weight: 600
+        @media screen and (max-width: 1024px)
+            font-size: 21px
     &__slogan
         font-size: 14px
         text-transform: uppercase
+        @media screen and (max-width: 1024px)
+            font-size: 9px
