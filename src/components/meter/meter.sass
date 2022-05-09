@@ -15,5 +15,15 @@
         cursor: pointer
         &:not(:last-child)
             margin-bottom: calc($metrica*1)
+            @media screen and ( max-width: 425px )
+                margin-bottom: calc($metrica*0.5)
+
         &_current
             width: calc($metrica*3)
+
+        @media screen and ( max-width: 425px )
+            width: calc($metrica*1)
+
+        &.meter__line_current
+            @media screen and ( max-width: 425px )
+                width: calc($metrica*2)
