@@ -28,7 +28,7 @@ menu.main-menu
         align-items: stretch
         flex-wrap: wrap
         transform: translateX(-150%)
-        transition: transform 1s linear
+        transition: transform 1s
         & > li
             position: relative
             list-style: none
@@ -51,6 +51,8 @@ menu.main-menu
         color: inherit
         position: relative
         cursor: pointer
+        width: 24px
+
         & > svg
             fill: currentColor
             stroke: currentColor
@@ -62,13 +64,14 @@ menu.main-menu
         // top: 50%
         // transform: translate(-50%, -50%)
         transition: opacity 0.5s ease-in-out
+        position: absolute
+        top: 0
+        left: 0
     &__burger
         opacity: 1
     &__cross
         opacity: 0
-        position: absolute
-        top: 0
-        left: 0
+
     &__label
         // height: 100%
         // background: inherit
@@ -82,4 +85,6 @@ menu.main-menu
         display: flex
         justify-content: space-between
         align-items: flex-start
+        width: 75px
+        height: 14px
         // width: 100px
