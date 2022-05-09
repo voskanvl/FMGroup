@@ -11,15 +11,19 @@ export default function touchBehaviour(map) {
         previousClientY = clientY;
         map[signY]();
     };
-    window.addEventListener("touchstart", ev => {
+    window.addEventListener('touchstart', ev => {
         const {
             changedTouches: [{ clientY }],
             target,
         } = ev;
         previousClientY = clientY;
-        if ("click" in target) target.click();
+
+        const targetEl = el =>
+            'click' in el ? el : targetEl(el.parentElement);
+
+        targetEl(target).click();
     });
-    window.addEventListener("touchend", handlerTouch, {
+    window.addEventListener('touchend', handlerTouch, {
         passive: false,
     });
 }
