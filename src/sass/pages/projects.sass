@@ -1,8 +1,34 @@
 @import "../_common"
 
+=border
+    border-radius: 5px
+    border: 1px solid #C4CDD6
+
 main
+    font-family: 'Geometria', sans-serif
     position: absolute
     inset: 0
     display: flex
     align-items: center
     justify-content: center
+    color: $color__deepblue
+
+.title
+    margin-bottom: 32px
+
+#map
+    width: 1070px
+    height: 553px
+    background: #eee
+    margin-top: 83px
+
+.control
+    padding: 12px 10px
+    font-size: 18px
+    +border
+    &:first-child
+        margin-right: 63px
+
+.list
+    +border
+    padding: 24px 22px
