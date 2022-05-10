@@ -14,6 +14,7 @@ block page
         .body 
             .controls 
                 select(name="center" class="control control__regions")
+                    option(value="" disabled selected hidden) Региональный центр
                     each i,idx in regions
                         option(value=idx)= i  
                 select(name="center" class="control control__tools")
