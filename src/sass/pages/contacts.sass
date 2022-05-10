@@ -6,31 +6,42 @@
 @import "../../components/menu/_main-menu"
 @import "../../components/textblock/_textblock"
 
+body
+    height: 100vh
+main
+    display: flex
+    align-items: center
+    justify-content: center
+    position: absolute
+    inset: 0
+
 .contacts
     &__container
         font-size: 16px
         font-weight: 200
         display: grid
         grid-template-areas: "social legal accountant map" "social post supply map" "social time production map" "social sales empty map"
-        grid-template-columns: auto calc(410 / 1920 * 100vw) calc(273 / 1920 * 100vw) 600px
+        grid-template-columns: auto calc(410 / 1920 * 100vw) calc(273 / 1920 * 100vw) calc(600 / 1920 * 100vw)
         place-content: start
-        margin: calc(190 / 1920 * 100vw) calc(150 / 1920 * 100vw) (142 / 1920 * 100vw)
+        // margin: calc(190 / 1920 * 100vw) calc(150 / 1920 * 100vw) (142 / 1920 * 100vw)
+        // margin: 0 auto
         grid-column-gap: calc(108 / 1920 * 100vw)
 
         & *
             padding-top: 0
             margin-top: 0
         @media screen and ( max-width: 768px )
-            margin: 0 100px
+            margin: 0
         @media screen and ( max-width: 630px )
-            grid-template-areas: "social legal accountant " "social post supply" "social time sales" "social production sales " " social phone phone"
+            grid-template-areas: "social legal accountant " "social post supply" "social time sales" "social production sales " " social map map"
         @media screen and ( max-width: 425px )
-            margin: 0 50px
-            grid-template-areas: "social social" "legal accountant " "post supply" "time sales" "production sales " "phone phone"
+            // margin: 0 50px
+            grid-template-columns: 1fr 1fr
+            grid-template-areas: "social social" "legal accountant " "post supply" "time sales" "production sales " "map map"
         @media screen and ( max-width: 320px )
-            margin: 0 45px
-            // grid-template-columns: 1fr
-            // grid-template-areas: "social" "legal" "post" "supply" "accountant" "supply" "production" "time" "sales" "phone"
+            // margin: 0 45px
+            grid-template-columns: 1fr
+            grid-template-areas: "social" "legal" "post" "supply" "accountant" "supply" "production" "time" "sales" "map"
             display: flex
             flex-direction: column
     &__socials
@@ -123,3 +134,7 @@
     @media screen and ( max-width: 1024px )
         width: 250px
         height: 50%
+.header__main-head
+    z-index: 10
+.footer
+    // position: static
