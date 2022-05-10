@@ -20,14 +20,32 @@
         & *
             padding-top: 0
             margin-top: 0
-
+        @media screen and ( max-width: 768px )
+            margin: 0 100px
+        @media screen and ( max-width: 630px )
+            grid-template-areas: "social legal accountant " "social post supply" "social time sales" "social production sales " " social phone phone"
+        @media screen and ( max-width: 425px )
+            margin: 0 50px
+            grid-template-areas: "social social" "legal accountant " "post supply" "time sales" "production sales " "phone phone"
+        @media screen and ( max-width: 320px )
+            margin: 0 45px
+            // grid-template-columns: 1fr
+            // grid-template-areas: "social" "legal" "post" "supply" "accountant" "supply" "production" "time" "sales" "phone"
+            display: flex
+            flex-direction: column
     &__socials
         grid-area: social
         display: flex
         flex-direction: column
-        height: 100%
+        @media screen and ( max-width: 425px )
+            flex-direction: row
+            height: 100%
+            justify-content: space-between
+            align-items: center
         & > *:not(:last-child)
             margin-bottom: 1rem
+            @media screen and ( max-width: 425px )
+                margin-bottom: 0
         & svg
             fill: $color__deepblue
     &__legal-address
@@ -55,9 +73,16 @@
     &__phone
         font-size: calc($metrica * 1.1)
         padding-top: 1em
+        @media screen and ( max-width: 320px )
+            padding-top: 0
         & > a
             text-decoration: none
             color: $color__deepblue
+            font-size: 60px
+            @media screen and ( max-width: 768px )
+                font-size: 30px
+            @media screen and ( max-width: 425px )
+                font-size: 25px
 
     &__liner
         height: 100%
@@ -80,12 +105,15 @@
     height: 100%
     width: 2px
     margin: 0 1rem
+    @media screen and ( max-width: 425px )
+        margin: 0
     &-up
         background: linear-gradient(to top, $color__deepblue, transparent)
 
     &-down
         background: linear-gradient(to top, transparent, $color__deepblue)
-
+    @media screen and ( max-width: 425px )
+        transform: rotate(-90deg)
 #map
     grid-area: map
     width: 600px
