@@ -14,7 +14,6 @@ export default function initMCarousel(selector, productsHeaders, currentSlide) {
                 currentSlide = +id;
                 recalculateCurrentPoints(id, slider, 400);
             }
-            console.log("onCycleTo id currentSlide", id, currentSlide);
         },
     });
 }
