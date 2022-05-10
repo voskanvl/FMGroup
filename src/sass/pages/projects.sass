@@ -13,16 +13,23 @@ main
     justify-content: center
     color: $color__deepblue
 
+.body
+    display: grid
+    // grid-template-columns: 3fr 1fr
+    grid-template-areas: "controls list" "map list"
+
 .title
     margin-bottom: 32px
 
 #map
+    grid-area: map
     width: 1070px
     height: 553px
     background: #eee
-    margin-top: 83px
+    margin: 83px 88px 0 0
 
 .control
+    grid-area: controls
     padding: 12px 10px
     font-size: 18px
     +border
@@ -30,5 +37,12 @@ main
         margin-right: 63px
 
 .list
+    grid-area: list
     +border
     padding: 24px 22px
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: flex-start
+.header__main-head
+    color: $color__deepblue
