@@ -10,9 +10,9 @@
         {
             img:'../../assets/img/tiser/tool.png',
             points:[
-                {top:60,left:15,text:{text:'something about 1 and 1 point', top: -65, left: 65}},
-                {top:119,left:85,text:{text:'something about 1 and 2 point', top: 250, left: 150}},
-                {top:-2,left:366, text:{text:'something about 1 and 3 point', top: -130, left: 215}}
+                {top:110,left:55,text:{text:'something about 1 and 1 point', top: 0, left: 0}},
+                {top:235,left:340,text:{text:'something about 1 and 2 point', top: 0, left: 0}},
+                {top:30,left:577, text:{text:'something about 1 and 3 point', top: -0, left: 0}}
             ],
             title:'СПР ЦС',
             desc:'Станок плазменной резки серии СПР ЦС подходит для работы с листовым материалом толщиной до 50 мм'
@@ -20,9 +20,9 @@
         {
             img:'../../assets/img/tiser/stanok-trubo-810px-min 1.png',
             points:[
-            {top:28,left:39, text:{text:'something about 2 and 1 point', top: 142, left: 10}},
-            {top:142,left:193, text:{text:'something about 2 and 2 point', top: -28, left: 123}},
-            {top:36,left:157, text:{text:'something about 2 and 3 point', top: -10, left: 267}},
+            {top:60,left:-92, text:{text:'something about 2 and 1 point', top: 142, left: 10}},
+            {top:305,left:260, text:{text:'something about 2 and 2 point', top: -28, left: 123}},
+            {top:75,left:135, text:{text:'something about 2 and 3 point', top: -10, left: 267}},
             ],
             title:'ПЗЦ ПК',
             desc:'В частности, существующая теория напрямую зависит от системы обучения кадров, соответствующей насущным потребностям.'
@@ -56,14 +56,14 @@ each i,idx in arr
         a.carousel-item(href="#" data-id=idx)
             .carousel-item__wrapper
                 img(src=i.img)
-            each point in i.points
-                svg(class="carousel-item__point-svg" width=1 height=1 viewBox=`0 0 1 1` fill="none" xmlns="http://www.w3.org/2000/svg" style={top:0+'px', left: 0+'px'})
-                    line(x1=0 y1=0 x2=1 y2=1 stroke="white" stroke-width="2" stroke-linecap="round")
-                .carousel-item__point(style={top: point.top+'px', left: point.left+'px'})
-                    .carousel-item__inner
-                        .carousel-item__sign +
-                .carousel-item__point-data(style={top:point.text.top+'px',left:point.text.left+'px'}) 
-                    .carousel-item__point-text= point.text.text
+                each point in i.points
+                    svg(class="carousel-item__point-svg" width=1 height=1 viewBox=`0 0 1 1` fill="none" xmlns="http://www.w3.org/2000/svg" style={top:0+'px', left: 0+'px'})
+                        line(x1=0 y1=0 x2=1 y2=1 stroke="white" stroke-width="2" stroke-linecap="round")
+                    .carousel-item__point(style={top: point.top+'px', left: point.left+'px'})
+                        .carousel-item__inner
+                            .carousel-item__sign +
+                    .carousel-item__point-data(style={top:point.text.top+'px',left:point.text.left+'px'}) 
+                        .carousel-item__point-text= point.text.text
 .products__controls 
     button.products__control.products__control_prev
         img(src="../../assets/img/svg/arrow.svg", style={transform:'rotate(90deg)'})
