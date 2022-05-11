@@ -15,6 +15,8 @@
             flex-direction: column
             align-items: center
             margin-top: 4rem
+        @media screen and (max-width:425px)
+            left: 20%
 
     &__head
         position: absolute
@@ -28,9 +30,13 @@
         padding: 1rem 1rem 0.5rem
         margin-bottom: 0
         margin-top: calc( $metrica * 2 )
+        @media screen and (max-width:425px)
+            font-size: 20px
     &__slogan
         font-size: calc( $metrica * 0.8 )
         margin-top: 0
+        @media screen and (max-width:425px)
+            font-size: 12px
     &__backword
         font-family: 'Montserrat', sans-serif
         font-weight: 700

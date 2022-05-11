@@ -17,7 +17,7 @@
         margin-bottom: 2rem
     @media screen and (max-width:425px)
         width: 75%
-
+        padding: 1rem
     &__title
         text-align: center
         margin-top: calc($metrica * 3)
@@ -26,6 +26,9 @@
         @media screen and (max-width:1024px)
             margin: 0 0 1rem 50px
             text-align: center
+        @media screen and (max-width:425px)
+            font-size: 20px
+            margin: 0 0 0.5rem 30px
 
     &__body
         text-align: center
@@ -34,6 +37,9 @@
         font-weight: 200
         @media screen and (max-width:1024px)
             margin: 0 0 0 50px
+        @media screen and (max-width:425px)
+            font-size: 15px
+            margin: 0 0 0 30px
     &__svg
         background: #013485
         position: absolute
@@ -51,6 +57,8 @@
             top: 50%
         @media screen and (max-width:768px)
             width: 22%
+        @media screen and (max-width:425px)
+            width: 30%
 
         & > svg
             width: 100%
