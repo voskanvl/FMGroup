@@ -28,10 +28,8 @@ body
     align-items: center
     justify-content: center
 
-@for $i from 1 through 5
-    .screen:nth-child(#{$i})
-        // background-color: lighten($base-color, $i * 20%)
-        // z-index: 6 - $i
+.screen.contacts
+    display: block
 
 .meter-indicator
     position: fixed
