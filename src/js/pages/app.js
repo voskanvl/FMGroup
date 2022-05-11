@@ -116,7 +116,6 @@ if (screen) {
 if (document.readyState !== 'loading') {
     start();
 } else {
-    dclhandler = true;
     document.addEventListener('DOMContentLoaded', start);
 }
 function start() {
@@ -153,6 +152,11 @@ function start() {
                 slidersClass[i].options,
             );
     }
+    //--- fix indicators click on slider in Tiser
+    const buttonsIdicators = document.querySelectorAll('.number');
+    buttonsIdicators.forEach(e =>
+        e.addEventListener('click', () => e.parentElement.click()),
+    );
     //--- listen controls on Material carousel
     MCarouselControls('.products__control_prev', '.products__control_next');
 

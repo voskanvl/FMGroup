@@ -96,15 +96,23 @@
     margin: 0 auto
 
 .slider__indicator
-    flex: 0 1 auto
-    width: calc($metrica * 2.1)
-    height: calc($metrica * 2.1)
-    text-align: center
+    // flex: 0 1 auto
+    // width: calc($metrica * 2.1)
+    // height: calc($metrica * 2.1)
+    // text-align: center
+    width: 45px
+    height: 45px
     color: #fff
     cursor: pointer
     border-radius: 50%
-    line-height: calc($metrica * 2.3)
     font-size: calc($metrica * 1.2)
+    +dfc
+    & > .number
+        line-height: 1
+        margin: 0
+        padding: 0
+        font-size: 20px
+        font-weight: 200
 
 .slider__indicator_active
     border: 1px solid #000
