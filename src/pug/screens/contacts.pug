@@ -4,9 +4,9 @@ include ../../components/textblock/textblock.pug
     .contacts__socials.socials 
         .contacts__liner 
             .liner.liner-up
-        .contacts__vk 
+        a.contacts__vk(href="#") 
             img(src="../../assets/img/svg/vk.svg" alt="vk")
-        .contacts__youtube
+        a.contacts__youtube(href="#") 
             img(src="../../assets/img/svg/youtube.svg" alt="vk")
         .contacts__liner 
             .liner.liner-down 
@@ -26,7 +26,7 @@ include ../../components/textblock/textblock.pug
     +textblock("contacts__sales","Отдел продаж")
         block body 
             p E-mail: <a href="mailto:sale@fmg58.ru">sale@fmg58.ru</a><br> тел.: <a href="tel:88007006958">8 800 700 69 58</a>
-        h2 Режим работы
+        p Режим работы
         ul 
             each i in ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница']
                 li.day 
@@ -41,9 +41,11 @@ include ../../components/textblock/textblock.pug
 
     +textblock("contacts__production","Производство")
         block body 
-            p 442780, Пензенская обл. с. Бессоновка, ул. Нагорная, 12г/7 E-mail: <a href="mailto:info@fmg58.ru">info@fmg58.ru</a>
+            p 442780, Пензенская обл. с. Бессоновка, ул. Нагорная, 12г/7 
+            br 
+            p E-mail: <a href="mailto:info@fmg58.ru">info@fmg58.ru</a>
     +textblock("contacts__supply","Отдел снабжения")
-        block body 
+        block body
             p E-mail: <a href="mailto:fmg58@yandex.ru">fmg58@yandex.ru</a>
     .contacts__contacts
         .contacts__phone 
