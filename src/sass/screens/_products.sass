@@ -31,12 +31,12 @@
             width: 100%
     & > .carousel-item.active > .carousel-item__wrapper
         width: 200%
-        transition: width 1s
+        transition: width 0.5s
         // transform: translateX(-50%)
         @media screen and ( max-width: 768px )
             width: 150%
         @media screen and ( max-width: 425px )
-            width: 100%
+            width: 50%
         & > img
             width: 100%
     @media screen and ( max-width: 768px )
@@ -84,12 +84,12 @@
             opacity: 0
             transition: opacity 1s
             border-bottom: 1px solid #fff
-        & > svg
-            z-index: 0
-            position: absolute
-            transform-origin: 0 0
-            opacity: 0
-            transition: opacity .9s
+svg
+    z-index: 0
+    position: absolute
+    transform-origin: 0 0
+    opacity: 0
+    transition: opacity .9s
 
 .products
     &__controls
