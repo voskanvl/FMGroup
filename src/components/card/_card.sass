@@ -12,6 +12,12 @@
         margin: 10px 0
         +dfc
         flex-direction: column
+    @media screen and (max-width:768px)
+        width: 80%
+        margin-bottom: 2rem
+    @media screen and (max-width:425px)
+        width: 75%
+
     &__title
         text-align: center
         margin-top: calc($metrica * 3)
@@ -43,12 +49,9 @@
             width: 30%
             left: 0
             top: 50%
+        @media screen and (max-width:768px)
+            width: 22%
 
         & > svg
             width: 100%
             height: auto
-    @media screen and (max-width:768px)
-        width: 50%
-        margin-bottom: 2rem
-    @media screen and (max-width:425px)
-        width: 75%
