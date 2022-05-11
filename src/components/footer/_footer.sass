@@ -5,12 +5,32 @@
     left: 0
     width: 100%
     display: flex
-    align-items: center
+    align-items: flex-end
     justify-content: space-between
     padding: 1em
     border-top: 1px solid #013485
+    &__copyright
+        margin-left: 150px
     &__developer
+        margin-right: 150px
         & > a
             color: #000
             text-decoration: none
             cursor: pointer
+    @media screen and (max-width: 768px)
+        &__copyright
+            margin-left: 70px
+        &__developer
+            margin-right: 70px
+    @media screen and (max-width: 425px)
+        font-size: 12px
+        padding: 0.5em
+        &__copyright
+            margin-left: 30px
+        &__developer
+            margin-right: 30px
+    @media screen and (max-width: 320px)
+        &__copyright
+            margin-left: 10px
+        &__developer
+            margin-right: 10px
