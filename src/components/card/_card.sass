@@ -4,21 +4,30 @@
     position: relative
     background: #fff
     border-radius: 5px
-    width: calc($metrica * 11.4)
+    width: 382px
     padding: 1rem
-    margin: 0 calc($metrica * 1)
-    @media screen and (max-width:768px)
-        padding: 1rem 3rem
+    margin: 0 35.5px
+    @media screen and (max-width:1024px)
+        padding: 2rem 1rem
+        margin: 10px 0
+        +dfc
+        flex-direction: column
     &__title
         text-align: center
         margin-top: calc($metrica * 3)
-        font-size: calc($metrica * 1)
+        font-size: 25px
         font-weight: 400
+        @media screen and (max-width:1024px)
+            margin: 0 0 1rem 50px
+            text-align: center
+
     &__body
         text-align: center
         margin-bottom: calc($metrica * 3)
-        font-size: calc($metrica * 0.7)
+        font-size: 18px
         font-weight: 200
+        @media screen and (max-width:1024px)
+            margin: 0 0 0 50px
     &__svg
         background: #013485
         position: absolute
@@ -28,13 +37,9 @@
         border-radius: 50%
         padding: 10px
         border: 1px solid #fff
-        width: 48.44%
+        width: 135px
         +flex-center
-        &::before
-            content: ""
-            display: block
-            padding-top: 100% /* initial ratio of 1:1*/
-        @media screen and (max-width:768px)
+        @media screen and (max-width:1024px)
             width: 30%
             left: 0
             top: 50%
