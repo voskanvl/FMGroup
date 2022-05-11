@@ -5,18 +5,26 @@
     z-index: 10
     background: inherit
     border: none
-    display: flex
-    align-items: center
-    justify-content: space-between
+    +dfsb
     width: 93px
     transition: opacity 1s ease
     cursor: pointer
-    font-size: calc($metrica * 0.8)
+    // font-size: calc($metrica * 0.8)
+    font-size: 20px
 
     &__up, &__down
         transition: color 1s
+        display: flex
+        justify-content: space-between
+        align-items: center
+        column-gap: 1em
+        width: 110px
+        height: 36px
+
         & > svg
             transform: rotate(-90deg)
+            width: 100%
+            height: 100%
             & > path
                 fill: currentColor
     &__up
