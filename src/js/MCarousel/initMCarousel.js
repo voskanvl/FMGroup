@@ -1,12 +1,13 @@
-import { disappear, appear } from "../disappear";
-import recalculateCurrentPoints from "./recalculateCurrentPoints";
+import { disappear, appear } from '../disappear';
+import recalculateCurrentPoints from './recalculateCurrentPoints';
 export default function initMCarousel(selector, productsHeaders, currentSlide) {
     const slider = document.querySelector(selector);
     recalculateCurrentPoints(0, slider, 400);
     M.Carousel.init(slider, {
         indicators: true,
         numVisible: 3,
-        padding: 400,
+        padding: 800,
+        shift: -50,
         onCycleTo({ dataset: { id } }) {
             if (id != currentSlide) {
                 disappear(productsHeaders[currentSlide]);
