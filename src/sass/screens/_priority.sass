@@ -17,6 +17,8 @@
             margin-top: 4rem
         @media screen and (max-width:425px)
             left: 20%
+        @media screen and (max-width:320px)
+            margin-top: 2rem
 
     &__head
         position: absolute
@@ -25,7 +27,9 @@
         transform: translateX(-50%)
         text-align: center
         color: #fff
-        font-size: calc( $metrica * 0.95 )
+        @media screen and (max-width:320px)
+            width: 100%
+
     &__title
         padding: 1rem 1rem 0.5rem
         margin-bottom: 0
