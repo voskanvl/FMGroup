@@ -61,10 +61,13 @@
 .footer-info
     // font-size: calc($metrica*0.9)
     &__specification
+        padding-left: 20px
         &  li
             list-style: none
             line-height: 1.5
             position: relative
+            & > span
+                padding-left: .5em
             &::before
                 content: ""
                 background: url(../../assets/img/list.svg) no-repeat
@@ -79,7 +82,8 @@
     z-index: 1
     width: 545px
     &__button
-        color: $color__deepblue
+        & .button__name
+            color: $color__deepblue
         & .button__arrow
             background: transparent
             border: 1px solid $color__deepblue

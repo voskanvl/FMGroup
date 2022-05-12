@@ -14,10 +14,10 @@ mixin productionPage(props)
             img.specification(src="../../assets/img/production/building-svgrepo-com\ 1.png")
             p= props.specification
         .info__button
-            +button("","заказать")
+            +button("","заказать")(style="color:'#013485'")
     .production__footer-info.footer-info 
         h3.footer-info__title= props.footerTitle
         .footer-info__description=props.footerDescription
         ul.footer-info__specification
             block
-    
+
