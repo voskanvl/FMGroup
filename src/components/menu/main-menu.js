@@ -1,6 +1,7 @@
 import { disappear, appear } from "../../js/disappear";
 const mainMenu = (element = ".main-menu") => {
     const menu = document.querySelector(element);
+    const switcher = menu.querySelector(".main-menu__switcher");
     const label = document.querySelector(element + "__label");
     const wrapper = document.querySelector(element + "__wrapper");
     const ul = document.querySelector(element + "__wrapper > ul");
@@ -22,6 +23,6 @@ const mainMenu = (element = ".main-menu") => {
             appear(label);
         }
     };
-    menu.addEventListener("click", handler);
+    switcher.addEventListener("click", handler);
 };
 export default mainMenu;
