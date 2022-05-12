@@ -2,6 +2,9 @@
 @import "../_common"
 
 @import "../../components/button/_button"
+body
+    margin: 0
+    padding: 0
 .articles
     &__cards
         display: grid
@@ -10,10 +13,9 @@
             margin: 38px 15px
             color: $color__deepblue
             @media screen and ( max-width: 768px )
-                margin: 24px 15px
-            @media screen and ( max-width: 425px )
                 margin: .5em 15px
-        @media screen and ( max-width: 1024px )
+
+        @media screen and ( max-width: 768px )
             grid-template-columns: 1fr
 
     &__body

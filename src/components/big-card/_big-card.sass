@@ -15,7 +15,7 @@
         height: 330px
     @media screen and ( max-width: 1024px )
         height: 230px
-    @media screen and ( max-width: 1024px )
+    @media screen and ( max-width: 425px )
         height: 110px
 
     &__content
@@ -51,6 +51,8 @@
         color: currentColor
         font-size: 1.5em
         margin-bottom: 1em
+        @media screen and ( max-width: 1024px )
+            +stringLimit(2)
         @media screen and ( max-width: 768px )
             margin-bottom: 0.5em
         @media screen and ( max-width: 560px )
@@ -59,7 +61,6 @@
             font-size: 1.1em
             margin-bottom: 1em
         @media screen and ( max-width: 425px )
-            +stringLimit(2)
             font-size: 0.9em
             margin-bottom: .5em
             font-weight: 500
