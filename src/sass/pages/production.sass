@@ -10,6 +10,8 @@
     max-width: 100%
     & .tabs
         margin: 6em auto 1em
+        @media screen and (max-width: 768px)
+            margin: 3em auto 1em
     & .header__main-head
         margin: 0 auto
     & .header__logo
@@ -24,7 +26,10 @@
         //     grid-template-columns: 1fr
         //     grid-template-areas: "img" "info" "desc"
         //     grid-template-rows: 230px 260px
-
+        @media screen and (max-width: 768px)
+            grid-template-columns: 1fr
+            grid-template-areas: "img" "info" "desc"
+            grid-template-rows: 200px 255px 260px
     &__info
         grid-area: info
         border-radius: 5px
@@ -32,8 +37,7 @@
         width: calc(585/1920 * 100vw)
         padding: calc(53/1920 * 100vw)
         color: $color__deepblue
-        @media screen and (max-width: 768px)
-            width: unset
+
     &__footer-info
         grid-area: desc
     &__img
@@ -42,8 +46,11 @@
         display: flex
         align-items: center
         justify-content: center
+        margin: 0 auto
         & > img
             width: 75%
+        @media screen and (max-width: 768px)
+            width: 70%
     &__control
         display: flex
         align-items: center
@@ -60,6 +67,8 @@
 
 .footer-info
     // font-size: calc($metrica*0.9)
+    @media screen and (max-width: 768px)
+        font-size: 0.9em
     &__specification
         padding-left: 20px
         &  li
@@ -81,6 +90,8 @@
     background: #fff
     z-index: 1
     width: 545px
+    @media screen and (max-width: 768px)
+        margin: 0 auto
     &__button
         & .button__name
             color: $color__deepblue
@@ -150,6 +161,8 @@
         display: none
     &__items
         height: 100vh
+        @media screen and (max-width: 768px)
+            height: 78vh
     &__controls
         position: fixed
         top: 50%
