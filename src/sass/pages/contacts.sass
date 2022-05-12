@@ -73,6 +73,8 @@ main
         grid-area: legal
         font-size: 1em
         +fixfz
+        & .textblock__body
+            width: 75%
     &__accountant
         grid-area: accountant
         +fixfz
@@ -83,7 +85,9 @@ main
         grid-area: post
         +fixfz
         & .textblock__title
-            margin-top: 21px
+            // margin-top: 21px
+        & .textblock__body
+            width: 75%
     &__sales
         grid-area: sales
         +fixfz
@@ -94,8 +98,6 @@ main
     &__jobtime
         grid-area: time
         +fixfz
-        & .textblock__title
-            margin-top: 21px
         & .textblock__body
             & > p
                 margin: 0
