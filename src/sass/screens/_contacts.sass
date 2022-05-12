@@ -14,7 +14,8 @@
         align-items: flex-start
 .contacts
     // font-size: calc($metrica * 0.7)
-
+    @media screen and ( max-width: 425px )
+        overflow-y: auto
     &__container
         margin: 64px 146px 0 184px
         display: grid
@@ -39,12 +40,7 @@
         @media screen and ( max-width: 630px )
             grid-template-areas: "social legal accountant " "social post supply" "social time sales" "social production sales " " social phone phone"
         @media screen and ( max-width: 425px )
-            margin: 0 50px
-            grid-template-areas: "social social" "legal accountant " "post supply" "time sales" "production sales " "phone phone"
-        @media screen and ( max-width: 320px )
-            margin: 0 45px
-            // grid-template-columns: 1fr
-            // grid-template-areas: "social" "legal" "post" "supply" "accountant" "supply" "production" "time" "sales" "phone"
+            margin: 0 60px
             display: flex
             flex-direction: column
     &__socials
