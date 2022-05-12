@@ -23,6 +23,13 @@
         grid-template-areas: "EMPTY legal accountant production" "social post sales supply" "social time sales empty" " social phone phone phone"
         place-content: start
         column-gap: 0em
+        @media screen and ( max-width: 1440px )
+            grid-template-columns: 100px 470px 1fr 1fr
+        @media screen and ( max-width: 1250px )
+            grid-template-columns: 100px 330px 1fr 1fr
+            margin: 64px 90px 0 104px
+        @media screen and ( max-width: 1024px )
+            grid-template-columns: 100px 285px 1fr 1fr
         & *
             padding-top: 0
             margin-top: 0
@@ -57,6 +64,9 @@
     &__legal-address
         grid-area: legal
         font-size: 1.2em
+        @media screen and ( max-width: 1024px )
+            font-size: 1px
+            +fixfz
     &__accountant
         grid-area: accountant
         +fixfz
@@ -67,11 +77,15 @@
         grid-area: post
         & .textblock__title
             margin-top: 21px
+        @media screen and ( max-width: 1024px )
+            +fixfz
     &__sales
         grid-area: sales
         +fixfz
-        & > ul
+        &  ul
             padding: 0
+            @media screen and ( max-width: 1720px )
+                width: 90%
     &__jobtime
         grid-area: time
         & .textblock__title
@@ -79,6 +93,8 @@
         & .textblock__body
             & > p
                 margin: 0
+        @media screen and ( max-width: 1024px )
+            +fixfz
     &__supply
         grid-area: supply
         +fixfz
