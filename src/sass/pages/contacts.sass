@@ -8,44 +8,54 @@
 =fixfz
     & .textblock__title
         font-size: 20px
+        @media screen and ( max-width: 425px )
+            font-size: 15px
     & .textblock__body
         font-size: 16px
         width: 100%
+        @media screen and ( max-width: 425px )
+            font-size: 11px
 
 body
     height: 100vh
+    padding: 0
+    margin: 0
 main
     position: absolute
     inset: 0
 
 .contacts
+    @media screen and ( max-width: 320px )
+        align-items: flex-start
+        @media screen and ( max-width: 425px )
+            overflow-y: auto
     &__container
-        // font-size: 16px
-        // font-weight: 200
-        // display: grid
         grid-template-areas: "EMPTY legal accountant map" "social post supply map" "social time production map" "social sales empty map"
-        // grid-template-columns: auto calc(410 / 1920 * 100vw) calc(273 / 1920 * 100vw) calc(600 / 1920 * 100vw)
-        // place-content: start
-        // // margin: calc(190 / 1920 * 100vw) calc(150 / 1920 * 100vw) (142 / 1920 * 100vw)
-        // // margin: 0 auto
-        // grid-column-gap: calc(108 / 1920 * 100vw)
         margin: 166px 146px 0 106px
         display: grid
         grid-template-columns: 137px 521px 1fr 1fr
         grid-template-rows: 126px 120px 124px 168px
-        // grid-template-areas: "EMPTY legal accountant production" "social post sales supply" "social time sales empty" " social phone phone phone"
         place-content: start
         column-gap: 0em
-
-        & *
-            padding-top: 0
-            margin-top: 0
+        @media screen and ( max-width: 1440px )
+            grid-template-rows: 134px 120px 117px 168px
+            grid-template-columns: 100px 380px 1fr 1fr
+        @media screen and ( max-width: 1250px )
+            grid-template-columns: 100px 330px 1fr 1fr
+            margin: 64px 90px 0 104px
+        @media screen and ( max-width: 1024px )
+            grid-template-columns: 65px 285px 200px 1fr
         @media screen and ( max-width: 768px )
-            margin: 0
+            grid-template-columns: 65px 285px 1fr
+            margin: 64px auto 0
+            grid-template-areas: "EMPTY legal accountant " "social post supply" "social time sales" "social production sales " " social map map"
+            grid-template-rows: 126px 120px 124px 168px 250px
         @media screen and ( max-width: 630px )
-            grid-template-areas: "social legal accountant " "social post supply" "social time sales" "social production sales " " social map map"
+            grid-template-columns: 65px 260px auto
         @media screen and ( max-width: 425px )
             // margin: 0 50px
+            margin: 76px auto 0
+            grid-template-rows: 50px 70px 80px 168px 80px
             grid-template-columns: 1fr 1fr
             grid-template-areas: "social social" "legal accountant " "post supply" "time sales" "production sales " "map map"
         @media screen and ( max-width: 320px )
@@ -54,6 +64,12 @@ main
             grid-template-areas: "social" "legal" "post" "supply" "accountant" "supply" "production" "time" "sales" "map"
             display: flex
             flex-direction: column
+        & *
+            padding-top: 0
+            margin-top: 0
+            @media screen and ( max-width: 425px )
+                margin: 0
+                padding: 0
     &__socials
         grid-area: social
         display: flex
@@ -71,8 +87,10 @@ main
             fill: $color__deepblue
     &__legal-address
         grid-area: legal
-        font-size: 1em
-        +fixfz
+        font-size: 1.2em
+        @media screen and ( max-width: 1024px )
+            font-size: 1px
+            +fixfz
         & .textblock__body
             width: 75%
     &__accountant
@@ -86,21 +104,35 @@ main
         +fixfz
         & .textblock__title
             // margin-top: 21px
+            @media screen and ( max-width: 425px )
+                margin-top: 10px
         & .textblock__body
             width: 75%
     &__sales
         grid-area: sales
         +fixfz
-        & > ul
+        &  ul
             padding: 0
+            @media screen and ( max-width: 1440px )
+                width: 100%
         & h2
             font-size: 20px
+            @media screen and ( max-width: 1720px )
+                width: 90%
+            @media screen and ( max-width: 630px )
+                width: 100%
     &__jobtime
         grid-area: time
         +fixfz
+        & .textblock__title
+            margin-top: 21px
+            @media screen and ( max-width: 425px )
+                margin-top: 10px
         & .textblock__body
             & > p
                 margin: 0
+        @media screen and ( max-width: 1024px )
+            +fixfz
     &__supply
         grid-area: supply
         +fixfz
@@ -125,6 +157,8 @@ main
                 font-size: 30px
             @media screen and ( max-width: 425px )
                 font-size: 25px
+            @media screen and ( max-width: 320px )
+                font-size: 20px
 
     &__liner
         height: 100%
@@ -166,8 +200,8 @@ main
     @media screen and ( max-width: 1440px )
         width: 400px
     @media screen and ( max-width: 1024px )
-        width: 250px
-        height: 50%
+        width: 100%
+        height: 100%
 .header__main-head
     z-index: 10
 .footer
