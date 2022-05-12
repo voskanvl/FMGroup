@@ -5,9 +5,13 @@
 =fixfz
     & .textblock__title
         font-size: 20px
+        @media screen and ( max-width: 425px )
+            font-size: 15px
     & .textblock__body
         font-size: 16px
         width: 100%
+        @media screen and ( max-width: 425px )
+            font-size: 11px
 
 .screen.contacts
     @media screen and ( max-width: 320px )
@@ -34,6 +38,9 @@
         & *
             padding-top: 0
             margin-top: 0
+            @media screen and ( max-width: 425px )
+                margin: 0
+                padding: 0
         @media screen and ( max-width: 768px )
             grid-template-columns: 65px 200px 1fr 1fr
             margin: 64px 48px 0 72px
@@ -74,8 +81,11 @@
         grid-area: post
         & .textblock__title
             margin-top: 21px
+            @media screen and ( max-width: 425px )
+                margin-top: 10px
         @media screen and ( max-width: 1024px )
             +fixfz
+
     &__sales
         grid-area: sales
         +fixfz
@@ -89,6 +99,8 @@
         grid-area: time
         & .textblock__title
             margin-top: 21px
+            @media screen and ( max-width: 425px )
+                margin-top: 10px
         & .textblock__body
             & > p
                 margin: 0
@@ -111,6 +123,7 @@
 
         @media screen and ( max-width: 320px )
             padding-top: 0
+
         & > a
             text-decoration: none
             color: $color__deepblue
@@ -119,6 +132,8 @@
                 font-size: 30px
             @media screen and ( max-width: 425px )
                 font-size: 25px
+            @media screen and ( max-width: 320px )
+                font-size: 20px
 
     &__liner
         height: 100%
