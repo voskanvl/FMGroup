@@ -17,5 +17,8 @@ const routes = {
     ["/projects.html"]: () => {
         import("./pages/projects.js");
     },
+    ["/blank.html"]: () => {
+        import("./pages/blank.js");
+    },
 };
 routes[location.pathname]();

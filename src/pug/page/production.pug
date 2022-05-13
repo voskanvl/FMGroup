@@ -3,6 +3,9 @@ extends ../layout/project
 include ../../components/tabs/tabs.pug
 include ../mixin/production-page
 include ../mixin/slider.pug
+include ../../components/button/button.pug
+include ../../components/modal/modal.pug
+
 block variables
     - let title = 'FMGroup | Продукция'
 block page
@@ -88,4 +91,7 @@ block page
                                 each i in data[0].solutions
                                     li
                                         span= i
+    .pruduction__modal 
+        +modal
+
 

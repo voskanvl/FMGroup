@@ -7,4 +7,5 @@ mixin big-card(title,img,text)
             .big-card__title= title
             .big-card__text= text
             .big-card__wrapper
-                +button("big-card__button", "посмотреть")
+                a(href="blank.html")
+                    +button("big-card__button", "посмотреть")

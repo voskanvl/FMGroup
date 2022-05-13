@@ -10,6 +10,9 @@ html(lang='ru')
     script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js")
     block connect
   body
+    style .preload{position: fixed; inset: 0; z-index: 300; background: #fff; transition: opacity .5s, z-index .5s; opacity: 1;} 
+          | .preload.hidden{opacity: 0; z-index: -2;}"
+    .preload
 
     // Header
 

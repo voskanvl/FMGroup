@@ -20,7 +20,7 @@ let isMCarouselInited = false;
 
 const screen = document.querySelector(".screen");
 if (screen) {
-    const colorsForMeter = ["#000", "#000", "#fff", "#000", "#fff", "#000"];
+    const colorsForMeter = ["#000", "#000", "#fff", "#fff", "#fff", "#000"];
     let currentScreen = 0;
     const screens = [...container.children];
     const exceededEvent = new Event("exceeded", { bubbles: true });
@@ -116,8 +116,15 @@ if (document.readyState !== "loading") {
 } else {
     document.addEventListener("DOMContentLoaded", start);
 }
+if (document.readyState !== "complete") {
+    //выключаем прелоадер
+
+    const preloader = document.querySelector(".preload");
+    preloader.classList.add("hidden");
+}
 function start() {
     console.log("DOMContentLoaded");
+
     //--- listen menu
     mainMenu();
     new ItcSimpleSlider(".slider", {
