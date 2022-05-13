@@ -1,10 +1,11 @@
-extends ../layout/default
+extends ../layout/defaultсщте
 include ../../components/header/header.pug
 include ../mixin/production-page
 include ../mixin/slider.pug
 include ../../components/card/card.pug
 
-
+block variables 
+    - let title= 'FMGroup | О нас'
 block content
     -
         let cards = [
