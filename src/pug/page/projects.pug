@@ -20,7 +20,8 @@ block page
                 select(name="center" class="control control__tools")
                     each i,idx in tools
                         option(value=idx)= i  
-            #map Здесь будет карта
+            #map 
+                include ../svg.pug
             .list 
                 each card in toolCards 
                     .list-item= card.name
