@@ -64,6 +64,7 @@ main
             grid-template-areas: "social" "legal" "post" "supply" "accountant" "supply" "production" "time" "sales" "map"
             display: flex
             flex-direction: column
+            column-gap: 2em
         & *
             padding-top: 0
             margin-top: 0
@@ -106,6 +107,7 @@ main
             // margin-top: 21px
             @media screen and ( max-width: 425px )
                 margin-top: 10px
+                margin: 0
         & .textblock__body
             width: 75%
     &__sales
@@ -120,6 +122,7 @@ main
             @media screen and ( max-width: 1720px )
                 width: 90%
             @media screen and ( max-width: 630px )
+                font-size: 14px
                 width: 100%
     &__jobtime
         grid-area: time
@@ -127,7 +130,7 @@ main
         & .textblock__title
             margin-top: 21px
             @media screen and ( max-width: 425px )
-                margin-top: 10px
+                margin-top: 0px
         & .textblock__body
             & > p
                 margin: 0
