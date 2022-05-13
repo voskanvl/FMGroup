@@ -4,7 +4,9 @@ export function disappear(control) {
     control.style.opacity = 0;
     setTimeout(() => (control.style.display = "none"), DELAY);
 }
-export function appear(control) {
-    control.style.display = "";
+export function appear(control, ...args) {
+    let display = "";
+    if (args.includes("block")) display = "block";
+    control.style.display = display;
     setTimeout(() => (control.style.opacity = 1), DELAY);
 }
