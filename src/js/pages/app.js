@@ -20,7 +20,7 @@ let isMCarouselInited = false;
 
 const screen = document.querySelector(".screen");
 if (screen) {
-    const colorsForMeter = ["#000", "#000", "#fff", "#000", "#fff", "#000"];
+    const colorsForMeter = ["#000", "#000", "#fff", "#fff", "#fff", "#000"];
     let currentScreen = 0;
     const screens = [...container.children];
     const exceededEvent = new Event("exceeded", { bubbles: true });
