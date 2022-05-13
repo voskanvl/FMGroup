@@ -61,4 +61,18 @@ function start() {
             swipe: true,
         },
     );
+    //--- MODAL
+    const modal = document.querySelector(".modal");
+    const button = document.querySelector(".production button.button");
+    const close = modal.querySelector(".modal__close");
+    close.addEventListener("click", () => {
+        disappear(modal);
+    });
+    button.addEventListener("click", () => {
+        appear(modal, "block");
+        // modal.style.display = "block";
+        // setTimeout(() => {
+        //     modal.style.opacity = 1;
+        // }, 400);
+    });
 }
