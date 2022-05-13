@@ -116,8 +116,15 @@ if (document.readyState !== "loading") {
 } else {
     document.addEventListener("DOMContentLoaded", start);
 }
+if (document.readyState !== "complete") {
+    //выключаем прелоадер
+
+    const preloader = document.querySelector(".preload");
+    preloader.classList.add("hidden");
+}
 function start() {
     console.log("DOMContentLoaded");
+
     //--- listen menu
     mainMenu();
     new ItcSimpleSlider(".slider", {

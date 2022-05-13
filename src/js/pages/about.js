@@ -5,6 +5,11 @@ if (document.readyState !== "loading") {
 } else {
     start();
 }
+if (document.readyState !== "complete") {
+    //выключаем прелоадер
+    const preloader = document.querySelector(".preload");
+    preloader.classList.add("hidden");
+}
 function start() {
     mainMenu();
 }
