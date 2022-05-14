@@ -15,6 +15,7 @@ function start() {
     mainMenu();
     //--- map
     const selectRegion = document.querySelector(".control.control__regions");
+    const hint = document.querySelector(".hint");
     let currentRegion = null;
     const changeRegion = target => {
         if (currentRegion) currentRegion.style.fill = "transparent";
@@ -25,6 +26,13 @@ function start() {
         if (target.tagName === "path") {
             if (target === currentRegion) return;
             changeRegion(target);
+        }
+    });
+    map.addEventListener("mouseover", ev => {
+        if (ev.target.tagName === "path") {
+            hint.style.left = +ev.clientX + 10 + "px";
+            hint.style.top = +ev.clientY + 10 + "px";
+            hint.textContent = ev.target.getAttribute("region");
         }
     });
     selectRegion.addEventListener("change", () => {
