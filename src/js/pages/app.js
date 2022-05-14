@@ -8,6 +8,7 @@ import mainMenu from "../../components/menu/main-menu";
 import { initMCarousel, MCarouselControls } from "../MCarousel";
 import touchBehaviour from "../touchBehaviour";
 import changeControlsColor from "../changeControlsColor";
+import YTPlayer from "./YT";
 
 const container = document.querySelector(".container");
 const meterContainer = document.querySelector(".meter__container");
@@ -18,9 +19,29 @@ const productsHeaders = document.querySelectorAll(".products__header");
 
 let isMCarouselInited = false;
 
+//---init video on about screen
+const ytplayer = new YTPlayer();
+window.ytplayer = ytplayer;
+window.onYouTubeIframeAPIReady = ytplayer.init;
+// function onYouTubeIframeAPIReady() {
+//     console.log("🚀 ~ onYouTubeIframeAPIReady");
+
+//     // player = new YT.Player('player', {
+//     //   height: '360',
+//     //   width: '640',
+//     //   videoId: 'M7lc1UVf-VE',
+//     //   events: {
+//     //     'onReady': onPlayerReady,
+//     //     'onStateChange': onPlayerStateChange
+//     //   }
+//     // });
+//     ytplayer.init();
+//     ytplayer.start();
+// }
+
 const screen = document.querySelector(".screen");
 if (screen) {
-    const colorsForMeter = ["#000", "#000", "#fff", "#fff", "#fff", "#000"];
+    const colorsForMeter = ["#000", "#000", "#fff", "#000", "#fff", "#000"];
     let currentScreen = 0;
     const screens = [...container.children];
     const exceededEvent = new Event("exceeded", { bubbles: true });
@@ -37,6 +58,7 @@ if (screen) {
     );
 
     const renderScreens = (prev, next) => {
+        if (prev == next) return;
         //--- change controls color
         changeControlsColor(
             [controlUp, controlDown, indicatorTitle],
@@ -52,7 +74,13 @@ if (screen) {
                 switchCarouselPoints();
             }, 400);
         }
-        if (prev == next) return;
+        //--- play video on screen 3
+        if (next === 3) {
+            ytplayer.start();
+        } else {
+            ytplayer.pause();
+        }
+
         disappear(screens[+prev]);
         appear(screens[+next]);
         meter.value = next;
@@ -144,8 +172,6 @@ function start() {
     //--- усанавливаем текущий header в слайдере products
     if (productsHeaders?.length) appear(productsHeaders[0]);
 
-    //---init Tabs
-    if (document.querySelector(".tabs")) tabs = new Tabs();
     //---init controls switching scrrens
     disappear(controlUp);
 }
