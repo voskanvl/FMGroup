@@ -4,67 +4,44 @@
     position: relative
     background: #fff
     border-radius: 5px
-    width: 382px
+    // width: 382px
     padding: 1rem
-    margin: 0 35.5px
-    @media screen and (max-width:1024px)
-        padding: 2rem 1rem
-        margin: 10px 0
-        +dfc
-        flex-direction: column
+    margin: 10px 35.5px
+    +dfc
     @media screen and (max-width:768px)
-        width: 80%
-        margin-bottom: 0
-    @media screen and (max-width:630px)
-        padding: 1rem
+        margin: 10px calc(35.5 / 768 * 100vw)
+
     &__title
         text-align: center
-        margin-top: calc($metrica * 3)
-        font-size: 25px
+        font-size: 20px
         font-weight: 400
+        padding-left: calc(68 / 1920 * 100vw)
         @media screen and (max-width:1024px)
-            margin: 0 0 1rem 50px
             text-align: center
-        @media screen and (max-width:425px)
-            font-size: 20px
-            margin: 0 0 0.5rem 30px
+            font-size: 16px
+        @media screen and (max-width:768px)
         @media screen and (max-width:320px)
             font-size: 16px
-            margin: 0 0 0.5rem 13px
-
-    &__body
-        text-align: center
-        margin-bottom: calc($metrica * 3)
-        font-size: 18px
-        font-weight: 200
-        @media screen and (max-width:1024px)
-            margin: 0 0 0 50px
-        @media screen and (max-width:425px)
-            font-size: 15px
-            margin: 0 0 0 30px
-        @media screen and (max-width:320px)
-            font-size: 11px
-            margin: 0 0 0 13px
     &__svg
         background: #013485
         position: absolute
-        top: 0
-        left: 50%
+        top: 50%
+        left: 0%
         transform: translate(-50%,-50%)
         border-radius: 50%
-        padding: 10px
+        padding: 3%
         border: 1px solid #fff
-        width: 135px
+        width: 4vw
+        height: 4vw
         +flex-center
-        @media screen and (max-width:1024px)
-            width: 30%
-            left: 0
-            top: 50%
-        @media screen and (max-width:768px)
-            width: 22%
-        @media screen and (max-width:425px)
-            width: 30%
-
-        & > svg
+        & > img
             width: 100%
             height: auto
+        @media screen and (max-width:1024px)
+            width: 7vw
+            height: 7vw
+            left: 0
+            top: 50%
+        @media screen and (max-width:320px)
+            width: 10vw
+            height: 10vw
