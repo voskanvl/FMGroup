@@ -2,7 +2,7 @@
     position: fixed
     inset: 0
     background: transparent
-    z-index: 10
+    z-index: 102
     font-size: 20px
     opacity: 0
     display: none
@@ -21,6 +21,15 @@
         border-radius: 10px
         display: flex
         flex-direction: column
+        @media screen and ( max-width:  768px) and (orientation: portrait)
+            width: 425px
+            height: 540px
+        @media screen and ( max-width:  425px) and (orientation: portrait)
+            width: 320px
+            height: 540px
+        @media screen and ( max-width:  768px) and (orientation: landscape)
+            width: 540px
+            height: 540px
 
     &__input
         margin: 0 auto 21px
@@ -30,13 +39,18 @@
         border-radius: 5px
         border: none
         font-size: 20px
-
+        @media screen and ( max-width:  425px) and (orientation: portrait)
+            width: 70%
     &__title
         width: 622px
         color: #fff
         font-size: 30px
         text-align: center
         margin: 49px auto
+        @media screen and ( max-width:  768px)
+            width: calc( 622 / 755 * 100%)
+        @media screen and ( max-width:  425px) and (orientation: portrait)
+            margin-bottom: 20px
 
     &__button
         color: #fff
@@ -57,3 +71,4 @@
         & > svg
             width: 100%
             height: auto
+    @media screen and ( max-width:  768px)
