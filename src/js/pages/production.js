@@ -63,16 +63,19 @@ function start() {
     );
     //--- MODAL
     const modal = document.querySelector(".modal");
-    const button = document.querySelector(".production button.button");
+    const button = document.querySelectorAll(".production button.button");
     const close = modal.querySelector(".modal__close");
     close.addEventListener("click", () => {
         disappear(modal);
     });
-    button.addEventListener("click", () => {
-        appear(modal, "block");
-        // modal.style.display = "block";
-        // setTimeout(() => {
-        //     modal.style.opacity = 1;
-        // }, 400);
-    });
+    button.forEach(el =>
+        el.addEventListener("click", () => {
+            console.log("modal click");
+            appear(modal, "block");
+            // modal.style.display = "block";
+            // setTimeout(() => {
+            //     modal.style.opacity = 1;
+            // }, 400);
+        }),
+    );
 }
