@@ -38,28 +38,27 @@ main
         place-content: start
         column-gap: 0em
         @media screen and ( max-width: 1440px )
+            margin-top: 130px
             grid-template-rows: 134px 120px 117px 168px
             grid-template-columns: 100px 380px 1fr 1fr
         @media screen and ( max-width: 1250px )
             grid-template-columns: 100px 330px 1fr 1fr
-            margin: 64px 90px 0 104px
+            margin: 130px 90px 0 104px
         @media screen and ( max-width: 1024px )
             grid-template-columns: 65px 285px 200px 1fr
         @media screen and ( max-width: 768px )
             grid-template-columns: 65px 285px 1fr
-            margin: 64px auto 0
+            margin: 90px 30px 0
             grid-template-areas: "EMPTY legal accountant " "social post supply" "social time sales" "social production sales " " social map map"
             grid-template-rows: 126px 120px 124px 168px 250px
         @media screen and ( max-width: 630px )
-            grid-template-columns: 65px 260px auto
+            grid-template-columns: 65px 260px 215px
         @media screen and ( max-width: 425px )
-            // margin: 0 50px
-            margin: 76px auto 0
+            // margin: 76px auto 0
             grid-template-rows: 50px 70px 80px 168px 80px
             grid-template-columns: 1fr 1fr
             grid-template-areas: "social social" "legal accountant " "post supply" "time sales" "production sales " "map map"
         @media screen and ( max-width: 320px )
-            // margin: 0 45px
             grid-template-columns: 1fr
             grid-template-areas: "social" "legal" "post" "supply" "accountant" "supply" "production" "time" "sales" "map"
             display: flex
