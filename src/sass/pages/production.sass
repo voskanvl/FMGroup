@@ -4,15 +4,19 @@
 @import "../../components/modal/_modal"
 @import "../_slider"
 
+main
+    // width: 100%
+    // height: 100%
+    margin: 130px
 .header__main-head
     color: $color__deepblue
+
 .production
     overflow: hidden
-    max-width: 100%
     & .tabs
-        margin: 8em auto 1em
+        // margin: 8em auto 1em
         @media screen and (max-width: 768px)
-            margin: 3em auto 1em
+            // margin: 3em auto 1em
     & .header__main-head
         margin: 0 auto
     & .header__logo
@@ -20,7 +24,7 @@
         background-size: contain
     &__page
         display: grid
-        grid-template-columns: 3fr 2fr
+        grid-template-columns: 3fr minmax(2fr, 545px)
         grid-template-areas: "img info" "desc desc"
         grid-template-rows: auto minmax(246px, 1fr)
         // @media screen and (max-width: 768px)
@@ -33,11 +37,6 @@
             grid-template-rows: 200px 255px 260px
     &__info
         grid-area: info
-        border-radius: 5px
-        border: 1px solid #C4CDD6
-        width: calc(585/1920 * 100vw)
-        padding: calc(53/1920 * 100vw)
-        color: $color__deepblue
 
     &__footer-info
         grid-area: desc
@@ -61,6 +60,9 @@
             fill: #000
         &-left
             transform: rotate(180deg)
+    &__body
+        @media screen and (max-width: 768px)
+            margin-top: 100px
 
     &.priority__backword
         opacity: 0.1
@@ -88,11 +90,18 @@
                 height: 20px
 
 .info
+    border-radius: 5px
+    border: 1px solid #C4CDD6
+    width: calc(585/1920 * 100vw)
+    padding: calc(53/1920 * 100vw)
+    color: $color__deepblue
     background: #fff
     z-index: 1
     width: 545px
+    // width: 100%
     @media screen and (max-width: 768px)
         margin: 0 auto
+        width: 95%
     &__button
         & .button__name
             color: $color__deepblue
@@ -158,6 +167,9 @@
 
 .slider
     max-width: 80vw
+
+    &__wrapper
+        overflow-y: auto
     &__indicators
         display: none
     &__items
