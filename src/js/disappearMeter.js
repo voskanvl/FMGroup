@@ -5,12 +5,17 @@ const disappearMeter = on => () => {
     console.log("🚀 ~ controls", controls);
     const screen = document.querySelector("#about");
     let isShow = false;
+    let timeout = null;
     const listener = debounce(() => {
         meterIndicator.style.opacity = 1;
         controls.forEach(el => (el.style.opacity = 1));
         isShow = true;
-        setTimeout(() => {
-            if (isShow) {
+        timeout = setTimeout(() => {
+            if (isShow && screen.style.opacity == 1) {
+                console.log(
+                    "isShow && screen.style.opacity",
+                    isShow && screen.style.opacity,
+                );
                 meterIndicator.style.opacity = 0;
                 controls.forEach(el => (el.style.opacity = 0));
             }
@@ -18,13 +23,18 @@ const disappearMeter = on => () => {
         }, 3000);
     }, 1000);
     if (on === "on") {
-        meterIndicator.style.opacity = 0;
-        controls.forEach(el => (el.style.opacity = 0));
+        setTimeout(() => {
+            meterIndicator.style.opacity = 0;
+            controls.forEach(el => (el.style.opacity = 0));
+        }, 1000);
         screen.addEventListener("mousemove", listener);
         return;
     }
     if (on === "off") {
         screen.removeEventListener("mousemove", listener);
+        clearTimeout(timeout);
+        meterIndicator.style.opacity = 1;
+        controls.forEach(el => (el.style.opacity = 1));
         return;
     }
 };
