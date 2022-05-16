@@ -9,6 +9,7 @@ import { initMCarousel, MCarouselControls } from "../MCarousel";
 import touchBehaviour from "../touchBehaviour";
 import changeControlsColor from "../changeControlsColor";
 import YTPlayer from "./YT";
+import disappearMeter from "../disappearMeter";
 
 const container = document.querySelector(".container");
 const meterContainer = document.querySelector(".meter__container");
@@ -16,6 +17,7 @@ const controlUp = document.querySelector(".control__up");
 const controlDown = document.querySelector(".control__down");
 const indicatorTitle = document.querySelector(".meter-indicator__title");
 const productsHeaders = document.querySelectorAll(".products__header");
+let aboutPanel;
 
 let isMCarouselInited = false;
 
@@ -23,25 +25,10 @@ let isMCarouselInited = false;
 const ytplayer = new YTPlayer();
 window.ytplayer = ytplayer;
 window.onYouTubeIframeAPIReady = ytplayer.init;
-// function onYouTubeIframeAPIReady() {
-//     console.log("🚀 ~ onYouTubeIframeAPIReady");
-
-//     // player = new YT.Player('player', {
-//     //   height: '360',
-//     //   width: '640',
-//     //   videoId: 'M7lc1UVf-VE',
-//     //   events: {
-//     //     'onReady': onPlayerReady,
-//     //     'onStateChange': onPlayerStateChange
-//     //   }
-//     // });
-//     ytplayer.init();
-//     ytplayer.start();
-// }
 
 const screen = document.querySelector(".screen");
 if (screen) {
-    const colorsForMeter = ["#000", "#000", "#fff", "#000", "#fff", "#000"];
+    const colorsForMeter = ["#000", "#000", "#fff", "#fff", "#fff", "#000"];
     let currentScreen = 0;
     const screens = [...container.children];
     const exceededEvent = new Event("exceeded", { bubbles: true });
@@ -75,10 +62,21 @@ if (screen) {
             }, 400);
         }
         //--- play video on screen 3
-        if (next === 3) {
-            ytplayer.start();
-        } else {
+        const panelClickHandler = () => {
+            console.log(ytplayer.player.getPlayerState());
+            if (ytplayer.player.getPlayerState() === 1) ytplayer.pause();
+            if (ytplayer.player.getPlayerState() === 2) ytplayer.start();
+        };
+        if (prev === 3) {
             ytplayer.pause();
+            disappearMeter.off();
+            aboutPanel.removeEventListener("click", panelClickHandler);
+        }
+        if (next === 3) {
+            aboutPanel = document.querySelector(".about__panel");
+            aboutPanel.addEventListener("click", panelClickHandler);
+            ytplayer.start();
+            disappearMeter.on();
         }
 
         disappear(screens[+prev]);
