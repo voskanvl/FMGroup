@@ -41,12 +41,15 @@ menu.main-menu
             position: relative
             list-style: none
             padding: 0
-            padding-left: 0.4em
             display: flex
             align-items: center
             justify-content: center
+            transition: border-bottom .5s
+            &:not(:first-child)
+                padding-left: 1em
 
             & > a
+                font-weight: 200
                 color: inherit
                 text-decoration: none
                 padding: 0.5rem 0
@@ -55,6 +58,9 @@ menu.main-menu
                 inset: 0
                 @media screen and ( max-width: 768px )
                     font-size: 20px
+
+            &:hover
+                border-bottom: 1px solid currentColor
     &__blank
         border: none
         color: inherit
