@@ -10,6 +10,7 @@
     margin: calc($metrica * 40 / 55 * 2.1) 0
     display: flex
     align-items: center
+    font-family: 'PF DinDisplay Pro', sans-serif
     &__name
         border: 1px solid currentColor
         padding: 0 51px
@@ -18,9 +19,11 @@
         height: 100%
         text-transform: uppercase
         +flex-center
+        font-weight: 200
+        font-size: 25px
     &__arrow
         box-sizing: border-box
-        background: currentColor
+        background: transparent
         background-size: contain
         background-position: 50% 100%
         width: calc($metrica * 2.1)
@@ -28,6 +31,22 @@
         display: flex
         align-items: center
         justify-content: center
+        border-left: none
+        &_blue
+            border: 1px solid #fff
+            & > svg
+                fill: #fff
+                width: 50%
+        &_white
+            border: 1px solid #fff
+            & > svg
+                fill: $color__deepblue
+                width: 50%
+    &:hover .button__arrow_blue
+        background: #fff
         & > svg
             fill: $color__deepblue
-            width: 50%
+    &:hover .button__arrow_white
+        background: $color__deepblue
+        & > svg
+            fill: #fff
