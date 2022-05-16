@@ -1,0 +1,6 @@
+mixin cardpriority(className,title,body)
+    .card-priority(class=className, style=attributes.border)
+        h2.card-priority__title= title 
+        p.card-priority__body= body
+        .card-priority__svg(style=attributes.style) 
+            block
