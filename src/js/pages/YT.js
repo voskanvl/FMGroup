@@ -6,9 +6,9 @@ class YTPlayer {
         this.#insertScript();
         this.option = {
             ...{
-                height: "360",
-                width: "640",
-                videoId: "M7lc1UVf-VE",
+                height: "100%",
+                width: "100%",
+                videoId: "474tZZw7Cdc",
             },
             ...option,
             events: {
