@@ -8,8 +8,16 @@
     padding: 1rem
     margin: 10px 35.5px
     +dfc
+    @media screen and (max-width:1334px)
+        margin: 10px 25px
+
     @media screen and (max-width:768px)
-        margin: 10px calc(35.5 / 768 * 100vw)
+        // margin: 10px calc(35.5 / 768 * 100vw)
+        margin: 10px 0 0 38px
+    @media screen and (max-width:477px)
+        padding: 10px 0 10px 15px
+    @media screen and (max-width:375px)
+        margin: 10px 5.2vw
     @media screen and (max-width:320px)
         margin: 10px 7vw
 
@@ -18,10 +26,14 @@
         font-size: 20px
         font-weight: 400
         padding-left: calc(68 / 1920 * 100vw)
+        @media screen and (max-width:1334px)
+            font-size: 14.5px
         @media screen and (max-width:1024px)
             text-align: center
             font-size: 16px
         @media screen and (max-width:768px)
+        @media screen and (max-width:477px)
+            font-size: 13px
         @media screen and (max-width:320px)
             font-size: 16px
     &__svg
