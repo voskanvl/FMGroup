@@ -172,7 +172,9 @@ main
     &__wrapper
         padding-top: 1em
         overflow-y: auto
-        height: 60vh
+        @media screen and (max-width: 1024px)
+            height: 60vh
+
     &__indicators
         display: none
     &__items
