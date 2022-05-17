@@ -6,10 +6,30 @@
 @import "../../components/menu/_main-menu"
 
 body
-    display: flex
-    align-items: center
-    justify-content: center
+    // display: flex
+    // align-items: center
+    // justify-content: center
     height: 100vh
-
 h1
-    text-shadow: 0 0 2em #000
+    color: $color__deepblue
+    font-size: 40px
+    font-weight: 600
+h2
+    font-size: 30px
+    font-weight: 500
+li
+    list-style: none
+    position: relative
+    & > span
+        padding-left: .5em
+    &::before
+        content: ""
+        background: url(../../assets/img/list.svg) no-repeat
+        position: absolute
+        top: 2px
+        left: -20px
+        width: 20px
+        height: 20px
+.container
+    margin: 190px calc(150 / 1920 * 100vw) 0
+    overflow: auto
