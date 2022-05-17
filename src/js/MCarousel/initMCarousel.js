@@ -17,4 +17,3 @@ export default function initMCarousel(selector, productsHeaders, currentSlide) {
         },
     });
 }
-//TODO: при мобильном TOUCH при вертикальном перемещении делать перемещение на новую страницу, а при горизонтальном перемещение слайдера
