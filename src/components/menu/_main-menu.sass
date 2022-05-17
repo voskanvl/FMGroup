@@ -96,10 +96,11 @@ menu.main-menu
     &__wrapper
         overflow: hidden
         flex: 1 1 100%
-        // transform: translateX(-120%)
+        transform: translateX(-120%)
         transition: transform .5s
         margin-left: 30px
         @media screen and ( max-width: 768px )
+            margin: 0
             position: fixed
             top: 78px
             left: 0
@@ -107,7 +108,7 @@ menu.main-menu
             background: #0000
             z-index: -1
             border-radius: 0 5px 5px 0
-            transition: background 0.5s, box-shadow 0.5s
+            transition: background 0.5s, box-shadow 0.5s, transform .5s
             & ul
                 transform: translateX(-120%)
                 transition: transform .5s
