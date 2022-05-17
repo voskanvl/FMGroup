@@ -59,11 +59,14 @@ main
             grid-template-columns: 1fr 1fr
             grid-template-areas: "social social" "legal accountant " "post supply" "time sales" "production sales " "map map"
         @media screen and ( max-width: 320px )
-            grid-template-columns: 1fr
-            grid-template-areas: "social" "legal" "post" "supply" "accountant" "supply" "production" "time" "sales" "map"
-            display: flex
-            flex-direction: column
-            column-gap: 2em
+            // display: flex
+            // flex-direction: column
+            // column-gap: 2em
+            margin-top: 103px
+            margin-bottom: 100px
+            display: block
+            & > div[class^="contacts"]
+                margin-bottom: 1em
         & *
             padding-top: 0
             margin-top: 0
