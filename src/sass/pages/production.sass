@@ -10,6 +10,8 @@ main
     // width: 100%
     // height: 100%
     margin: 130px calc(130 / 1920 * 100vw) 60px 100px
+    @media screen and (max-width: 768px)
+        margin: 130px calc(130 / 1920 * 100vw) 60px 55px
 
 .header__main-head
     color: $color__deepblue
@@ -33,11 +35,13 @@ main
         @media screen and (max-width: 768px)
             grid-template-columns: 1fr
             grid-template-areas: "img" "info" "desc"
-            grid-template-rows: 200px 255px 260px
-        @media screen and (max-width: 500px)
-            grid-template-rows: 200px 275px 260px
-        @media screen and (max-width: 380px)
-            grid-template-rows: 200px 360px 260px
+            grid-template-rows: 200px 290px 260px
+        @media screen and (max-width: 484px)
+            grid-template-rows: 200px fit-content(100%) 260px
+        // @media screen and (max-width: 500px)
+        //     grid-template-rows: 200px fit-content 260px
+        // @media screen and (max-width: 380px)
+        //     grid-template-rows: 200px 360px 260px
     &__info
         grid-area: info
 
@@ -179,7 +183,6 @@ main
         padding-top: 131px
         overflow-y: auto
         height: 70vh
-        @media screen and (max-width: 1024px)
 
     &__indicators
         display: none
