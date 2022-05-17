@@ -56,6 +56,7 @@ menu.main-menu
                 font-size: calc($metrica*0.7)
                 position: relative
                 inset: 0
+                border-bottom: 1px solid transparent
                 @media screen and ( max-width: 768px )
                     font-size: 20px
 
@@ -97,6 +98,7 @@ menu.main-menu
         flex: 1 1 100%
         // transform: translateX(-120%)
         transition: transform .5s
+        margin-left: 30px
         @media screen and ( max-width: 768px )
             position: fixed
             top: 78px
@@ -115,6 +117,8 @@ menu.main-menu
         display: flex
         justify-content: space-between
         align-items: flex-start
-        width: 75px
         height: 14px
+        position: absolute
+        top: 50%
+        transform: translateY(-50%)
         // width: 100px
