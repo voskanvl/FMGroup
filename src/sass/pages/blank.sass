@@ -17,19 +17,20 @@ h1
 h2
     font-size: 30px
     font-weight: 500
-li
-    list-style: none
-    position: relative
-    & > span
-        padding-left: .5em
-    &::before
-        content: ""
-        background: url(../../assets/img/list.svg) no-repeat
-        position: absolute
-        top: 2px
-        left: -20px
-        width: 20px
-        height: 20px
+
 .container
     margin: 190px calc(150 / 1920 * 100vw) 0
     overflow: auto
+    & li
+        list-style: none
+        position: relative
+        & > span
+            padding-left: .5em
+        &::before
+            content: ""
+            background: url(../../assets/img/list.svg) no-repeat
+            position: absolute
+            top: 2px
+            left: -20px
+            width: 20px
+            height: 20px
