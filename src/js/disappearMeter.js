@@ -28,10 +28,12 @@ const disappearMeter = on => () => {
             controls.forEach(el => (el.style.opacity = 0));
         }, 1000);
         screen.addEventListener("mousemove", listener);
+        screen.addEventListener("click", listener);
         return;
     }
     if (on === "off") {
         screen.removeEventListener("mousemove", listener);
+        screen.removeEventListener("click", listener);
         clearTimeout(timeout);
         meterIndicator.style.opacity = 1;
         controls.forEach(el => (el.style.opacity = 1));
