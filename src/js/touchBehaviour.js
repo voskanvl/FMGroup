@@ -7,6 +7,17 @@
     }
     map impliments IInterface
 */
+export function moveCursorToEnd(el) {
+    // var el = document.getElementById(id);
+    el.focus();
+    if (typeof el.selectionStart == "number") {
+        el.selectionStart = el.selectionEnd = el.value.length;
+    } else if (typeof el.createTextRange != "undefined") {
+        var range = el.createTextRange();
+        range.collapse(false);
+        range.select();
+    }
+}
 export default function touchBehaviour(map) {
     const accordanceX = {
         ["1"]: "right",
@@ -47,9 +58,16 @@ export default function touchBehaviour(map) {
 
         //ищем ближайшего clickable родителя
         const targetEl = el =>
-            "click" in el ? el : targetEl(el.parentElement);
+            "click" in el || "focus" in el ? el : targetEl(el.parentElement);
         //эмулируем событие click
-        targetEl(target).click();
+        const clickableTarget = targetEl(target);
+        console.log("🚀 ~ clickableTarget", clickableTarget);
+        if (clickableTarget.__proto__.constructor.name.includes("Input")) {
+            console.log("INPUT");
+            moveCursorToEnd(clickableTarget);
+        } else {
+            targetEl(target).click();
+        }
     });
     window.addEventListener("touchend", handlerTouch, {
         passive: false,
