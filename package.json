@@ -45,6 +45,7 @@
         "webpack-merge": "^5.8.0"
     },
     "dependencies": {
+        "imask": "^6.4.2",
         "inputmask": "^5.0.7",
         "serve": "^13.0.2"
     }

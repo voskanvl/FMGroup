@@ -27,8 +27,14 @@ $bg: #6E9EC1
             margin-bottom: 42px
         @media screen and ( max-width: 768px )
             width: 70%
-    &__submit.button
+        &[type="text"]:invalid,&.invalidated
+            border: 5px solid red
+            outline: 1px solid red
+        &[type="text"]:valid, &.validated
+            border: 2px solid green
+            outline: 2px solid green
 
+    &__submit.button
         margin: 2rem auto
         color: #fff
         background: $bg

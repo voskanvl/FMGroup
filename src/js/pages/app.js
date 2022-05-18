@@ -10,6 +10,7 @@ import touchBehaviour from "../touchBehaviour";
 import changeControlsColor from "../changeControlsColor";
 import YTPlayer from "./YT";
 import disappearMeter from "../disappearMeter";
+import validate from "../validate";
 
 const container = document.querySelector(".container");
 const meterContainer = document.querySelector(".meter__container");
@@ -177,6 +178,8 @@ function start() {
     //--- усанавливаем текущий header в слайдере products
     if (productsHeaders?.length) appear(productsHeaders[0]);
 
-    //---init controls switching scrrens
+    //---init controls switching screens
     disappear(controlUp);
+    //--- validation inputs in application screen
+    validate(document.querySelector(".application__form"));
 }

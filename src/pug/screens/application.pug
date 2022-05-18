@@ -4,9 +4,9 @@ include ../../components/button/button.pug
 
 form.application__form
     h2.application__head Простое заполнение заявки для расчета стоимости
-    input.application__input(placeholder="Ваше имя*")
-    input.application__input(placeholder="Ваш телефон*" type="phone")
-    input.application__input(placeholder="Ваш email*" type="email")
+    input.application__input(placeholder="Ваше имя*" type="text" required)
+    input.application__input.invalidated(placeholder="Ваш телефон*" type="phone" required)
+    input.application__input.invalidated(placeholder="Ваш email*" type="email" required)
     +button("application__submit","отправить","white")
 .application__decoration 
     div(class="gear gear-up") 
