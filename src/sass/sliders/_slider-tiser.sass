@@ -1,4 +1,5 @@
 .container-tiser
+
     position: absolute
     +top-left-transform
     width: 50%
@@ -23,8 +24,12 @@
             background-size: contain
     & .slider__control
         display: none
+    & > .slider
+        @media screen and (max-width: 425px)
+            height: 400px
+
     @media screen and (max-width: 425px)
         left: 5%
         width: 70%
-        top: 60%
+        top: 66%
         transform: translate(0,-50%)
