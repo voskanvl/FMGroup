@@ -16,3 +16,13 @@
         flex: 1 0 33%
     &__button
         color: #fff
+        @media screen and ( min-width: 425px )
+            & > .button__name
+                padding: 20px 51px
+        & > .button__arrow
+            @media screen and ( min-width: 425px )
+                padding: 20px
+                position: relative
+            & > svg
+                position: absolute
+                fill: #fff
