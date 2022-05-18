@@ -1,5 +1,6 @@
 @import "../../sass/mixins/_mixins"
 @import "../../sass/_const"
+$norm__height: 7vh
 .button
     display: flex
     align-items: center
@@ -8,6 +9,7 @@
     border: none
     height: calc($metrica * 2.1)
     margin: calc($metrica * 40 / 55 * 2.1) 0
+    height: 100px
     display: flex
     align-items: center
     font-family: 'PF DinDisplay Pro', sans-serif
@@ -16,13 +18,13 @@
         padding: 0 51px
         font-size: calc($metrica * 1.1)
         color: currentColor
-        height: 100%
+        height: $norm__height
         text-transform: uppercase
         +flex-center
         font-weight: 200
         font-size: 25px
         &_blue
-            border: 1px solid #fff
+            border: 1px solid $color__deepblue
             & > svg
                 fill: $color__deepblue
                 width: 50%
@@ -37,7 +39,8 @@
         background-size: contain
         background-position: 50% 100%
         width: calc($metrica * 2.1)
-        height: 100%
+        width: $norm__height
+        height: $norm__height
         display: flex
         align-items: center
         justify-content: center
