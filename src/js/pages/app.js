@@ -131,7 +131,14 @@ if (screen) {
         }
     };
 
-    touchBehaviour(map);
+    touchBehaviour({
+        up() {
+            map[-1]();
+        },
+        down() {
+            map[1]();
+        },
+    });
     window.addEventListener("wheel", debounce(handler, 800));
 
     controlUp.addEventListener("click", map[-1]);
