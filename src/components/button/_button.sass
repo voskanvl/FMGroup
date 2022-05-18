@@ -12,7 +12,7 @@
     align-items: center
     font-family: 'PF DinDisplay Pro', sans-serif
     &__name
-        border: 1px solid currentColor
+        // border: 1px solid currentColor
         padding: 0 51px
         font-size: calc($metrica * 1.1)
         color: currentColor
@@ -21,6 +21,16 @@
         +flex-center
         font-weight: 200
         font-size: 25px
+        &_blue
+            border: 1px solid #fff
+            & > svg
+                fill: $color__deepblue
+                width: 50%
+        &_white
+            border: 1px solid #fff
+            & > svg
+                fill: #fff
+                width: 50%
     &__arrow
         box-sizing: border-box
         background: transparent
