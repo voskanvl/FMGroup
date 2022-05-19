@@ -42,11 +42,13 @@
             @media screen and ( max-width: 425px )
                 margin: 0
                 padding: 0
-        @media screen and ( max-width: 768px )
+        @media screen and ( max-width: 870px )
             grid-template-columns: 65px 200px 1fr 1fr
             margin: 64px 48px 0 72px
-        @media screen and ( max-width: 630px )
+        @media screen and ( max-width: 700px )
             grid-template-areas: "social legal accountant " "social post supply" "social time sales" "social production sales " " social phone phone"
+            grid-template-rows: 110px 100px 140px 168px
+            margin: 64px auto 0 72px
         @media screen and ( max-width: 425px )
             margin: 4vw 80px
             display: flex
@@ -83,7 +85,7 @@
     &__postal-address
         grid-area: post
         & .textblock__title
-            margin-top: 21px
+            // margin-top: 21px
             @media screen and ( max-width: 425px )
                 margin-top: 10px
         @media screen and ( max-width: 1024px )
