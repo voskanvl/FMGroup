@@ -28,11 +28,12 @@ function start() {
             changeRegion(target);
         }
     });
-    map.addEventListener("mouseover", ev => {
+    map.addEventListener("mousemove", ev => {
         if (ev.target.tagName === "path") {
             hint.style.left = +ev.clientX + 10 + "px";
             hint.style.top = +ev.clientY + 10 + "px";
             hint.textContent = ev.target.getAttribute("region");
+            changeRegion(ev.target);
         }
     });
     selectRegion.addEventListener("change", () => {
