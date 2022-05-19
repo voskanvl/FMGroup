@@ -37,6 +37,8 @@ menu.main-menu
         flex-wrap: wrap
         transform: translateX(-150%)
         transition: transform .5s
+        @media screen and ( max-width: 768px )
+            padding: 0
         & > li
             position: relative
             list-style: none
@@ -47,6 +49,8 @@ menu.main-menu
             transition: border-bottom .5s
             &:not(:first-child)
                 padding-left: 1em
+                @media screen and ( max-width: 768px )
+                    padding-left: 0
 
             & > a
                 font-weight: 200
@@ -128,7 +132,10 @@ menu.main-menu
         display: none
         font-size: 22px
         width: 100%
+        text-align: center
         @media screen and ( max-width: 768px )
+            left: 50%
+            transform: translateX(-50%)
             display: block
             position: absolute
             margin-bottom: 1em
