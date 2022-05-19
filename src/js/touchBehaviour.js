@@ -57,16 +57,16 @@ export default function touchBehaviour(map) {
         previousClientX = clientX;
 
         //ищем ближайшего clickable родителя
-        const targetEl = el =>
-            "click" in el || "focus" in el ? el : targetEl(el.parentElement);
+        const targetElClick = el =>
+            "click" in el ? el : targetElClick(el.parentElement);
         //эмулируем событие click
-        const clickableTarget = targetEl(target);
+        const clickableTarget = targetElClick(target);
         console.log("🚀 ~ clickableTarget", clickableTarget);
         if (clickableTarget.__proto__.constructor.name.includes("Input")) {
             console.log("INPUT");
             moveCursorToEnd(clickableTarget);
         } else {
-            targetEl(target).click();
+            targetElClick(target).click();
         }
     });
     window.addEventListener("touchend", handlerTouch, {
