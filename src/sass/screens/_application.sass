@@ -1,5 +1,6 @@
 @import "../gear/_gear"
 @import "../_const"
+@import "../_validate"
 
 $bg: #6E9EC1
 .application
@@ -23,16 +24,11 @@ $bg: #6E9EC1
         font-size: calc( $metrica * 1 )
         width: calc(539 / 1920 * 100vw)
         margin: 0 auto
+        transition: border-color .5s, outline-color .5s, box-shadow .5s
         &:not(:last-child)
             margin-bottom: 42px
         @media screen and ( max-width: 768px )
             width: 70%
-        &[type="text"]:invalid,&.invalidated
-            border: 5px solid red
-            outline: 1px solid red
-        &[type="text"]:valid, &.validated
-            border: 2px solid green
-            outline: 2px solid green
 
     &__submit.button
         margin: 2rem auto
