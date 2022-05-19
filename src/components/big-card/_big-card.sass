@@ -30,6 +30,7 @@
         overflow: hidden
         display: flex
         flex-direction: column
+        justify-content: space-between
         @media screen and ( max-width: 1440px )
             left: 40%
         @media screen and ( max-width: 1024px )
@@ -60,30 +61,26 @@
             +stringLimit(2)
         @media screen and ( max-width: 768px )
             margin-bottom: 0.5em
-            font-size: 1.3em
+            font-size: 0.9em
+            font-weight: 500
         @media screen and ( max-width: 560px )
-            line-height: 1
-        @media screen and ( max-width: 425px )
-            font-size: 1.1em
             margin-bottom: 1em
         @media screen and ( max-width: 425px )
-            font-size: 0.9em
             margin-bottom: .5em
-            font-weight: 500
     &__text
         font-weight: 200
         color: #000
         // -o-text-overflow: ellipsis
         +stringLimit(3)
         margin-bottom: 20px
-        @media screen and ( max-width: 425px )
+        @media screen and ( max-width: 768px )
             line-height: 1
             font-size: 0.8em
             +stringLimit(2)
     &__button.button
         height: 29px
         color: $color__deepblue
-        margin: 1em 0 0 0
+        margin: 0
         @media screen and ( max-width: 425px )
             margin: 0
             font-size: 0.8em
@@ -106,20 +103,22 @@
             background: #fff
             border: 1px solid currentColor
             border-left: none
-            width: 29px
+            width: 4vh
             @media screen and ( max-width: 425px )
                 height: 3vh
+                width: 3vh
     &__wrapper
-        position: absolute
+        // position: absolute
         bottom: 32px
         right: 34px
+        width: 100%
+        display: flex
+        justify-content: flex-end
         @media screen and ( max-width: 768px )
             width: 100%
             margin: 0 auto
             bottom: .5em
             right: 0.5em
-            display: flex
-            justify-content: flex-end
 
 // //---
 //     &

@@ -9,19 +9,24 @@ body
     &__cards
         display: grid
         grid-template-columns: 1fr 1fr
+        height: 100%
         & > .big-card
             margin: 38px 15px
             color: $color__deepblue
             @media screen and ( max-width: 768px )
                 margin: .5em 15px
+                height: 94%
 
         @media screen and ( max-width: 768px )
             grid-template-columns: 1fr
 
     &__body
         width: calc(795 / 1920 * 100vw * 2 + 30px)
-        margin: 0 auto
+        // margin: 100px auto
         position: absolute
-        top: 50%
-        left: 50%
-        transform: translate(-50%,-50%)
+        top: 100px
+        width: 100%
+        bottom: 100px
+        // top: 50%
+        // left: 50%
+        // transform: translate(-50%,-50%)
