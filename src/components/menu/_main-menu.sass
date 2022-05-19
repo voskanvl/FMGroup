@@ -102,9 +102,9 @@ menu.main-menu
         @media screen and ( max-width: 768px )
             margin: 0
             position: fixed
-            top: 78px
+            top: 120px
             left: 0
-            padding: 2em
+            padding: 2em 2em 4em 2em
             background: #0000
             z-index: -1
             border-radius: 0 5px 5px 0
@@ -123,3 +123,12 @@ menu.main-menu
         top: 50%
         transform: translateY(-50%)
         // width: 100px
+    &__phone
+        display: none
+        font-size: 22px
+        width: 100%
+        @media screen and ( max-width: 768px )
+            display: block
+            position: absolute
+            margin-bottom: 1em
+            bottom: 0

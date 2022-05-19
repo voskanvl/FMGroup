@@ -1,5 +1,5 @@
 -
-    let menu = [
+    const menu = [
         {name:"Главная", href:"/"},
         {name:"Продукция", href:"production.html"},
         {name:"О нас", href:"about.html"},
@@ -7,6 +7,7 @@
         {name:"Статьи", href:"articles.html"},
         {name:"Контакты", href:"contacts.html"},
     ]
+    const tel = "8 800 700 69 58"
 menu.main-menu
     .main-menu__switcher
         button.main-menu__blank 
@@ -25,3 +26,5 @@ menu.main-menu
             each i in menu 
                 li.main-menu__item
                     a(href=i.href)= i.name
+        .main-menu__phone
+            a(href="tel:"+tel)= tel
