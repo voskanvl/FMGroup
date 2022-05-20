@@ -55,7 +55,7 @@ function start() {
     });
     selectRegion.addEventListener("change", () => {
         const regionEl = map.querySelector(
-            `path[data-region="${+selectRegion.value}"]`,
+            `[data-region="${+selectRegion.value}"]`,
         );
         console.log("🚀 ~ regionEl", +selectRegion.value, regionEl);
         changeRegion(regionEl);
