@@ -6,5 +6,4 @@ if (document.readyState !== "complete") {
     const preloader = document.querySelector(".preload");
     preloader.classList.add("hidden");
 }
-console.log("There is CONTACTS");
 mainMenu();

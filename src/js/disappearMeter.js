@@ -2,7 +2,6 @@ import debounce from "./debounce";
 const disappearMeter = on => () => {
     const meterIndicator = document.querySelector(".meter-indicator ");
     const controls = document.querySelectorAll(".control");
-    console.log("🚀 ~ controls", controls);
     const screen = document.querySelector("#about");
     let isShow = false;
     let timeout = null;
@@ -12,10 +11,6 @@ const disappearMeter = on => () => {
         isShow = true;
         timeout = setTimeout(() => {
             if (isShow && screen.style.opacity == 1) {
-                console.log(
-                    "isShow && screen.style.opacity",
-                    isShow && screen.style.opacity,
-                );
                 meterIndicator.style.opacity = 0;
                 controls.forEach(el => (el.style.opacity = 0));
             }

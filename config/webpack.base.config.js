@@ -8,7 +8,6 @@ const PAGES_DIR = `${paths.src}/pug/page/`;
 const PAGES = fs
     .readdirSync(PAGES_DIR)
     .filter(filename => filename.endsWith(".pug"));
-PAGES.map(page => console.log(`${page.split(".")[0]}`));
 module.exports = {
     optimization: {
         splitChunks: {

@@ -47,7 +47,6 @@ export default function validate(form) {
         return new IMask(el, {
             mask: /.+/,
             doValidate() {
-                console.log("email (value, masked)", el.value);
                 const isValid = /\w\w*@.+\.\w+/.test(el.value);
                 isValid
                     ? el.classList.add("validated")

@@ -38,7 +38,6 @@ export default function touchBehaviour(map) {
         const deltaX = previousClientX - clientX;
         const signY = -Math.sign(deltaY);
         const signX = -Math.sign(deltaX);
-        console.log(signX, signY);
         previousClientY = clientY;
         previousClientX = clientX;
 
@@ -61,9 +60,7 @@ export default function touchBehaviour(map) {
             "click" in el ? el : targetElClick(el.parentElement);
         //эмулируем событие click
         const clickableTarget = targetElClick(target);
-        console.log("🚀 ~ clickableTarget", clickableTarget);
         if (clickableTarget.__proto__.constructor.name.includes("Input")) {
-            console.log("INPUT");
             moveCursorToEnd(clickableTarget);
         } else {
             targetElClick(target).click();

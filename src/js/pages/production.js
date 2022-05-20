@@ -17,7 +17,6 @@ if (document.readyState !== "complete") {
 
 function start() {
     const categories = document.querySelectorAll(".category");
-    console.log("This is PRODUCTION");
     mainMenu();
     const tabs = new Tabs();
     //скрываем все категории и показываем начальную
@@ -70,7 +69,6 @@ function start() {
     });
     button.forEach(el =>
         el.addEventListener("click", () => {
-            console.log("modal click");
             appear(modal, "block");
             // modal.style.display = "block";
             // setTimeout(() => {

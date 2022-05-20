@@ -64,7 +64,6 @@ if (screen) {
         }
         //--- play video on screen 3
         const panelClickHandler = () => {
-            console.log(ytplayer.player.getPlayerState());
             if (ytplayer.player.getPlayerState() === 1) ytplayer.pause();
             if (ytplayer.player.getPlayerState() === 2) ytplayer.start();
         };
@@ -157,8 +156,6 @@ if (document.readyState !== "complete") {
     preloader.classList.add("hidden");
 }
 function start() {
-    console.log("DOMContentLoaded");
-
     //--- listen menu
     mainMenu();
     new ItcSimpleSlider(".slider", {

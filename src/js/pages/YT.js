@@ -26,10 +26,8 @@ class YTPlayer {
     }
     onPlayerReady(event) {
         // event.target.playVideo();
-        console.log("🚀 ~ onPlayerReady event", event);
     }
     onPlayerStateChange(event) {
-        console.log("🚀 ~ onPlayerStateChange event", event);
         // if (event.data == YT.PlayerState.PLAYING && !done) {
         //     setTimeout(stopVideo, 6000);
         //     this.done = true;
@@ -47,11 +45,6 @@ class YTPlayer {
     }
     init() {
         this.player = new YT.Player(this.idName, this.option);
-        console.log(
-            "🚀 ~ this.player ",
-            this.player,
-            this.player.__proto__.constructor.name,
-        );
         this.stop();
     }
 }

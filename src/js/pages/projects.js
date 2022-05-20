@@ -44,7 +44,6 @@ function start() {
         return getRegion(el.parentElement);
     };
     map.addEventListener("mousemove", ({ target, clientX, clientY }) => {
-        console.log("🚀 ~ target.tagName", target.tagName);
         if (target.tagName === "path" || target.tagName === "g") {
             hint.style.left = +clientX + 10 + "px";
             hint.style.top = +clientY + 10 + "px";
@@ -57,7 +56,6 @@ function start() {
         const regionEl = map.querySelector(
             `[data-region="${+selectRegion.value}"]`,
         );
-        console.log("🚀 ~ regionEl", +selectRegion.value, regionEl);
         changeRegion(regionEl);
     });
 }
