@@ -16,24 +16,41 @@ function start() {
     //--- map
     const selectRegion = document.querySelector(".control.control__regions");
     const hint = document.querySelector(".hint");
+
+    const FILL_COLOR = "#013485";
     let currentRegion = null;
     const changeRegion = target => {
         if (currentRegion) currentRegion.style.fill = "transparent";
-        target.style.fill = "#013485";
+        if (currentRegion?.children)
+            [...currentRegion.children].forEach(
+                e => (e.style.fill = "transparent"),
+            );
+        if (target?.children)
+            [...target.children].forEach(e => (e.style.fill = FILL_COLOR));
+        target.style.fill = FILL_COLOR;
         currentRegion = target;
     };
+
     map.addEventListener("click", ({ target }) => {
         if (target.tagName === "path") {
             if (target === currentRegion) return;
             changeRegion(target);
         }
     });
-    map.addEventListener("mousemove", ev => {
-        if (ev.target.tagName === "path") {
-            hint.style.left = +ev.clientX + 10 + "px";
-            hint.style.top = +ev.clientY + 10 + "px";
-            hint.textContent = ev.target.getAttribute("region");
-            changeRegion(ev.target);
+    const getRegion = el => {
+        const region = el.getAttribute("region");
+        if (region) return { region, el };
+        if (el === document.body) return { region: null, el: null };
+        return getRegion(el.parentElement);
+    };
+    map.addEventListener("mousemove", ({ target, clientX, clientY }) => {
+        console.log("🚀 ~ target.tagName", target.tagName);
+        if (target.tagName === "path" || target.tagName === "g") {
+            hint.style.left = +clientX + 10 + "px";
+            hint.style.top = +clientY + 10 + "px";
+            const { region, el } = getRegion(target);
+            hint.textContent = region;
+            changeRegion(el);
         }
     });
     selectRegion.addEventListener("change", () => {
