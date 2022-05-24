@@ -18,7 +18,7 @@ const controlUp = document.querySelector(".control__up");
 const controlDown = document.querySelector(".control__down");
 const indicatorTitle = document.querySelector(".meter-indicator__title");
 const productsHeaders = document.querySelectorAll(".products__header");
-let aboutPanel;
+const aboutPanel = document.querySelector(".about__panel");
 
 let isMCarouselInited = false;
 
@@ -73,7 +73,6 @@ if (screen) {
             aboutPanel.removeEventListener("click", panelClickHandler);
         }
         if (next === 3) {
-            aboutPanel = document.querySelector(".about__panel");
             aboutPanel.addEventListener("click", panelClickHandler);
             ytplayer.start();
             disappearMeter.on();
