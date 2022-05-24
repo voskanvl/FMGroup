@@ -12,9 +12,16 @@ main
     // align-items: center
     // justify-content: center
     color: $color__deepblue
-    margin: 130px 155px
+    margin: 130px 0px
+    overflow: hidden
+
+.container
+    width: 90%
+    margin: 0 auto
 
 .body
+    margin: 0
+    padding: 0
     display: grid
     // grid-template-columns: 3fr 1fr
     grid-template-areas: "controls list" "map list"
@@ -25,9 +32,9 @@ main
 
 #map
     grid-area: map
-    width: 1070px
-    height: 553px
-    margin: 83px 88px 0 0
+    width: 100%
+    height: auto
+    // margin: 83px 88px 0 0
     & > svg
         width: 100%
         height: auto
