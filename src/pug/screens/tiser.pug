@@ -6,7 +6,8 @@ include ../../components/header/header.pug
     .tiser__main-header.main-body
         h1.main-body__up Надежные и технологичные станки 
         h1.main-body__down плазменной резки с ЧПУ 
-        +button("tiser__button", "заказать", "white")
+        .tiser__button-container
+            +button("tiser__button", "заказать", "white")
     .container-tiser
         +slider
             each i in [0,1,2,3]

@@ -16,16 +16,16 @@
         flex: 1 0 33%
     &__button
         color: #fff
-        @media screen and ( max-width: 425px )
-            & > .button__name
-                padding: 20px 51px
-        & > .button__arrow
-            @media screen and ( max-width: 425px )
-                padding: 20px
-                position: relative
-            & > svg
-                position: absolute
-                fill: #fff
+        // @media screen and ( max-width: 425px )
+        //     & > .button__name
+        //         padding: 20px 51px
+        // & > .button__arrow
+        //     @media screen and ( max-width: 425px )
+        //         padding: 20px
+        //         position: relative
+        //     & > svg
+        //         position: absolute
+        //         fill: #fff
     &__main
         display: grid
         grid-template-columns: 1fr 2fr
@@ -34,3 +34,6 @@
         @media screen and ( max-width: 720px )
             grid-template-columns: 1fr
             grid-template-rows: 1fr 1fr
+    &__button-container
+        width: 75%
+        margin-top: clamp(1rem, 3.9vh ,40px)

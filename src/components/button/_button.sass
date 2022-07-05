@@ -1,6 +1,6 @@
 @import "../../sass/mixins/_mixins"
 @import "../../sass/_const"
-$norm__height: min(7vh, 7vw)
+$norm__height: min(6vh, 6vw)
 .button
     width: 100%
     display: grid
@@ -22,7 +22,7 @@ $norm__height: min(7vh, 7vw)
         // padding: 0 51px
         display: grid
         place-items: center
-        font-size: calc($metrica * 1.1)
+        font-size: clamp(12px, 1.3vw ,25px)
         color: currentColor
         height: $norm__height
         text-transform: uppercase

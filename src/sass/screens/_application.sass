@@ -3,6 +3,7 @@
 @import "../_validate"
 
 $bg: #6E9EC1
+$width: calc(539 / 1920 * 100vw)
 .application
     background: $bg
     color: #fff
@@ -22,7 +23,7 @@ $bg: #6E9EC1
         padding: 1rem 1rem 1rem 2rem
         border-radius: 5px
         font-size: calc( $metrica * 1 )
-        width: calc(539 / 1920 * 100vw)
+        width: $width
         margin: 0 auto
         transition: border-color .5s, outline-color .5s, box-shadow .5s
         &:not(:last-child)
@@ -61,4 +62,9 @@ $bg: #6E9EC1
         margin-bottom: calc(68 / 1001 * 100%)
 
     &__button-container
-        width: 75%
+        margin: 0
+        width: $width
+        & > .button
+            padding: 0
+        @media screen and ( max-width: 768px )
+            width: 70%
