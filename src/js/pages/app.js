@@ -185,11 +185,17 @@ function start() {
 
     submitHandler(applicationForm);
     //--- priority__container stopPropagation---
+
+    const isScrollable = element => {
+        return element.scrollHeight !== element.offsetHeight;
+    };
+
     const priorityContainer = document.querySelector(".priority__container");
+
     priorityContainer.addEventListener("touchstart", e => {
-        e.stopPropagation();
+        if (isScrollable(priorityContainer)) e.stopPropagation();
     });
     priorityContainer.addEventListener("touchend", e => {
-        e.stopPropagation();
+        if (isScrollable(priorityContainer)) e.stopPropagation();
     });
 }
