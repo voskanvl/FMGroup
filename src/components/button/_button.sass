@@ -2,15 +2,16 @@
 @import "../../sass/_const"
 $norm__height: min(7vh, 7vw)
 .button
-    display: flex
-    align-items: center
+    width: 100%
+    display: grid
+    grid-template-columns: 1fr $norm__height
+    grid-template-rows: $norm__height
     cursor: pointer
     background: inherit
     border: none
-    height: calc($metrica * 2.1)
-    margin: calc($metrica * 40 / 55 * 2.1) 0
-    height: 100px
-    display: flex
+    // height: calc($metrica * 2.1)
+    // margin: calc($metrica * 40 / 55 * 2.1) 0
+    height: $norm__height
     align-items: center
     font-family: 'PF DinDisplay Pro', sans-serif
     @media screen and ( max-width:  425px)
@@ -18,14 +19,17 @@ $norm__height: min(7vh, 7vw)
 
     &__name
         // border: 1px solid currentColor
-        padding: 0 51px
+        // padding: 0 51px
+        display: grid
+        place-items: center
         font-size: calc($metrica * 1.1)
         color: currentColor
         height: $norm__height
         text-transform: uppercase
-        +flex-center
         font-weight: 200
-        font-size: 25px
+        // font-size: 25px
+        // @media screen and ( max-width:  )
+
         &_blue
             border: 1px solid $color__deepblue
             & > svg
@@ -33,6 +37,7 @@ $norm__height: min(7vh, 7vw)
                 width: 50%
         &_white
             border: 1px solid #fff
+            border-right: none
             & > svg
                 fill: #fff
                 width: 50%
@@ -42,8 +47,8 @@ $norm__height: min(7vh, 7vw)
         background: transparent
         background-size: contain
         background-position: 50% 100%
-        width: calc($metrica * 2.1)
-        width: $norm__height
+        // width: calc($metrica * 2.1)
+        // width: $norm__height
         height: $norm__height
         display: flex
         align-items: center
