@@ -1,13 +1,12 @@
 include ../../components/button/button.pug
-//- -
-//-     let imgs={up:"../../assets/img/svg/up.svg",middle:"../../assets/img/svg/middle.svg",down:"../../assets/img/svg/down.svg"}
-
+include ../../components/header/header.pug
++header('logo') 
 form.application__form
     h2.application__head Простое заполнение заявки для расчета стоимости
-    input.application__input(placeholder="Ваше имя*" type="text" required)
-    input.application__input.invalidated(placeholder="Ваш телефон*" type="phone" required)
-    input.application__input.invalidated(placeholder="Ваш email*" type="email" required)
-    +button("application__submit","отправить","white")
+    input.application__input(placeholder="Ваше имя*" type="text" required untouched="true")
+    input.application__input.invalidated(placeholder="Ваш телефон*" type="phone" required untouched="true")
+    input.application__input.invalidated(placeholder="Ваш email*" type="mail" required untouched="true")
+    +button("application__submit","отправить","white")(type="submit")
 .application__decoration 
     div(class="gear gear-up") 
         img(src='../../assets/img/application/srednyaya.svg' alt="gear up")

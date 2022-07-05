@@ -1,9 +1,10 @@
 .container-tiser
 
-    position: absolute
-    +top-left-transform
-    width: 60%
-    left: 60%
+    // position: absolute
+    // +top-left-transform
+    // width: 60%
+    // left: 60%
+    width: 100%
     z-index: 0
     & .slider__item
         &:nth-child(1)
@@ -26,7 +27,9 @@
         display: none
     & > .slider
         @media screen and (max-width: 425px)
-            height: 400px
+            // height: 400px
+            position: absolute
+            width: 100%
 
     @media screen and (max-width: 425px)
         left: 5%

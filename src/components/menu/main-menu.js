@@ -1,13 +1,18 @@
 import { disappear, appear } from "../../js/disappear";
 const mainMenu = (element = ".main-menu") => {
-    const menu = document.querySelector(element);
-    const switcher = menu.querySelector(".main-menu__switcher");
-    const label = document.querySelector(element + "__label");
-    const wrapper = document.querySelector(element + "__wrapper");
-    const ul = document.querySelector(element + "__wrapper > ul");
-    const phone = document.querySelector("h1.header__phone");
+    // const menu = document.querySelector(element);
+    const switchers = document.querySelectorAll(element + "__switcher");
+    // const label = document.querySelector(element + "__label");
+    // const phone = document.querySelector("h1.header__phone");
 
     const handler = ({ target }) => {
+        const menu = target.closest(element);
+        console.log("🚀 ~ menu", menu);
+        const label = target.closest(element + "__label");
+        console.log("🚀 ~ label", label);
+        const phone = target.closest("h1.header__phone");
+        console.log("🚀 ~ phone", phone);
+
         menu.classList.toggle("active");
         const match = matchMedia("(max-width: 1024px)").matches;
 
@@ -23,6 +28,6 @@ const mainMenu = (element = ".main-menu") => {
             appear(label);
         }
     };
-    switcher.addEventListener("click", handler);
+    switchers.forEach(switcher => switcher.addEventListener("click", handler));
 };
 export default mainMenu;

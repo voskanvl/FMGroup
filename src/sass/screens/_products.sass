@@ -14,7 +14,7 @@
     width: 600px
 .products .carousel
     user-select: none
-    height: 70%
+    height: 55%
     @media screen and ( max-width: 768px )
         height: 30%
 
@@ -38,7 +38,7 @@
         transition: width 0.5s
         // transform: translateX(-50%)
         @media screen and ( max-width: 768px )
-            width: 150%
+            width: 100%
         @media screen and ( max-width: 425px )
             width: 50%
         & > img
@@ -115,7 +115,7 @@
 
     &__header
         position: absolute
-        top: 0
+        top: 20px
         left: 50%
         transform: translateX(-50%)
         text-align: center
@@ -123,6 +123,8 @@
         opacity: 0
         &.active
             opacity: 1
+        @media screen and ( max-width: 1024px )
+            top: 70px
         @media screen and ( max-width: 425px )
             left: 0
             transform: none

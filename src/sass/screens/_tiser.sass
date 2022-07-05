@@ -26,3 +26,11 @@
             & > svg
                 position: absolute
                 fill: #fff
+    &__main
+        display: grid
+        grid-template-columns: 1fr 2fr
+        margin: 0 7.8vw
+        place-items: center
+        @media screen and ( max-width: 720px )
+            grid-template-columns: 1fr
+            grid-template-rows: 1fr 1fr

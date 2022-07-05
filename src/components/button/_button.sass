@@ -1,6 +1,6 @@
 @import "../../sass/mixins/_mixins"
 @import "../../sass/_const"
-$norm__height: 7vh
+$norm__height: min(7vh, 7vw)
 .button
     display: flex
     align-items: center
@@ -37,6 +37,7 @@ $norm__height: 7vh
                 fill: #fff
                 width: 50%
     &__arrow
+        position: relative
         box-sizing: border-box
         background: transparent
         background-size: contain

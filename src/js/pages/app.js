@@ -11,9 +11,10 @@ import changeControlsColor from "../changeControlsColor";
 import YTPlayer from "./YT";
 import disappearMeter from "../disappearMeter";
 import validate from "../validate";
+import { Validate1 } from "../validate1";
+import { submitHandler } from "../submitHandler";
 
 const container = document.querySelector(".container");
-const meterContainer = document.querySelector(".meter__container");
 const controlUp = document.querySelector(".control__up");
 const controlDown = document.querySelector(".control__down");
 const indicatorTitle = document.querySelector(".meter-indicator__title");
@@ -155,6 +156,8 @@ if (document.readyState !== "complete") {
     preloader.classList.add("hidden");
 }
 function start() {
+    // const h1 = document.querySelector(".main-body__up");
+    // h1.textContent = window.innerWidth + "/" + window.innerHeight;
     //--- listen menu
     mainMenu();
     new ItcSimpleSlider(".slider", {
@@ -177,5 +180,11 @@ function start() {
     //---init controls switching screens
     disappear(controlUp);
     //--- validation inputs in application screen
-    validate(document.querySelector(".application__form"));
+    // validate(document.querySelector(".application__form"));
+    const applicationForm = document.querySelector(".application__form");
+    const applicationSubmit = document.querySelector(".application__submit");
+
+    Validate1(applicationForm);
+
+    submitHandler(applicationForm);
 }

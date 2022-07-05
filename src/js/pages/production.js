@@ -3,6 +3,8 @@ import mainMenu from "../../components/menu/main-menu";
 import { ItcSimpleSlider } from "../simple-adaptive-slider.min.js";
 import Tabs from "../../components/tabs/tabs";
 import { disappear, appear } from "../disappear";
+import { Validate1 } from "../validate1";
+import { submitHandler } from "../submitHandler";
 
 if (document.readyState !== "loading") {
     window.addEventListener("DOMContentLoaded", start());
@@ -76,4 +78,8 @@ function start() {
             // }, 400);
         }),
     );
+
+    const modalBody = document.querySelector(".modal__body");
+    Validate1(modalBody);
+    submitHandler(modalBody);
 }

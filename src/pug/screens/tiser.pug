@@ -2,12 +2,13 @@ include ../mixin/slider.pug
 include ../../components/button/button.pug
 include ../../components/header/header.pug
 +header('logo') 
-.tiser__main-header.main-body
-    h1.main-body__up Надежные и технологичные станки 
-    h1.main-body__down плазменной резки с ЧПУ 
-    +button("tiser__button", "заказать", "white")
-.container-tiser
-    +slider
-        each i in [0,1,2,3]
-            .slider__item
-                div.main-slider(style=style)
+.tiser__main
+    .tiser__main-header.main-body
+        h1.main-body__up Надежные и технологичные станки 
+        h1.main-body__down плазменной резки с ЧПУ 
+        +button("tiser__button", "заказать", "white")
+    .container-tiser
+        +slider
+            each i in [0,1,2,3]
+                .slider__item
+                    div.main-slider(style=style)

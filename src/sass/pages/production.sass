@@ -34,12 +34,12 @@ main
         //     grid-template-columns: 1fr
         //     grid-template-areas: "img" "info" "desc"
         //     grid-template-rows: 230px 260px
-        @media screen and (max-width: 768px)
+        @media screen and (max-width: 968px)
             grid-template-columns: 1fr
             grid-template-areas: "img" "info" "desc"
-            grid-template-rows: 200px 290px 260px
+            grid-template-rows: 300px 382px 260px
         @media screen and (max-width: 484px)
-            grid-template-rows: 200px fit-content(100%) 260px
+            grid-template-rows: 200px auto 260px
         // @media screen and (max-width: 500px)
         //     grid-template-rows: 200px fit-content 260px
         // @media screen and (max-width: 380px)
@@ -109,7 +109,7 @@ main
     z-index: 1
     // width: 545px
     // width: 100%
-    @media screen and (max-width: 768px)
+    @media screen and (max-width: 968px)
         margin: 0 auto
         width: 95%
     &__button
@@ -119,6 +119,7 @@ main
             background: transparent
             border: 1px solid $color__deepblue
             border-left: none
+            flex: 0 0 25%
     &__definition, &__specification
         display: flex
         align-items: center
@@ -181,13 +182,13 @@ main
             transform: translateX(-50%)
 
 .slider
-    max-width: 80vw
+    max-width: 90vw
 
     &__wrapper
         padding-top: 131px
         overflow-y: auto
-        height: 70vh
-        @media screen and (max-width: 768px)
+        height: 75vh
+        @media screen and (max-width: 968px)
             padding-top: 20px
 
     &__indicators

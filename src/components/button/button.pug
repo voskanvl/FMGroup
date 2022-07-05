@@ -1,5 +1,5 @@
 mixin button(className="", name="", mod="blue")
-    button(class="button "+className)
+    button(class="button "+className)&attributes(attributes)
         .button__name(class="button__name_"+mod)
             span= name 
         .button__arrow(class="button__arrow_"+mod)

@@ -1,11 +1,11 @@
 include ../button/button.pug
 mixin modal
     .modal 
-        .modal__body 
+        form.modal__body 
             button.modal__close
                 img(src="../../assets/img/plus-circle.svg")
             h1.modal__title Простое заполнение заявки для расчета стоимости
-            input.modal__input(type="text" placeholder="Ваше имя*")
-            input.modal__input(type="text" placeholder="Ваш телефон*")
-            input.modal__input(type="text" placeholder="Ваш e-mail*")
-            +button("modal__button", "ОТПРАВИТЬ")
+            input.modal__input(type="text" placeholder="Ваше имя*" required untouched="true")
+            input.modal__input(type="phone" placeholder="Ваш телефон*" required untouched="true")
+            input.modal__input(type="mail" placeholder="Ваш e-mail*" required untouched="true")
+            +button("modal__button", "ОТПРАВИТЬ", "white")(type="submit")
