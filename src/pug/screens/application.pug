@@ -6,7 +6,8 @@ form.application__form
     input.application__input(placeholder="Ваше имя*" type="text" required untouched="true")
     input.application__input.invalidated(placeholder="Ваш телефон*" type="phone" required untouched="true")
     input.application__input.invalidated(placeholder="Ваш email*" type="mail" required untouched="true")
-    +button("application__submit","отправить","white")(type="submit")
+    .application__button-container
+        +button("application__submit","отправить","white")(type="submit")
 .application__decoration 
     div(class="gear gear-up") 
         img(src='../../assets/img/application/srednyaya.svg' alt="gear up")
