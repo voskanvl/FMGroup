@@ -179,12 +179,17 @@ function start() {
 
     //---init controls switching screens
     disappear(controlUp);
-    //--- validation inputs in application screen
-    // validate(document.querySelector(".application__form"));
     const applicationForm = document.querySelector(".application__form");
-    const applicationSubmit = document.querySelector(".application__submit");
 
     Validate1(applicationForm);
 
     submitHandler(applicationForm);
+    //--- priority__container stopPropagation---
+    const priorityContainer = document.querySelector(".priority__container");
+    priorityContainer.addEventListener("touchstart", e => {
+        e.stopPropagation();
+    });
+    priorityContainer.addEventListener("touchend", e => {
+        e.stopPropagation();
+    });
 }

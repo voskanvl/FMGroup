@@ -6,18 +6,21 @@
     border-radius: 5px
     width: 382px
     padding: 1rem
-    // &:not(:last-child)
-    margin: 0 35.5px 0 0
+
     @media screen and (max-width:1024px)
+        margin: 0
         padding: 2rem 1rem
         margin: 10px 0
         +dfc
         flex-direction: column
+
     @media screen and (max-width:768px)
-        width: 80%
+        width: 75%
         margin-bottom: 0
+
     @media screen and (max-width:630px)
         padding: 1rem
+
     &__title
         text-align: center
         margin-top: calc($metrica * 3)
