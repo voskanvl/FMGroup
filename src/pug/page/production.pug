@@ -5,6 +5,7 @@ include ../mixin/production-page
 include ../mixin/slider.pug
 //- include ../../components/button/button.pug
 include ../../components/modal/modal.pug
+include ../mixin/mainFeature.pug
 
 block variables
     - let title = 'FMGroup | Продукция'
@@ -13,6 +14,63 @@ block page
         const data = [
             {
                 id:0,
+                def:{
+                title:"АПУ-3015 Standart",
+                description: "АВТОМАТИЗИРОВАННАЯ ПЕСКОСТРУЙНАЯ УСТАНОВКА",
+                definition: "Автоматизированная пескоструйная установка для матирования и нанесения рисунка на стекла и зеркала",
+                specification: "конструкция разнесенная, подходит для стационарного монтажа на предприятии",
+                footerTitle: "Идеальное решение для средних и крупных производств",
+                footerDescription: "Линейка станков плазменной резки с ЧПУ. Разработаны для ценителей высокоточной и высокопроизводительной, качественной резки металла 24 часа в сутки, 7 дней в неделю.",
+                src: "../../assets/img/tiser/tool.png"
+                },
+                solutions: [
+                    "Постоянство таких параметров, как расстояние от форсунки до поверхности заготовки, прямой угол между продольной осью форсунки и поверхностью заготовки, а также скорость истечения абразива, гарантирует стабильность высокого качества обработки",
+                    "Визуальный контроль за обрабатываемой поверхностью",
+                    "Система освещения рабочей зоны",
+                    "Сопло изготовлено из карбида бора. Срок эксплуатации до 1000 часов",
+                    "Многократное использование абразива. Постоянная сепарация стеклянной пыли от абразивного материала",
+                    "Возможность использования как пленочных, так и металлических многоразовых шаблонов",
+                    "Свободный доступ ко всем узлам и агрегатам",
+                    "Рабочие части вынесены за пределы кабины и не подвергаются воздействию абразива",
+                    "Установка обеспечивает высокую скорость обработки, чистоту и экономичность производства",
+                ],
+                mainFeatures: [
+                    {
+                        title:"РАЗМЕР ЗАГОТОВКИ:",
+                        options:[
+                            {name:"Высота, макс. мм", value: "1800"},
+                            {name:"Длина, макс. мм", value: "3500"},
+                            {name:"Толщина, мм", value: "3-40"},
+                        ]
+                    },
+                    {
+                        title:"ОБЛАСТЬ ОБРАБОТКИ:",
+                        options:[
+                            {name:"Высота, мм", value: "1500"},
+                            {name:"Длина,  мм", value: "2650"},
+                        ]
+                    },
+                    {
+                        title:"ИСТОЧНИКИ ПИТАНИЯ:",
+                        options:[
+                            {name:"электропитание", value: "220В, 50 Гц,1 фаза"},
+                        ]
+                    },
+                    {
+                        title:"",
+                        options:[
+                            {name:"Давление воздуха, бар", value: "6-8"},
+                            {name:"Расход воздуха, л/мин", value: "1800"},
+                            {name:"Мощность, кВт", value: "2,2"},
+                            {name:"Габаритные размеры (Д*Ш*В),мм", value: "4000*1800*2650"},
+                            {name:"Габаритные размеры (Д*Ш*В),мм", value: "4000*1800*2650"},
+                            {name:"Масса, кг", value: "1000"},
+                        ]
+                    },
+                ]
+            },
+            {
+                id:1,
                 def:{
                 title:"Серия СПР РС",
                 description: "Станок плазменной резки серии СПР РС",
@@ -28,8 +86,10 @@ block page
                     "Комплексный подход — адаптация различных источников плазменной резки",
                     "Широкая линейка размеров рабочего поля",
                     "Оснащение механизированным газовым резаком как на отдельном суппорте, так и сменная конструкция",
-                ]
-                    },
+                ],
+                mainFeatures:[]
+
+            },
         ]
     .production
         .big-label__container.big-label__container_up
@@ -42,21 +102,17 @@ block page
             article.production__category
                 section.category(data-category=0 style="opacity: 1;")
                     +slider('production__slider_0')
-                        .production__page.slider__item(data-page="0")
-                            +productionPage(data[0].def)
-                                each i in data[0].solutions
-                                    li
-                                        span= i
-                        .production__page.slider__item(data-page="1")
-                            +productionPage(data[0].def)
-                                each i in data[0].solutions
-                                    li
-                                        span= i
-                        .production__page.slider__item(data-page="1")
-                            +productionPage(data[0].def)
-                                each i in data[0].solutions
-                                    li
-                                        span= i
+                        each d, idx in data
+                            .production__page.slider__item(data-page=idx)
+                                +productionPage(d.def)
+                                    each i in d.solutions
+                                        li
+                                            span= i
+                                .production__main-features
+                                    .feature__leftline ОСНОВНЫЕ ХАРАКТЕРИСТИКИ
+                                    .feature__main
+                                        +mainFeature(d.mainFeatures)
+
                 section.category(data-category=1 style="opacity: 0; display: none;")
                     +slider('production__slider_1')
                         .production__page.slider__item(data-page="0")
@@ -69,7 +125,7 @@ block page
                                 each i in data[0].solutions
                                     li
                                         span= i
-                        .production__page.slider__item(data-page="1")
+                        .production__page.slider__item(data-page="2")
                             +productionPage(data[0].def)
                                 each i in data[0].solutions
                                     li
@@ -86,7 +142,7 @@ block page
                                 each i in data[0].solutions
                                     li
                                         span= i
-                        .production__page.slider__item(data-page="1")
+                        .production__page.slider__item(data-page="2")
                             +productionPage(data[0].def)
                                 each i in data[0].solutions
                                     li

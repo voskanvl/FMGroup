@@ -1,0 +1,9 @@
+mixin feature(feat)
+    .feature__container
+        .feature__title= feat.title 
+        .feature__table
+            each i in feat.options 
+                .feature__row
+                    .feature__name= i.name 
+                    .feature__gap= " "
+                    .feature__value= i.value

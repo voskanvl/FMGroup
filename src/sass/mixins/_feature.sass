@@ -1,0 +1,34 @@
+.feature
+
+    &__main
+        flex: 1 1 100%
+
+    &__row
+        display: grid
+        padding: 0.2em
+        grid-template-columns: 1fr 3px 1fr
+        &:nth-child(odd)
+            background: #ECEDED
+
+    &__leftline
+        writing-mode: vertical-rl
+        text-align: center
+        transform: rotateZ(180deg)
+        padding: 1em
+        background: #006AB3
+        color: #99C1DA
+        text-shadow: 0 0 7px #000
+
+    &__name, &__title
+        padding-left: 1em
+
+    // &__name, &__value
+    //     padding-left: 1em
+    //     &:nth-child(odd)
+    //         background: #ECEDED
+
+    // &__gap
+    //     width: 5px
+    //     background: #fff
+    //     &:nth-child(even)
+    //         background: #ECEDED

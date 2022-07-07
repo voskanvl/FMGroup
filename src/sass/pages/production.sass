@@ -3,6 +3,7 @@
 @import "../../components/button/_button"
 @import "../../components/modal/_modal"
 @import "../_slider"
+@import "../mixins/_feature"
 
 body
     overflow: hidden
@@ -29,7 +30,7 @@ main
         display: grid
         grid-template-columns: 3fr minmax(2fr, 545px)
         grid-template-areas: "img info" "desc desc"
-        grid-template-rows: auto minmax(246px, 1fr)
+        // grid-template-rows: auto minmax(246px, 1fr)
         // @media screen and (max-width: 768px)
         //     grid-template-columns: 1fr
         //     grid-template-areas: "img" "info" "desc"
@@ -37,9 +38,9 @@ main
         @media screen and (max-width: 968px)
             grid-template-columns: 1fr
             grid-template-areas: "img" "info" "desc"
-            grid-template-rows: 300px 382px 260px
+            // grid-template-rows: 300px 382px 260px
         @media screen and (max-width: 484px)
-            grid-template-rows: 200px auto 260px
+            // grid-template-rows: 200px auto 260px
         // @media screen and (max-width: 500px)
         //     grid-template-rows: 200px fit-content 260px
         // @media screen and (max-width: 380px)
@@ -74,6 +75,10 @@ main
     &.priority__backword
         opacity: 0.1
         color: $color__deepblue
+
+    &__main-features
+        display: flex
+        grid-area: 3/1/4/4
 
 .footer-info
     // font-size: calc($metrica*0.9)
@@ -187,7 +192,7 @@ main
     &__wrapper
         padding-top: 131px
         overflow-y: auto
-        height: 75vh
+        height: 74vh
         @media screen and (max-width: 968px)
             padding-top: 20px
 
