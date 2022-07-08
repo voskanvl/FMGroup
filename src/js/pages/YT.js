@@ -8,7 +8,7 @@ class YTPlayer {
             ...{
                 height: "100%",
                 width: "100%",
-                videoId: "474tZZw7Cdc",
+                videoId: "bYJ2M3qqg9Y",
             },
             ...option,
             events: {
