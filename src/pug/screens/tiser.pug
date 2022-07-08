@@ -9,7 +9,14 @@ include ../../components/header/header.pug
         .tiser__button-container
             +button("tiser__button", "заказать", "white")
     .container-tiser
+        - 
+            const photos = [
+                "../../assets/img/production/UPMR-1024x683.png", 
+                "../../assets/img/production/APU_3015_Premialnaya3.png",
+                "../../assets/img/production/APU_3522.png",
+                "../../assets/img/production/sprrs1.png"
+            ]
         +slider
-            each i in [0,1,2,3]
+            each i in photos
                 .slider__item
-                    div.main-slider(style=style)
+                   img(src=i)
