@@ -15,7 +15,12 @@ body
             color: $color__deepblue
             @media screen and ( max-width: 768px )
                 margin: .5em 15px
-                height: 94%
+                // height: 94%
+                & .big-card__text
+                    margin: 0
+
+        & .big-card__button
+            height: 35px
 
         @media screen and ( max-width: 768px )
             grid-template-columns: 1fr

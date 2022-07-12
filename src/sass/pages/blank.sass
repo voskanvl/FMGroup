@@ -9,7 +9,7 @@ body
     // display: flex
     // align-items: center
     // justify-content: center
-    height: 100vh
+    // height: 100vh
 h1
     color: $color__deepblue
     font-size: 40px
@@ -19,8 +19,10 @@ h2
     font-weight: 500
 
 .container
-    margin: 190px calc(150 / 1920 * 100vw) 0
+    margin: 120px 0
+    padding: 0 calc(150 / 1920 * 100vw)
     overflow: auto
+    height: calc(100vh - 172px)
     & li
         list-style: none
         position: relative
