@@ -156,8 +156,6 @@ if (document.readyState !== "complete") {
     preloader.classList.add("hidden");
 }
 function start() {
-    // const h1 = document.querySelector(".main-body__up");
-    // h1.textContent = window.innerWidth + "/" + window.innerHeight;
     //--- listen menu
     mainMenu();
     new ItcSimpleSlider(".slider", {
@@ -171,7 +169,13 @@ function start() {
     buttonsIdicators.forEach(e =>
         e.addEventListener("click", () => e.parentElement.click()),
     );
-    //--- listen controls on Material carousel
+    //--- Material carousel in products screen ---
+    setTimeout(() => {
+        initMCarousel(".carousel", productsHeaders, 0);
+        isMCarouselInited = true;
+        //--- init points handler
+        switchCarouselPoints();
+    }, 400);
     MCarouselControls(".products__control_prev", ".products__control_next");
 
     //--- усанавливаем текущий header в слайдере products

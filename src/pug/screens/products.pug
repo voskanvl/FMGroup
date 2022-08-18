@@ -12,9 +12,9 @@ include ../../components/header/header.pug
         {
             img:'../../assets/img/tiser/tool.png',
             points:[
-                {top:50,left:130,text:{text:'Супорт с плазменным резаком', top: -29, left: 0}},
-                {top:80,left:280,text:{text:'Супорт с газовым резаком', top: 100, left: 9}},
-                {top:260,left:677, text:{text:'Стойка ЧПУ', top: 78, left: 51}}
+                {top:10,left:15,text:{text:'Супорт с плазменным резаком', top: -29, left: 0}},
+                {top:6,left:70,text:{text:'Супорт с газовым резаком', top: 100, left: 9}},
+                {top:0,left:30, text:{text:'Стойка ЧПУ', top: 78, left: 51}}
             ],
             title:'серия УПМР',
             desc:'Система газокислородной резки FMG УПМР c ЧПУ позволяет обрабатывать металл толщиной от 0,5 до 200 мм'
@@ -59,13 +59,13 @@ each i,idx in arr
             .carousel-item__wrapper
                 img(src=i.img)
                 each point in i.points
-                    svg(class="carousel-item__point-svg" width=1 height=1 viewBox=`0 0 1 1` fill="none" xmlns="http://www.w3.org/2000/svg" style={top:0+'px', left: 0+'px'})
-                        line(x1=0 y1=0 x2=1 y2=1 stroke="white" stroke-width="2" stroke-linecap="round")
                     .carousel-item__point(style={top: point.top+'%', left: point.left+'%'})
+                        svg(class="carousel-item__point-svg" width=1 height=1 viewBox=`0 0 1 1` fill="none" xmlns="http://www.w3.org/2000/svg" style={top:0+'px', left: 0+'px'})
+                            line(x1=0 y1=0 x2=1 y2=1 stroke="white" stroke-width="2" stroke-linecap="round")
                         .carousel-item__inner
                             .carousel-item__sign +
-                    .carousel-item__point-data(style={top:point.text.top+'%',left:point.text.left+'%'}) 
-                        .carousel-item__point-text= point.text.text
+                        .carousel-item__point-data(style={top:point.text.top+'%',left:point.text.left+'%'}) 
+                            .carousel-item__point-text= point.text.text
 .products__controls 
     button.products__control.products__control_prev
         img(src="../../assets/img/svg/arrow.svg", style={transform:'rotate(90deg)'})

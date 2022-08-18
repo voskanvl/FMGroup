@@ -111,8 +111,8 @@ export const switchCarouselPoints = () => {
         const point = target.closest(".carousel-item__point");
         if (point) {
             const signElement = point.querySelector(".carousel-item__sign");
-            const data = point.nextSibling;
-            const svg = point.previousElementSibling;
+            const data = point.querySelector(".carousel-item__point-data");
+            const svg = point.querySelector(".carousel-item__point-svg");
             const switcher = {
                 ["-"]: () => {
                     data.style.opacity = 0;

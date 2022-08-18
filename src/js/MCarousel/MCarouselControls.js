@@ -6,7 +6,6 @@ export default function MCarouselControls(selectorPrev, selectorNext) {
             const instance = M.Carousel.getInstance(
                 document.querySelector(".carousel"),
             );
-            const { center } = instance;
             if (instance) {
                 instance.prev();
             }
@@ -16,7 +15,6 @@ export default function MCarouselControls(selectorPrev, selectorNext) {
             const instance = M.Carousel.getInstance(
                 document.querySelector(".carousel"),
             );
-            const { center } = instance;
             if (instance) {
                 instance.next();
             }
