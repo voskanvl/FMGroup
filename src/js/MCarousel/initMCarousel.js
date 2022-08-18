@@ -7,5 +7,12 @@ export default function initMCarousel(selector, productsHeaders, currentSlide) {
         indicators: false,
         numVisible: 3,
         padding: 1200,
+        onCycleTo({ dataset: { id } }) {
+            if (id != currentSlide) {
+                disappear(productsHeaders[currentSlide]);
+                appear(productsHeaders[+id]);
+                currentSlide = +id;
+            }
+        },
     });
 }
