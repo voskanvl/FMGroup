@@ -55,14 +55,14 @@ if (screen) {
             next,
         );
         //--- init M.Carousel
-        if (next == 1 && !isMCarouselInited) {
-            setTimeout(() => {
-                initMCarousel(".carousel", productsHeaders, 0);
-                isMCarouselInited = true;
-                //--- init points handler
-                switchCarouselPoints();
-            }, 400);
-        }
+        // if (next == 1 && !isMCarouselInited) {
+        //     setTimeout(() => {
+        //         initMCarousel(".carousel", productsHeaders, 0);
+        //         isMCarouselInited = true;
+        //         //--- init points handler
+        //         // switchCarouselPoints();
+        //     }, 400);
+        // }
         //--- play video on screen 3
         const panelClickHandler = () => {
             if (ytplayer.player.getPlayerState() === 1) ytplayer.pause();
