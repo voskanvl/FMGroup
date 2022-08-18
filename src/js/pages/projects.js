@@ -20,6 +20,7 @@ function start() {
     const FILL_COLOR = "#013485";
     let currentRegion = null;
     const changeRegion = target => {
+        if (!target) return;
         if (currentRegion) currentRegion.style.fill = "transparent";
         if (currentRegion?.children)
             [...currentRegion.children].forEach(
