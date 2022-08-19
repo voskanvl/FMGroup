@@ -54,15 +54,7 @@ if (screen) {
             colorsForMeter,
             next,
         );
-        //--- init M.Carousel
-        // if (next == 1 && !isMCarouselInited) {
-        //     setTimeout(() => {
-        //         initMCarousel(".carousel", productsHeaders, 0);
-        //         isMCarouselInited = true;
-        //         //--- init points handler
-        //         // switchCarouselPoints();
-        //     }, 400);
-        // }
+
         //--- play video on screen 3
         const panelClickHandler = () => {
             if (ytplayer.player.getPlayerState() === 1) ytplayer.pause();
@@ -175,8 +167,16 @@ function start() {
         isMCarouselInited = true;
         //--- init points handler
         switchCarouselPoints();
+        const { rightButton, leftButton } = MCarouselControls(
+            ".products__control_prev",
+            ".products__control_next",
+        );
+        //--- костыль для инициализации отображения карусели
+        //--- иначе, при начальной загрузке все картинки смещены вверх
+        //--- почему, не знаю
+        setTimeout(() => leftButton.click(), 400);
+        setTimeout(() => rightButton.click(), 600);
     }, 400);
-    MCarouselControls(".products__control_prev", ".products__control_next");
 
     //--- усанавливаем текущий header в слайдере products
     if (productsHeaders?.length) appear(productsHeaders[0]);
