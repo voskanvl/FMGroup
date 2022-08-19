@@ -174,9 +174,8 @@ function start() {
         //--- костыль для инициализации отображения карусели
         //--- иначе, при начальной загрузке все картинки смещены вверх
         //--- почему, не знаю
-        setTimeout(() => leftButton.click(), 400);
-        setTimeout(() => rightButton.click(), 600);
-    }, 400);
+        setTimeout(() => leftButton.click(), 800);
+    }, 0);
 
     //--- усанавливаем текущий header в слайдере products
     if (productsHeaders?.length) appear(productsHeaders[0]);
