@@ -1,4 +1,5 @@
 extends ../layout/project
+include ../mixin/slider.pug
 
 
 block page
@@ -117,6 +118,28 @@ block page
             #map 
                 include ../svg.pug
             .list 
-                each card in toolCards 
-                    .list-item= card.name
+                //- each card in toolCards 
+                //-     .list-item= card.name
+                - 
+                    const imgs = [
+                        "../../assets/img/projects/1.jpeg",
+                        "../../assets/img/projects/2.jpeg",
+                        "../../assets/img/projects/3.jpeg",
+                        "../../assets/img/projects/4.jpeg",
+                        "../../assets/img/projects/5.jpeg",
+                        "../../assets/img/projects/6.jpeg",
+                        ]
+                .imgs__wrap
+                    a.imgs__control.imgs__control_left <
+                    .imgs__container 
+                        .imgs 
+                            each im in imgs
+                                img.imgs__item(src=im)
+                    a.imgs__control.imgs__control_right >
+                
+                h2.region Республика Казахстан, г.Алматы
+                p Название фирмы: ТОО BreezArt-Astana
+                p Поставка и установка оборудования плазменой резки серии РС-1
+
+
             .hint

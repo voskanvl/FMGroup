@@ -10,7 +10,7 @@ import touchBehaviour from "../touchBehaviour";
 import changeControlsColor from "../changeControlsColor";
 import YTPlayer from "./YT";
 import disappearMeter from "../disappearMeter";
-import validate from "../validate";
+// import validate from "../validate";
 import { Validate1 } from "../validate1";
 import { submitHandler } from "../submitHandler";
 

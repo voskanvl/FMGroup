@@ -1,5 +1,6 @@
 import "../../sass/pages/projects.sass";
 import mainMenu from "../../components/menu/main-menu";
+
 if (document.readyState !== "loading") {
     window.addEventListener("DOMContentLoaded", start());
 } else {
@@ -13,6 +14,7 @@ if (document.readyState !== "complete") {
 function start() {
     const map = document.querySelector("#map");
     mainMenu();
+
     //--- map
     const selectRegion = document.querySelector(".control.control__regions");
     const hint = document.querySelector(".hint");
@@ -58,5 +60,28 @@ function start() {
             `[data-region="${+selectRegion.value}"]`,
         );
         changeRegion(regionEl);
+    });
+    //--- slider ---
+    const leftButton = document.querySelector(".imgs__control_left");
+    const rightButton = document.querySelector(".imgs__control_right");
+    const items = [...document.querySelectorAll(".imgs__item")];
+
+    let currentItem = 0;
+
+    leftButton.addEventListener("click", () => {
+        if (currentItem === 0) return;
+        currentItem--;
+        items[currentItem].scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+        });
+    });
+    rightButton.addEventListener("click", () => {
+        if (currentItem === items.length - 1) return;
+        currentItem++;
+        items[currentItem].scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+        });
     });
 }
