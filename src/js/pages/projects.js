@@ -68,20 +68,20 @@ function start() {
 
     let currentItem = 0;
 
-    leftButton.addEventListener("click", () => {
-        if (currentItem === 0) return;
-        currentItem--;
+    const scrollToElement = () =>
         items[currentItem].scrollIntoView({
             behavior: "smooth",
             block: "center",
         });
+
+    leftButton.addEventListener("click", () => {
+        if (currentItem === 0) return;
+        currentItem--;
+        scrollToElement();
     });
     rightButton.addEventListener("click", () => {
         if (currentItem === items.length - 1) return;
         currentItem++;
-        items[currentItem].scrollIntoView({
-            behavior: "smooth",
-            block: "center",
-        });
+        scrollToElement();
     });
 }
