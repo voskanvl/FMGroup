@@ -48,6 +48,7 @@ if (screen) {
 
     const renderScreens = (prev, next) => {
         if (prev == next) return;
+        currentScreen = next;
         //--- change controls color
         changeControlsColor(
             [controlUp, controlDown, indicatorTitle],
@@ -91,7 +92,7 @@ if (screen) {
             container.dispatchEvent(changedScreen);
             if (!currentScreen) return container.dispatchEvent(dropedEvent);
             renderScreens(currentScreen, currentScreen - 1);
-            currentScreen--;
+            // currentScreen--;
             changedScreenHandler({ detail: { currentScreen } });
         },
         "1": () => {
@@ -102,7 +103,7 @@ if (screen) {
             if (currentScreen === screens.length - 1)
                 return container.dispatchEvent(exceededEvent);
             renderScreens(currentScreen, currentScreen + 1);
-            currentScreen++;
+            // currentScreen++;
             changedScreenHandler({ detail: { currentScreen } });
         },
         "0": () => {},
@@ -135,6 +136,12 @@ if (screen) {
 
     controlUp.addEventListener("click", map[-1]);
     controlDown.addEventListener("click", map[1]);
+
+    //--- кнопка "ЗАКАЗАТЬ"
+    document.querySelector(".tiser__button").addEventListener("click", () => {
+        renderScreens(currentScreen, 4);
+        appear(controlUp);
+    });
 }
 if (document.readyState !== "loading") {
     start();
@@ -147,6 +154,7 @@ if (document.readyState !== "complete") {
     const preloader = document.querySelector(".preload");
     preloader.classList.add("hidden");
 }
+
 function start() {
     //--- listen menu
     mainMenu();
@@ -175,7 +183,7 @@ function start() {
         //--- иначе, при начальной загрузке все картинки смещены вверх
         //--- почему, не знаю
         setTimeout(() => leftButton.click(), 800);
-    }, 0);
+    }, 800);
 
     //--- усанавливаем текущий header в слайдере products
     if (productsHeaders?.length) appear(productsHeaders[0]);

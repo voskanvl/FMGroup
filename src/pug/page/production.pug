@@ -413,14 +413,15 @@ block page
                 ]
 
             }
-        ]    
+        ]  
+        const laser =[]  
     .production
         .big-label__container.big-label__container_up
             .big-label__title.big-label__title_up FMGroup
         .big-label__container.big-label__container_down
             .big-label__title.big-label__title_down FMGroup
         .production__body 
-            - let tabs = ["Автоматические пескоструйные установки","Оборудование для плазменной резки"]
+            - let tabs = ["Автоматические пескоструйные установки","Станки плазменной резки","Станки лазерной резки"]
             +tabs(tabs)
             article.production__category
                 section.category(data-category=0 style="opacity: 1;")
@@ -449,8 +450,8 @@ block page
                                     .feature__main
                                         +mainFeature(d.mainFeatures)
                 section.category(data-category=2 style="opacity: 0; display: none;")
-                    +slider('production__slider_2')
-                        each d, idx in plasma
+                    //- +slider('production__slider_2')
+                        each d, idx in laser
                             .production__page.slider__item(data-page=idx)
                                 +productionPage(d.def)
                                     each i in d.solutions
@@ -460,6 +461,18 @@ block page
                                     .feature__leftline ОСНОВНЫЕ ХАРАКТЕРИСТИКИ
                                     .feature__main
                                         +mainFeature(d.mainFeatures)
+                //- section.category(data-category=3 style="opacity: 0; display: none;")
+                //-     +slider('production__slider_3')
+                //-         each d, idx in []
+                //-             .production__page.slider__item(data-page=idx)
+                //-                 +productionPage(d.def)
+                //-                     each i in d.solutions
+                //-                         li
+                //-                             span= i
+                //-                 .production__main-features
+                //-                     .feature__leftline ОСНОВНЫЕ ХАРАКТЕРИСТИКИ
+                //-                     .feature__main
+                //-                         +mainFeature(d.mainFeatures)
     .pruduction__modal 
         +modal
 

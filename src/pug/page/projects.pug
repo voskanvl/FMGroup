@@ -130,12 +130,14 @@ block page
                         "../../assets/img/projects/6.jpeg",
                         ]
                 .imgs__wrap
-                    a.imgs__control.imgs__control_left <
+                    a.imgs__control.imgs__control_left
+                        img(src="../../assets/img/svg/arrow.svg", style="transform: rotate(90deg);")
                     .imgs__container 
                         .imgs 
                             each im in imgs
                                 img.imgs__item(src=im)
-                    a.imgs__control.imgs__control_right >
+                    a.imgs__control.imgs__control_right
+                        img(src="../../assets/img/svg/arrow.svg", style="transform: rotate(-90deg);")
                 
                 h2.imgs__region Республика Казахстан, г.Алматы
                 p Название фирмы: ТОО BreezArt-Astana

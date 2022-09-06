@@ -2,4 +2,4 @@ mixin tabs(arr)
     ul.tabs.group
         each i, key in arr   
             li.tab(data-id=key)
-                a(href="#")= i
+                a(href="#"+key)= i
