@@ -24,8 +24,8 @@ export default function touchBehaviour(map) {
         ["-1"]: "left",
     };
     const accordanceY = {
-        ["1"]: "down",
-        ["-1"]: "up",
+        ["-1"]: "down",
+        ["1"]: "up",
     };
     let previousClientY = 0;
     let previousClientX = 0;
