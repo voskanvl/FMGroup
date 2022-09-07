@@ -21,8 +21,6 @@ const indicatorTitle = document.querySelector(".meter-indicator__title");
 const productsHeaders = document.querySelectorAll(".products__header");
 const aboutPanel = document.querySelector(".about__panel");
 
-let isMCarouselInited = false;
-
 //---init video on about screen
 const ytplayer = new YTPlayer();
 window.ytplayer = ytplayer;
@@ -40,7 +38,6 @@ if (screen) {
         ".meter__line",
         id => {
             renderScreens(currentScreen, id);
-            currentScreen = +id;
             changedScreenHandler({ detail: { currentScreen } });
         },
         colorsForMeter,
@@ -172,7 +169,6 @@ function start() {
     //--- Material carousel in products screen ---
     setTimeout(() => {
         initMCarousel(".carousel", productsHeaders, 0);
-        isMCarouselInited = true;
         //--- init points handler
         switchCarouselPoints();
         const { rightButton, leftButton } = MCarouselControls(

@@ -55,16 +55,16 @@ function start() {
             swipe: true,
         },
     );
-    // window["sliderProducts"] = new ItcSimpleSlider(
-    //     ".slider-production__slider_2",
-    //     {
-    //         loop: false,
-    //         autoplay: false,
-    //         interval: 5000,
-    //         indicators: false,
-    //         swipe: true,
-    //     },
-    // );
+    window["sliderProducts"] = new ItcSimpleSlider(
+        ".slider-production__slider_2",
+        {
+            loop: false,
+            autoplay: false,
+            interval: 5000,
+            indicators: false,
+            swipe: true,
+        },
+    );
     //--- MODAL
     const modal = document.querySelector(".modal");
     const button = document.querySelectorAll(".production button.button");
