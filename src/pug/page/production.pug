@@ -547,55 +547,26 @@ block page
             - let tabs = ["Автоматические пескоструйные установки","Станки плазменной резки","Станки лазерной резки"]
             +tabs(tabs)
             article.production__category
-                section.category(data-category=0 style="opacity: 1;")
-                    +slider('production__slider_0')
-                        each d, idx in sandblasting
-                            .production__page.slider__item(data-page=idx)
-                                +productionPage(d.def)
-                                    each i in d.solutions
-                                        li
-                                            span= i
-                                .production__main-features
-                                    .feature__leftline ОСНОВНЫЕ ХАРАКТЕРИСТИКИ
-                                    .feature__main
-                                        +mainFeature(d.mainFeatures)
+                -
+                    const category = [
+                        {name:'production__slider_0', var: sandblasting},
+                        {name:'production__slider_1', var: plasma},
+                        {name:'production__slider_2', var: laser}
+                    ]
+                each sec,idx in category
+                    section.category(data-category=idx )
+                        +slider(sec.name)
+                            each d, idx in sec.var
+                                .production__page.slider__item(data-page=idx)
+                                    +productionPage(d.def)
+                                        each i in d.solutions
+                                            li
+                                                span= i
+                                    .production__main-features
+                                        .feature__leftline ОСНОВНЫЕ ХАРАКТЕРИСТИКИ
+                                        .feature__main
+                                            +mainFeature(d.mainFeatures)
 
-                section.category(data-category=1 style="opacity: 0; display: none;")
-                    +slider('production__slider_1')
-                        each d, idx in plasma
-                            .production__page.slider__item(data-page=idx)
-                                +productionPage(d.def)
-                                    each i in d.solutions
-                                        li
-                                            span= i
-                                .production__main-features
-                                    .feature__leftline ОСНОВНЫЕ ХАРАКТЕРИСТИКИ
-                                    .feature__main
-                                        +mainFeature(d.mainFeatures)
-                section.category(data-category=2 style="opacity: 0; display: none;")
-                    +slider('production__slider_2')
-                        each d, idx in laser
-                            .production__page.slider__item(data-page=idx)
-                                +productionPage(d.def)
-                                    each i in d.solutions
-                                        li
-                                            span= i
-                                .production__main-features
-                                    .feature__leftline ОСНОВНЫЕ ХАРАКТЕРИСТИКИ
-                                    .feature__main
-                                        +mainFeature(d.mainFeatures)
-                //- section.category(data-category=3 style="opacity: 0; display: none;")
-                //-     +slider('production__slider_3')
-                //-         each d, idx in []
-                //-             .production__page.slider__item(data-page=idx)
-                //-                 +productionPage(d.def)
-                //-                     each i in d.solutions
-                //-                         li
-                //-                             span= i
-                //-                 .production__main-features
-                //-                     .feature__leftline ОСНОВНЫЕ ХАРАКТЕРИСТИКИ
-                //-                     .feature__main
-                //-                         +mainFeature(d.mainFeatures)
     .pruduction__modal 
         +modal
 
