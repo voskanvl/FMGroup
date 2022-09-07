@@ -1,7 +1,7 @@
 import { disappear, appear } from "../disappear";
 export default function initMCarousel(selector, productsHeaders, currentSlide) {
     const slider = document.querySelector(selector);
-    M.Carousel.init(slider, {
+    const instance = M.Carousel.init(slider, {
         indicators: false,
         numVisible: 3,
         padding: 1200,
@@ -13,4 +13,5 @@ export default function initMCarousel(selector, productsHeaders, currentSlide) {
             }
         },
     });
+    return instance;
 }
