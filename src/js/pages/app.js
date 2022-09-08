@@ -79,7 +79,7 @@ if (screen) {
         }
     });
 
-    counter.subscribe(({ prev, current }) => {
+    counter.subscribe(({ current }) => {
         indicatorTitle.addEventListener("transitionend", catchTransition);
         function catchTransition() {
             indicatorTitle.textContent = screens[current].dataset.name;
