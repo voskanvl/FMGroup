@@ -13,6 +13,7 @@ import disappearMeter from "../disappearMeter";
 // import validate from "../validate";
 import { Validate1 } from "../validate1";
 import { submitHandler } from "../submitHandler";
+import { Counter } from "./counter";
 
 const container = document.querySelector(".container");
 const controlUp = document.querySelector(".control__up");
@@ -28,8 +29,10 @@ window.onYouTubeIframeAPIReady = ytplayer.init;
 
 const screen = document.querySelector(".screen");
 if (screen) {
+    const counter = new Counter();
+
     const colorsForMeter = ["#000", "#000", "#fff", "#fff", "#fff", "#000"];
-    let currentScreen = 0;
+    // let currentScreen = 0;
     const screens = [...container.children];
     const exceededEvent = new Event("exceeded", { bubbles: true });
     const dropedEvent = new Event("droped", { bubbles: true });
@@ -37,23 +40,29 @@ if (screen) {
     const meter = new Meter(
         ".meter__line",
         id => {
-            renderScreens(currentScreen, id);
-            changedScreenHandler({ detail: { currentScreen } });
+            counter.value = id;
+            changedScreenHandler();
         },
         colorsForMeter,
     );
 
-    const renderScreens = (prev, next) => {
-        if (prev == next) return;
-        currentScreen = next;
-        //--- change controls color
+    //--- switch screens
+    counter.subscribe(({ prev, current }) => {
+        disappear(screens[+prev]);
+        appear(screens[+current]);
+        meter.value = current;
+    });
+
+    //--- change controls color
+    counter.subscribe(({ current }) =>
         changeControlsColor(
             [controlUp, controlDown, indicatorTitle],
             colorsForMeter,
-            next,
-        );
-
-        //--- play video on screen 3
+            current,
+        ),
+    );
+    //--- control playback video on 3th screen
+    counter.subscribe(({ prev, current }) => {
         const panelClickHandler = () => {
             if (ytplayer.player.getPlayerState() === 1) ytplayer.pause();
             if (ytplayer.player.getPlayerState() === 2) ytplayer.start();
@@ -63,58 +72,47 @@ if (screen) {
             disappearMeter.off();
             aboutPanel.removeEventListener("click", panelClickHandler);
         }
-        if (next === 3) {
+        if (current === 3) {
             aboutPanel.addEventListener("click", panelClickHandler);
             ytplayer.start();
             disappearMeter.on();
         }
+    });
 
-        disappear(screens[+prev]);
-        appear(screens[+next]);
-        meter.value = next;
+    counter.subscribe(({ current }) => {
         indicatorTitle.addEventListener("transitionend", catchTransition);
         function catchTransition() {
-            indicatorTitle.textContent = screens[next].dataset.name;
+            indicatorTitle.textContent = screens[current].dataset.name;
             indicatorTitle.style.opacity = 1;
             indicatorTitle.removeEventListener("transtionend", catchTransition);
         }
         indicatorTitle.style.opacity = 0;
-    };
+    });
 
     const map = {
         "-1": () => {
-            const changedScreen = new CustomEvent("changedScreen", {
-                detail: { currentScreen },
-            });
-            container.dispatchEvent(changedScreen);
-            if (!currentScreen) return container.dispatchEvent(dropedEvent);
-            renderScreens(currentScreen, currentScreen - 1);
-            // currentScreen--;
-            changedScreenHandler({ detail: { currentScreen } });
+            if (!counter.value) return container.dispatchEvent(dropedEvent);
+            counter.dec();
+            changedScreenHandler();
         },
         "1": () => {
-            const changedScreen = new CustomEvent("changedScreen", {
-                detail: { currentScreen },
-            });
-            container.dispatchEvent(changedScreen);
-            if (currentScreen === screens.length - 1)
+            if (counter.value === screens.length - 1)
                 return container.dispatchEvent(exceededEvent);
-            renderScreens(currentScreen, currentScreen + 1);
-            // currentScreen++;
-            changedScreenHandler({ detail: { currentScreen } });
+            counter.inc();
+            changedScreenHandler();
         },
         "0": () => {},
     };
 
     const handler = ({ deltaY }) => map[Math.sign(deltaY)]();
 
-    const changedScreenHandler = ({ detail: { currentScreen: current } }) => {
-        if (!current) {
+    const changedScreenHandler = () => {
+        if (!counter.value) {
             disappear(controlUp);
         } else {
             appear(controlUp);
         }
-        if (currentScreen === screens.length - 1) {
+        if (counter.value === screens.length - 1) {
             disappear(controlDown);
         } else {
             appear(controlDown);
@@ -136,7 +134,7 @@ if (screen) {
 
     //--- кнопка "ЗАКАЗАТЬ"
     document.querySelector(".tiser__button").addEventListener("click", () => {
-        renderScreens(currentScreen, 4);
+        counter.value = 4;
         appear(controlUp);
     });
 }
