@@ -554,7 +554,7 @@ block page
                         {name:'production__slider_2', var: laser}
                     ]
                 each sec,idx in category
-                    section.category(data-category=idx )
+                    section.category(data-category=idx style= idx===0?"opacity:1;":"opacity: 0; display: none;")
                         +slider(sec.name)
                             each d, idx in sec.var
                                 .production__page.slider__item(data-page=idx)
