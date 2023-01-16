@@ -7,6 +7,9 @@ mixin productionPage(props)
     .production__info.info 
         h3.info__title= props.title
         .info__description= props.description
+        .info__price Цена: 
+            - const price = Number.isNaN(Number(props.price))?props.price:+props.price
+            span #{typeof price==="string"?price:price.toLocaleString()}
         .info__definition 
             img.definition(src="../../assets/img/production/paper-sheet-svgrepo-com\ 1.png")
             p= props.definition
