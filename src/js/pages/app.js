@@ -55,11 +55,7 @@ if (screen) {
 
     //--- change controls color
     counter.subscribe(({ current }) =>
-        changeControlsColor(
-            [controlUp, controlDown, indicatorTitle],
-            colorsForMeter,
-            current,
-        ),
+        changeControlsColor([controlUp, controlDown, indicatorTitle], colorsForMeter, current),
     );
     //--- control playback video on 3th screen
     counter.subscribe(({ prev, current }) => {
@@ -96,8 +92,7 @@ if (screen) {
             changedScreenHandler();
         },
         "1": () => {
-            if (counter.value === screens.length - 1)
-                return container.dispatchEvent(exceededEvent);
+            if (counter.value === screens.length - 1) return container.dispatchEvent(exceededEvent);
             counter.inc();
             changedScreenHandler();
         },
@@ -138,19 +133,30 @@ if (screen) {
         appear(controlUp);
     });
 }
-if (document.readyState !== "loading") {
-    start();
-} else {
-    document.addEventListener("DOMContentLoaded", start);
-}
-if (document.readyState !== "complete") {
-    //выключаем прелоадер
+// document.addEventListener("readystatechange", e =>
+//     console.log("readystatechange", document.readyState),
+// );
+// if (document.readyState == "loading") {
+//     document.addEventListener("DOMContentLoaded", start);
+// } else {
+//     start();
+// }
 
-    const preloader = document.querySelector(".preload");
-    preloader.classList.add("hidden");
-}
+// if (document.readyState !== "complete") {
+//     //выключаем прелоадер
+
+//     const preloader = document.querySelector(".preload");
+//     preloader.classList.add("hidden");
+// }
+start();
 
 function start() {
+    console.log("start");
+    setTimeout(() => {
+        const preloader = document.querySelector(".preload");
+        preloader.classList.add("hidden");
+    }, 200);
+
     //--- listen menu
     mainMenu();
     new ItcSimpleSlider(".slider", {
@@ -161,23 +167,32 @@ function start() {
     });
     //--- fix indicators click on slider in Tiser
     const buttonsIdicators = document.querySelectorAll(".number");
-    buttonsIdicators.forEach(e =>
-        e.addEventListener("click", () => e.parentElement.click()),
-    );
+    buttonsIdicators.forEach(e => e.addEventListener("click", () => e.parentElement.click()));
     //--- Material carousel in products screen ---
-    setTimeout(() => {
-        initMCarousel(".carousel", productsHeaders, 0);
-        //--- init points handler
-        switchCarouselPoints();
-        const { rightButton, leftButton } = MCarouselControls(
-            ".products__control_prev",
-            ".products__control_next",
-        );
-        //--- костыль для инициализации отображения карусели
-        //--- иначе, при начальной загрузке все картинки смещены вверх
-        //--- почему, не знаю
-        setTimeout(() => leftButton.click(), 800);
-    }, 800);
+  
+    window.carouselInstance = initMCarousel(".carousel", productsHeaders, 0);
+    //--- init points handler
+    switchCarouselPoints();
+    const { rightButton, leftButton } = MCarouselControls(
+        ".products__control_prev",
+        ".products__control_next",
+    );
+    //--- костыль для инициализации отображения карусели
+    //--- иначе, при начальной загрузке все картинки смещены вверх
+    //--- почему, не знаю
+
+    const c1 = document.querySelector(".carousel")
+    window.carouselInstance.disabledScroll = false
+    const interval = setInterval(()=>{window.carouselInstance.disabledScroll || window.carouselInstance.next()},200)
+    
+    const counter = new Counter();
+    counter.subscribe(({ current }) => {
+        console.log("current",current, counter.value);
+        if (current === 1 && window.carouselInstance) {
+            console.log("counter===1 && window.carouselInstance");
+            clearInterval(interval)
+        }
+    });
 
     //--- усанавливаем текущий header в слайдере products
     if (productsHeaders?.length) appear(productsHeaders[0]);
